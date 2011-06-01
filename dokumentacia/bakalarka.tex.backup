@@ -1,0 +1,55 @@
+%\documentclass[a4paper,12pt,draft]{report}% ,draft
+\documentclass[a4paper,12pt]{report}
+\usepackage[hyphens]{url}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage[slovak,english]{babel}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\hypersetup{linkcolor=black, urlcolor=blue, citecolor=black}
+
+
+%\usepackage[left=3cm,right=2cm,top=2.5cm,nohead,foot=1.0cm]{geometry}
+
+\usepackage[left=3.5cm,right=2cm,top=2.5cm,nohead,foot=2.5cm]{geometry}
+
+%\usepackage[left=3cm,right=3cm,top=3cm,nohead,foot=3cm]{geometry}
+
+% A4 is 297x210 mm
+
+%\setlength{\textwidth}{160mm}
+%\setlength{\textheight}{240mm}
+% textheight should be 246, but some printers have problems printing
+% at the bottom of the page
+
+\renewcommand{\baselinestretch}{1.5}
+%\setcounter{tocdepth}{1}
+
+\author{Dušan Ščensný}
+\title{Bakalárska Práca}
+%\setcounter{page}{0}
+
+\begin{document}
+
+\input{title.tex}	% titulna strana, abstrakt, podakovanie
+\thispagestyle{empty}
+\renewcommand\thepage{}
+\tableofcontents	% obsah 
+\newpage
+\renewcommand\thepage{\arabic{page}}
+%\listoffigures    	% zoznam obrazkov
+\input{uvod.tex}	% Úvod
+\input{chap2.tex}   	% Možnosti zobrazenia máp
+\input{chap4.tex}   	% Spracovanie dát z GPS prístroja
+\input{chap3.tex}   	% GPS prístroje a možnosti ich využitia
+\input{chap6.tex}   	% OSM Navigation
+\input{zaver.tex}   	% Záver
+\input{literatura.tex}  % literatura
+\input{terms.tex}   	% zoznam použitých skratiek
+%\input{prilohy.tex}	% zoznam priloh k bakalárke
+%\input{suhlas.tex}	% suhlas o zverejneni
+
+\end{document}

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>OSM_Navigation: Dokumentácia triedy SlippyMap</title>
+  <link href="simunet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+<a href="index.html">Hlavná stránka</a>&nbsp;&middot;&nbsp;<a href="annotated.html">Triedy</a>
+</div>
+<!-- Generované programom Doxygen 1.6.1 -->
+<div class="contents">
+<h1>Dokumentácia triedy SlippyMap</h1><!-- doxytag: class="SlippyMap" -->
+<p><a href="classSlippyMap-members.html">Zoznam všetkých členov.</a></p>
+<h2>Verejné metódy</h2>
+<ul>
+<li><a class="el" href="classSlippyMap.html#aefaa28b154b2e9602b391668ed167080">SlippyMap</a> (QObject *parent=0)
+<li>void <a class="el" href="classSlippyMap.html#ada1e00e2870d0fdeb70c037b3222a0ad">render</a> (QPainter *p, const QRect &amp;rect)
+<li>void <a class="el" href="classSlippyMap.html#ae954bbb164e84e5cecf3fbb518eb266c">pan</a> (const QPoint &amp;delta)
+<li>void <a class="el" href="classSlippyMap.html#aa356b5be43bc1ea6b49e213f18da09ba">setTrack</a> (QVector&lt; PolygonVector &gt; pg)
+<li>void <a class="el" href="classSlippyMap.html#a299e4c0fd46ed2d3de7fb98912f2e1f4">setWpt</a> (QVector&lt; QPoint &gt; wpt)
+</ul>
+<h2>Privátne sloty</h2>
+<ul>
+<li>void <a class="el" href="classSlippyMap.html#a25dc08d50224b8aa392adbaa1667bbc1">download</a> ()
+</ul>
+<h2>Privátne atribúty</h2>
+<ul>
+<li>int <a class="el" href="classSlippyMap.html#a47e59b8548b1717b5c3209116d6ca7ac">numberOfTracks</a>
+<li>QVector&lt; QPolygon &gt; <a class="el" href="classSlippyMap.html#ab567edcd36cf42a7375024fb954c9eb8">oneTrack</a>
+<li>QVector&lt; PolygonVector &gt; <a class="el" href="classSlippyMap.html#a0fe04653e97bcbafd9326eb0ace795c6">allTracks</a>
+<li>QVector&lt; QPoint &gt; <a class="el" href="classSlippyMap.html#a063abfa3d11e33fe71b7552c6db1c46b">wayPoints</a>
+</ul>
+<hr/><a name="_details"></a><h2>Detailný popis</h2>
+
+<p>Definícia je uvedená na riadku <a class="el" href="slippymap_8h_source.html#l00029">29</a> v súbore <a class="el" href="slippymap_8h_source.html">slippymap.h</a>.</p>
+<hr/><h2>Dokumentácia konštruktoru a deštruktoru</h2>
+<a class="anchor" id="aefaa28b154b2e9602b391668ed167080"></a><!-- doxytag: member="SlippyMap::SlippyMap" ref="aefaa28b154b2e9602b391668ed167080" args="(QObject *parent=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SlippyMap::SlippyMap </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&nbsp;</td>
+          <td class="paramname"> <em>parent</em> = <code>0</code></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Konštruktor ktorý vytvára samotnú mapu. </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>Premenné</em>&nbsp;</td><td>potrebné na inicializáciu mapy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="slippymap_8cpp_source.html#l00071">71</a> v súbore <a class="el" href="slippymap_8cpp_source.html">slippymap.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentácia k metódam</h2>
+<a class="anchor" id="a25dc08d50224b8aa392adbaa1667bbc1"></a><!-- doxytag: member="SlippyMap::download" ref="a25dc08d50224b8aa392adbaa1667bbc1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SlippyMap::download </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcia na sťahovanie máp z url stránky. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="slippymap_8cpp_source.html#l00219">219</a> v súbore <a class="el" href="slippymap_8cpp_source.html">slippymap.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae954bbb164e84e5cecf3fbb518eb266c"></a><!-- doxytag: member="SlippyMap::pan" ref="ae954bbb164e84e5cecf3fbb518eb266c" args="(const QPoint &amp;delta)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SlippyMap::pan </td>
+          <td>(</td>
+          <td class="paramtype">const QPoint &amp;&nbsp;</td>
+          <td class="paramname"> <em>delta</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcia prepočítava nové hodnoty zemepisných súradníc pri pohybe mapy. </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>Hodnota</em>&nbsp;</td><td>v pixloch o ktorú sa mapa posunula. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="slippymap_8cpp_source.html#l00186">186</a> v súbore <a class="el" href="slippymap_8cpp_source.html">slippymap.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ada1e00e2870d0fdeb70c037b3222a0ad"></a><!-- doxytag: member="SlippyMap::render" ref="ada1e00e2870d0fdeb70c037b3222a0ad" args="(QPainter *p, const QRect &amp;rect)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SlippyMap::render </td>
+          <td>(</td>
+          <td class="paramtype">QPainter *&nbsp;</td>
+          <td class="paramname"> <em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QRect &amp;&nbsp;</td>
+          <td class="paramname"> <em>rect</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcia, ktorá prekresľuje mapu aj všetky prvky na nej (trasy , body a akuálnu pozíciu). </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="slippymap_8cpp_source.html#l00137">137</a> v súbore <a class="el" href="slippymap_8cpp_source.html">slippymap.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa356b5be43bc1ea6b49e213f18da09ba"></a><!-- doxytag: member="SlippyMap::setTrack" ref="aa356b5be43bc1ea6b49e213f18da09ba" args="(QVector&lt; PolygonVector &gt; pg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SlippyMap::setTrack </td>
+          <td>(</td>
+          <td class="paramtype">QVector&lt; PolygonVector &gt;&nbsp;</td>
+          <td class="paramname"> <em>pg</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Nastavenie trate do premennej. Dôležité preto, lebo body sa pri zmenách na mape prepočítavajú. </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>Zoznam</em>&nbsp;</td><td>vštkých trás </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="slippymap_8cpp_source.html#l00259">259</a> v súbore <a class="el" href="slippymap_8cpp_source.html">slippymap.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a299e4c0fd46ed2d3de7fb98912f2e1f4"></a><!-- doxytag: member="SlippyMap::setWpt" ref="a299e4c0fd46ed2d3de7fb98912f2e1f4" args="(QVector&lt; QPoint &gt; wpt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SlippyMap::setWpt </td>
+          <td>(</td>
+          <td class="paramtype">QVector&lt; QPoint &gt;&nbsp;</td>
+          <td class="paramname"> <em>wpt</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcia na nastavenie významých bodov do premnennej wayPoints. </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>Zoznam</em>&nbsp;</td><td>bodov </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="slippymap_8cpp_source.html#l00270">270</a> v súbore <a class="el" href="slippymap_8cpp_source.html">slippymap.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentácia k dátovým členom</h2>
+<a class="anchor" id="a0fe04653e97bcbafd9326eb0ace795c6"></a><!-- doxytag: member="SlippyMap::allTracks" ref="a0fe04653e97bcbafd9326eb0ace795c6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVector&lt;PolygonVector&gt; <a class="el" href="classSlippyMap.html#a0fe04653e97bcbafd9326eb0ace795c6">SlippyMap.allTracks</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Všetky trate = pole typu QVector&lt;QPolygon&gt; čím zastupuje všetky trate </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="slippymap_8h_source.html#l00074">74</a> v súbore <a class="el" href="slippymap_8h_source.html">slippymap.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a47e59b8548b1717b5c3209116d6ca7ac"></a><!-- doxytag: member="SlippyMap::numberOfTracks" ref="a47e59b8548b1717b5c3209116d6ca7ac" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classSlippyMap.html#a47e59b8548b1717b5c3209116d6ca7ac">SlippyMap.numberOfTracks</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Počet tratí načítaných zo súboru </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="slippymap_8h_source.html#l00066">66</a> v súbore <a class="el" href="slippymap_8h_source.html">slippymap.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab567edcd36cf42a7375024fb954c9eb8"></a><!-- doxytag: member="SlippyMap::oneTrack" ref="ab567edcd36cf42a7375024fb954c9eb8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVector&lt;QPolygon&gt; <a class="el" href="classSlippyMap.html#ab567edcd36cf42a7375024fb954c9eb8">SlippyMap.oneTrack</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>jedna trať = pole polygónov </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="slippymap_8h_source.html#l00070">70</a> v súbore <a class="el" href="slippymap_8h_source.html">slippymap.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a063abfa3d11e33fe71b7552c6db1c46b"></a><!-- doxytag: member="SlippyMap::wayPoints" ref="a063abfa3d11e33fe71b7552c6db1c46b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVector&lt;QPoint&gt; <a class="el" href="classSlippyMap.html#a063abfa3d11e33fe71b7552c6db1c46b">SlippyMap.wayPoints</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>významné body </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="slippymap_8h_source.html#l00078">78</a> v súbore <a class="el" href="slippymap_8h_source.html">slippymap.h</a>.</p>
+
+</div>
+</div>
+</div>
+<hr></hr>
+<div id="footer">OSM_Navigation </div>
+</body>
+</html>

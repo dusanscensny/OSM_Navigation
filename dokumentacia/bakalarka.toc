@@ -1,0 +1,121 @@
+\select@language {english}
+\select@language {slovak}
+\select@language {english}
+\select@language {slovak}
+\contentsline {paragraph}{}{}{section*.3}
+\contentsline {paragraph}{}{}{section*.4}
+\contentsline {chapter}{Úvod}{4}{chapter*.6}
+\contentsline {paragraph}{}{4}{section*.7}
+\contentsline {paragraph}{}{5}{section*.9}
+\contentsline {chapter}{\numberline {1}Geografické údaje}{6}{chapter.1}
+\contentsline {section}{\numberline {1.1}\textsc {Základné pojmy v geografii}}{6}{section.1.1}
+\contentsline {paragraph}{}{6}{section*.10}
+\contentsline {paragraph}{Súradnicový systém}{6}{section*.11}
+\contentsline {paragraph}{WGS-84}{6}{section*.12}
+\contentsline {paragraph}{}{6}{section*.13}
+\contentsline {paragraph}{}{6}{section*.14}
+\contentsline {paragraph}{}{6}{section*.15}
+\contentsline {section}{\numberline {1.2}\textsc {Kartografická projekcia - Zobrazenie Máp}}{7}{section.1.2}
+\contentsline {paragraph}{}{7}{section*.16}
+\contentsline {paragraph}{}{8}{figure.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Referenčný elipsoid}{8}{subsection.1.2.1}
+\contentsline {section}{\numberline {1.3}\textsc {GPS}}{9}{section.1.3}
+\contentsline {paragraph}{}{9}{section*.18}
+\contentsline {paragraph}{Konkurencia}{10}{section*.19}
+\contentsline {subsection}{\numberline {1.3.1}\textsc {Funkčnosť GPS systému}}{10}{subsection.1.3.1}
+\contentsline {paragraph}{}{10}{section*.20}
+\contentsline {section}{\numberline {1.4}\textsc {Možnosti zobrazenia máp}}{11}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}On-line mapy}{11}{subsection.1.4.1}
+\contentsline {paragraph}{}{11}{section*.21}
+\contentsline {paragraph}{}{11}{section*.22}
+\contentsline {subsection}{\numberline {1.4.2}\textsc {Spôsob sťahovania konkrétnych častí mapy}}{12}{subsection.1.4.2}
+\contentsline {paragraph}{}{12}{section*.23}
+\contentsline {subsection}{\numberline {1.4.3}\textsc {Google Mapy}}{12}{subsection.1.4.3}
+\contentsline {paragraph}{Google maps}{12}{section*.24}
+\contentsline {subsubsection}{Satelitná snímka}{12}{section*.25}
+\contentsline {subsection}{\numberline {1.4.4}\textsc {OpenStreetMap}}{13}{subsection.1.4.4}
+\contentsline {paragraph}{OpenStreetMap(OSM)}{13}{section*.26}
+\contentsline {paragraph}{Šírka záberu}{14}{section*.27}
+\contentsline {paragraph}{Zdroj dát}{14}{section*.28}
+\contentsline {chapter}{\numberline {2}Spracovanie dát z GPS prístroja}{15}{chapter.2}
+\contentsline {section}{\numberline {2.1}Protokol NMEA 0183}{15}{section.2.1}
+\contentsline {paragraph}{NMEA}{15}{section*.29}
+\contentsline {paragraph}{Popis NMEA prvkov}{15}{section*.30}
+\contentsline {section}{\numberline {2.2}Formát GPX}{16}{section.2.2}
+\contentsline {paragraph}{}{16}{section*.31}
+\contentsline {paragraph}{}{16}{section*.32}
+\contentsline {paragraph}{}{17}{section*.33}
+\contentsline {subsection}{\numberline {2.2.1}Element gpx}{17}{subsection.2.2.1}
+\contentsline {section}{\numberline {2.3}Skytraq datalogger}{18}{section.2.3}
+\contentsline {paragraph}{}{18}{section*.34}
+\contentsline {paragraph}{}{19}{section*.35}
+\contentsline {section}{\numberline {2.4}GPS babel}{19}{section.2.4}
+\contentsline {paragraph}{}{19}{section*.36}
+\contentsline {subsection}{\numberline {2.4.1}Príkazy v programe GPSbabel}{20}{subsection.2.4.1}
+\contentsline {paragraph}{}{20}{section*.37}
+\contentsline {paragraph}{}{20}{section*.38}
+\contentsline {subsection}{\numberline {2.4.2}Gebabbel}{20}{subsection.2.4.2}
+\contentsline {chapter}{\numberline {3}GPS prístroje použité v práci}{21}{chapter.3}
+\contentsline {paragraph}{}{21}{section*.39}
+\contentsline {paragraph}{}{21}{section*.41}
+\contentsline {section}{\numberline {3.1}GPS multi tracker}{22}{section.3.1}
+\contentsline {paragraph}{}{22}{section*.42}
+\contentsline {subsection}{\numberline {3.1.1}Konfigurácia}{22}{subsection.3.1.1}
+\contentsline {paragraph}{}{22}{section*.43}
+\contentsline {paragraph}{}{22}{section*.44}
+\contentsline {subsubsection}{Možnosti pripojenia}{22}{section*.45}
+\contentsline {paragraph}{}{22}{section*.46}
+\contentsline {subsection}{\numberline {3.1.2}Sťahovanie dát a zaujímavých bodov}{23}{subsection.3.1.2}
+\contentsline {paragraph}{}{23}{section*.47}
+\contentsline {subsection}{\numberline {3.1.3}Navigácia}{23}{subsection.3.1.3}
+\contentsline {paragraph}{}{23}{section*.48}
+\contentsline {section}{\numberline {3.2}Navilock GPS Bluetooth Receiver BT-308}{23}{section.3.2}
+\contentsline {paragraph}{}{23}{section*.49}
+\contentsline {subsection}{\numberline {3.2.1}Komunikácia}{23}{subsection.3.2.1}
+\contentsline {paragraph}{}{23}{section*.50}
+\contentsline {subsection}{\numberline {3.2.2}Prijímanie aktuálnej pozície}{23}{subsection.3.2.2}
+\contentsline {paragraph}{}{23}{section*.51}
+\contentsline {chapter}{\numberline {4}Program OSM\_Navigation}{24}{chapter.4}
+\contentsline {paragraph}{}{24}{section*.52}
+\contentsline {section}{\numberline {4.1}Výber programovacieho jazyka a vývojového\\ prostredia}{24}{section.4.1}
+\contentsline {paragraph}{}{24}{section*.53}
+\contentsline {paragraph}{}{25}{section*.54}
+\contentsline {paragraph}{Qt}{25}{section*.55}
+\contentsline {subsection}{\numberline {4.1.1}Qt Creator}{25}{subsection.4.1.1}
+\contentsline {paragraph}{}{25}{section*.56}
+\contentsline {section}{\numberline {4.2}Správa závislosti programu}{26}{section.4.2}
+\contentsline {paragraph}{}{26}{section*.57}
+\contentsline {section}{\numberline {4.3}Jazykové formáty programu}{27}{section.4.3}
+\contentsline {paragraph}{}{27}{section*.58}
+\contentsline {section}{\numberline {4.4}Aplikačná a dátová vrstva programu}{28}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Sťahovanie častí mapy}{28}{subsection.4.4.1}
+\contentsline {paragraph}{}{28}{section*.59}
+\contentsline {paragraph}{QUrl}{29}{section*.60}
+\contentsline {paragraph}{QHash}{29}{section*.61}
+\contentsline {subsection}{\numberline {4.4.2}Načítanie dát zo súboru}{29}{subsection.4.4.2}
+\contentsline {paragraph}{}{29}{section*.62}
+\contentsline {paragraph}{QXmlStreamReader}{30}{section*.63}
+\contentsline {paragraph}{QXmlStreamAttributes}{30}{section*.64}
+\contentsline {subsection}{\numberline {4.4.3}Prepočítavanie dát k zobrazeniu trasy}{31}{subsection.4.4.3}
+\contentsline {paragraph}{}{31}{section*.65}
+\contentsline {subsection}{\numberline {4.4.4}Prepočítanie zemepisných súradníc}{32}{subsection.4.4.4}
+\contentsline {paragraph}{}{32}{section*.66}
+\contentsline {section}{\numberline {4.5}Užívateľská vrstva - GUI Aplikácia}{33}{section.4.5}
+\contentsline {paragraph}{}{33}{section*.67}
+\contentsline {subsection}{\numberline {4.5.1}Zobrazenie mapy}{33}{subsection.4.5.1}
+\contentsline {paragraph}{}{33}{section*.68}
+\contentsline {paragraph}{Presúvanie sa po mape}{34}{section*.69}
+\contentsline {paragraph}{Zmena veľkosti mierky}{34}{section*.70}
+\contentsline {subsection}{\numberline {4.5.2}Pripojenie GPS zariadenia}{35}{subsection.4.5.2}
+\contentsline {paragraph}{}{35}{section*.71}
+\contentsline {subsection}{\numberline {4.5.3}Hľadanie aktuálnej pozície}{35}{subsection.4.5.3}
+\contentsline {paragraph}{}{35}{section*.72}
+\contentsline {section}{\numberline {4.6}Licencia aplikácie a požitých knižníc a programov}{36}{section.4.6}
+\contentsline {paragraph}{}{36}{section*.73}
+\contentsline {chapter}{Záver}{36}{section*.73}
+\contentsline {paragraph}{}{37}{section*.75}
+\contentsline {paragraph}{}{37}{section*.76}
+\contentsline {paragraph}{}{37}{section*.77}
+\contentsline {chapter}{Literatúra}{37}{section*.77}
+\contentsline {chapter}{Zoznam použitých skratiek}{39}{chapter*.78}
+\contentsline {chapter}{Prílohy}{42}{chapter*.81}

@@ -1,0 +1,11 @@
+\chapter{Záver}
+\paragraph{}
+Našou úlohou bolo vykresliť trasy z GPS prístroja. 
+Samotné trasy môžu mať niekedy chybné body ktoré je nutné odstrániť. 
+
+
+
+\paragraph{}
+V tejto práci sme si ozrejmili prácu s Qt knižnicou. Veľký prínos mala aj pre samotné geografické poznatky kedže sme sa často zaoberali výpočtami spoločnými s geografiou. 
+
+Pri porovnávaní formátov sa nám ako najhodnejší javí formát gpx a aj preto bola práve pre tento typ súboru podporovaná vizualizácia. Samotné programy ako gpsbabel majú aj k samotnému formátu GPX veľký prínos a to z toho dôvodu: nech máme akýkoľvek formát ktorý podpruje samotný prístroj dokážeme ho pomocou tejto aplikácie previesť do GPX formátu a následne vykresliť na mape.

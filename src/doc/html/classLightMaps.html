@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>OSM_Navigation: Dokumentácia triedy LightMaps</title>
+  <link href="simunet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+<a href="index.html">Hlavná stránka</a>&nbsp;&middot;&nbsp;<a href="annotated.html">Triedy</a>
+</div>
+<!-- Generované programom Doxygen 1.6.1 -->
+<div class="contents">
+<h1>Dokumentácia triedy LightMaps</h1><!-- doxytag: class="LightMaps" --><div class="dynheader">
+Diagram tried pre LightMaps:</div>
+<div class="dynsection">
+<div class="center"><img src="classLightMaps__coll__graph.png" border="0" usemap="#LightMaps_coll__map" alt="Collaboration graph"/></div>
+<map name="LightMaps_coll__map" id="LightMaps_coll__map">
+<area shape="rect" href="classSlippyMap.html" title="SlippyMap" alt="" coords="5,5,88,35"/></map>
+<center><span class="legend">[<a href="graph_legend.html">vysvetlivky</a>]</span></center></div>
+
+<p><a href="classLightMaps-members.html">Zoznam všetkých členov.</a></p>
+<h2>Verejné sloty</h2>
+<ul>
+<li>void <a class="el" href="classLightMaps.html#a231905fb3ab4d3d488a64f3ac3bba7a3">toggleNightMode</a> ()
+<li>void <a class="el" href="classLightMaps.html#ae85fe95103f428f0511510789f02bb0f">setZoom_p</a> ()
+<li>void <a class="el" href="classLightMaps.html#af16072c5bd79130a24265b030c0b8809">setZoom_m</a> ()
+</ul>
+<h2>Verejné metódy</h2>
+<ul>
+<li><a class="el" href="classLightMaps.html#ae481a3b0cb8f2bce40e8ae2703aa6cbd">LightMaps</a> (QWidget *parent=0)
+<li>void <a class="el" href="classLightMaps.html#a8f244b845c00c6f15417b4fbc5409027">setTrack</a> (QVector&lt; QPointF &gt; track)
+<li>void <a class="el" href="classLightMaps.html#a43bc06f6dd6a20196c55e945aadca5d5">setWayPoints</a> (QVector&lt; QPointF &gt; wpt)
+<li>void <a class="el" href="classLightMaps.html#a48a673b2f3167a02004ced0b182a8498">setCenter</a> (qreal lat, qreal lng)
+<li>QPoint <a class="el" href="classLightMaps.html#a860139dfc662ad79a925fa6d4a3a0fda">getPixelFROMlatitude</a> (QPointF pos)
+<li>void <a class="el" href="classLightMaps.html#a779d04ee61a8235d0b31c7064dca8f44">drawActualPosition</a> (bool status)
+</ul>
+<h2>Chránené metódy</h2>
+<ul>
+<li>void <a class="el" href="classLightMaps.html#a1a4eb844187dd9fe819925312a000748">resizeEvent</a> (QResizeEvent *)
+<li>void <a class="el" href="classLightMaps.html#a5ef253065acd4c9d3ea3015b0fa1e336">paintEvent</a> (QPaintEvent *event)
+<li>void <a class="el" href="classLightMaps.html#a12c0b5ff0ef36b7f160dd9184036e346">mousePressEvent</a> (QMouseEvent *event)
+<li>void <a class="el" href="classLightMaps.html#ab55b7bda0a50fd27457ed52118513109">mouseMoveEvent</a> (QMouseEvent *event)
+<li>void <a class="el" href="classLightMaps.html#a4c66425af6f5ecbca3d0af52e9cee998">mouseReleaseEvent</a> (QMouseEvent *)
+<li>void <a class="el" href="classLightMaps.html#ae6752e8bbc4bd80b4080e6308cb40a99">keyPressEvent</a> (QKeyEvent *event)
+<li>void <a class="el" href="classLightMaps.html#ae07556bfe8f8643ef06db0d042ee7891">mouseDoubleClickEvent</a> (QMouseEvent *event)
+<li>void <a class="el" href="classLightMaps.html#ad0081d72b865b488cc91a14fe813474b">wheelEvent</a> (QWheelEvent *event)
+</ul>
+<h2>Privátne sloty</h2>
+<ul>
+<li>void <a class="el" href="classLightMaps.html#ae5e717309f666a3462cf5c5f5c5fbe43">updateMap</a> (const QRect &amp;r)
+</ul>
+<h2>Privátne metódy</h2>
+<ul>
+<li>QPointF <a class="el" href="classLightMaps.html#a37a10a45edbd09df465cbead39b4acd6">getPositionData</a> (QPoint pos)
+<li>void <a class="el" href="classLightMaps.html#a8444c215b861e9aabfb254d0d11466da">setRange</a> ()
+<li>void <a class="el" href="classLightMaps.html#a2e242c439bdc56abb1875f99e5b60ca8">recalculateTrack</a> ()
+<li>void <a class="el" href="classLightMaps.html#a889854d44217e5fc911c0fc57f126b3e">recalculateWpt</a> ()
+<li>bool <a class="el" href="classLightMaps.html#a13f8d329cec001cff0bcb6c01b97b695">rangeIn</a> (QPoint p, int lim)
+</ul>
+<h2>Privátne atribúty</h2>
+<ul>
+<li>QPointF <a class="el" href="classLightMaps.html#a4189db3145c2d7dbe45a68332e7079a0">min</a>
+<li>QVector&lt; QPolygonF &gt; <a class="el" href="classLightMaps.html#a72af9794c82a592fc213594d0423dcb8">track_in_points</a>
+<li>PointVector <a class="el" href="classLightMaps.html#abd15888f98736cf71f88b41178ec633a">waypointCoor</a>
+</ul>
+<hr/><a name="_details"></a><h2>Detailný popis</h2>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8h_source.html#l00015">15</a> v súbore <a class="el" href="lightmaps_8h_source.html">lightmaps.h</a>.</p>
+<hr/><h2>Dokumentácia konštruktoru a deštruktoru</h2>
+<a class="anchor" id="ae481a3b0cb8f2bce40e8ae2703aa6cbd"></a><!-- doxytag: member="LightMaps::LightMaps" ref="ae481a3b0cb8f2bce40e8ae2703aa6cbd" args="(QWidget *parent=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LightMaps::LightMaps </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&nbsp;</td>
+          <td class="paramname"> <em>parent</em> = <code>0</code></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Konštruktor triedy Lightmaps, kontrola rozsahu, či sa bod nenachádza mimo viditelnej plochy lim - limit za rozsah po ktorý necháme vykresliť body aj mimo plochy </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>Nainicializované</em>&nbsp;</td><td>premenné potrebné pri komunikácii s GUI rozhraním </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00011">11</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentácia k metódam</h2>
+<a class="anchor" id="a779d04ee61a8235d0b31c7064dca8f44"></a><!-- doxytag: member="LightMaps::drawActualPosition" ref="a779d04ee61a8235d0b31c7064dca8f44" args="(bool status)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::drawActualPosition </td>
+          <td>(</td>
+          <td class="paramtype">bool&nbsp;</td>
+          <td class="paramname"> <em>status</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Zmení status navigácie a tým spustí vykresľovanie aktuálnej pozície </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00327">327</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a860139dfc662ad79a925fa6d4a3a0fda"></a><!-- doxytag: member="LightMaps::getPixelFROMlatitude" ref="a860139dfc662ad79a925fa6d4a3a0fda" args="(QPointF pos)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPoint LightMaps::getPixelFROMlatitude </td>
+          <td>(</td>
+          <td class="paramtype">QPointF&nbsp;</td>
+          <td class="paramname"> <em>pos</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Výpočet pozície na mape </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>zmemepisná</em>&nbsp;</td><td>súradnica </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Návratová hodnota:</b></dt><dd>hodnota v pixloch </dd></dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00188">188</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a37a10a45edbd09df465cbead39b4acd6"></a><!-- doxytag: member="LightMaps::getPositionData" ref="a37a10a45edbd09df465cbead39b4acd6" args="(QPoint pos)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPointF LightMaps::getPositionData </td>
+          <td>(</td>
+          <td class="paramtype">QPoint&nbsp;</td>
+          <td class="paramname"> <em>pos</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Vráti hodnoty zmepisných súradníc z honoty pixloch na mape </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pozícia</em>&nbsp;</td><td>myši </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Návratová hodnota:</b></dt><dd>zemepisná súradnica </dd></dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00217">217</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae6752e8bbc4bd80b4080e6308cb40a99"></a><!-- doxytag: member="LightMaps::keyPressEvent" ref="ae6752e8bbc4bd80b4080e6308cb40a99" args="(QKeyEvent *event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::keyPressEvent </td>
+          <td>(</td>
+          <td class="paramtype">QKeyEvent *&nbsp;</td>
+          <td class="paramname"> <em>event</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Pri stlačení klávesu na myši </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>QKeyEvent</em>&nbsp;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00169">169</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae07556bfe8f8643ef06db0d042ee7891"></a><!-- doxytag: member="LightMaps::mouseDoubleClickEvent" ref="ae07556bfe8f8643ef06db0d042ee7891" args="(QMouseEvent *event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::mouseDoubleClickEvent </td>
+          <td>(</td>
+          <td class="paramtype">QMouseEvent *&nbsp;</td>
+          <td class="paramname"> <em>event</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Pri dvojkliku </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>QMouseEvent</em>&nbsp;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00143">143</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab55b7bda0a50fd27457ed52118513109"></a><!-- doxytag: member="LightMaps::mouseMoveEvent" ref="ab55b7bda0a50fd27457ed52118513109" args="(QMouseEvent *event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::mouseMoveEvent </td>
+          <td>(</td>
+          <td class="paramtype">QMouseEvent *&nbsp;</td>
+          <td class="paramname"> <em>event</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funckia sa vykonáva pri pohybe myši </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>QMouseEvent</em>&nbsp;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00112">112</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a12c0b5ff0ef36b7f160dd9184036e346"></a><!-- doxytag: member="LightMaps::mousePressEvent" ref="a12c0b5ff0ef36b7f160dd9184036e346" args="(QMouseEvent *event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::mousePressEvent </td>
+          <td>(</td>
+          <td class="paramtype">QMouseEvent *&nbsp;</td>
+          <td class="paramname"> <em>event</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Zapíše hodnotu kliknutia myši na mape </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>QMouseEvent</em>&nbsp;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00102">102</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4c66425af6f5ecbca3d0af52e9cee998"></a><!-- doxytag: member="LightMaps::mouseReleaseEvent" ref="a4c66425af6f5ecbca3d0af52e9cee998" args="(QMouseEvent *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::mouseReleaseEvent </td>
+          <td>(</td>
+          <td class="paramtype">QMouseEvent *&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Pri uvoľnení tlačidla </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>QMouseEvent</em>&nbsp;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00136">136</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ef253065acd4c9d3ea3015b0fa1e336"></a><!-- doxytag: member="LightMaps::paintEvent" ref="a5ef253065acd4c9d3ea3015b0fa1e336" args="(QPaintEvent *event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::paintEvent </td>
+          <td>(</td>
+          <td class="paramtype">QPaintEvent *&nbsp;</td>
+          <td class="paramname"> <em>event</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Vykreslí hodnoty súradníc a samotný zoom (text na spodnej časti programu </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00075">75</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a13f8d329cec001cff0bcb6c01b97b695"></a><!-- doxytag: member="LightMaps::rangeIn" ref="a13f8d329cec001cff0bcb6c01b97b695" args="(QPoint p, int lim)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LightMaps::rangeIn </td>
+          <td>(</td>
+          <td class="paramtype">QPoint&nbsp;</td>
+          <td class="paramname"> <em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>lim</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcia vyhodnocuje rozsah na mape.</p>
+<p>Funkcia kontroluje ci sa daný bod nachádza na rozsahu mapy </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00333">333</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e242c439bdc56abb1875f99e5b60ca8"></a><!-- doxytag: member="LightMaps::recalculateTrack" ref="a2e242c439bdc56abb1875f99e5b60ca8" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::recalculateTrack </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcia prepočítava hodnoty bodov na mape.</p>
+<p>Funkcia ktorá prepočítava trasy, na vykreslenie na mapu Tieto trasy sú rozdelené na mešie časti ak sú niektoré časti mimo plochu je to z toho dôvodu aby sme neprepočítavali a nevykresľovali zbytočné časti mapy. Každá časť trasy je zapísaná v polygóne. Dôležité je pridať na zažiatok a na koniec polygónu jeden bod ktorý je mimo trasy aby nedošlo k skresleniu trasy. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00248">248</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a889854d44217e5fc911c0fc57f126b3e"></a><!-- doxytag: member="LightMaps::recalculateWpt" ref="a889854d44217e5fc911c0fc57f126b3e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::recalculateWpt </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcia prepočítava hodnoty bodov na mape.</p>
+<p>Prepočítava význmné body do hodnoty v pixloch </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00311">311</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a4eb844187dd9fe819925312a000748"></a><!-- doxytag: member="LightMaps::resizeEvent" ref="a1a4eb844187dd9fe819925312a000748" args="(QResizeEvent *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::resizeEvent </td>
+          <td>(</td>
+          <td class="paramtype">QResizeEvent *&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Zmení veľkosť mapy pri zmene veľkosti obrazovky </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00067">67</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a48a673b2f3167a02004ced0b182a8498"></a><!-- doxytag: member="LightMaps::setCenter" ref="a48a673b2f3167a02004ced0b182a8498" args="(qreal lat, qreal lng)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::setCenter </td>
+          <td>(</td>
+          <td class="paramtype">qreal&nbsp;</td>
+          <td class="paramname"> <em>lat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&nbsp;</td>
+          <td class="paramname"> <em>lng</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Nastaví mapu na hodnotu vstupného parametra </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>Zemepisné</em>&nbsp;</td><td>súradnice </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00024">24</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8444c215b861e9aabfb254d0d11466da"></a><!-- doxytag: member="LightMaps::setRange" ref="a8444c215b861e9aabfb254d0d11466da" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::setRange </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Nastaví rozsah na ktorej sa mapa nachádza hodnoty min a max </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00205">205</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8f244b845c00c6f15417b4fbc5409027"></a><!-- doxytag: member="LightMaps::setTrack" ref="a8f244b845c00c6f15417b4fbc5409027" args="(QVector&lt; QPointF &gt; track)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::setTrack </td>
+          <td>(</td>
+          <td class="paramtype">QVector&lt; QPointF &gt;&nbsp;</td>
+          <td class="paramname"> <em>track</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Vloží trať do premennej trk </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>všetky</em>&nbsp;</td><td>trasy načítané zo súboru </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00231">231</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a43bc06f6dd6a20196c55e945aadca5d5"></a><!-- doxytag: member="LightMaps::setWayPoints" ref="a43bc06f6dd6a20196c55e945aadca5d5" args="(QVector&lt; QPointF &gt; wpt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::setWayPoints </td>
+          <td>(</td>
+          <td class="paramtype">QVector&lt; QPointF &gt;&nbsp;</td>
+          <td class="paramname"> <em>wpt</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Nastaví významné body do premennej waypointCoor </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00298">298</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af16072c5bd79130a24265b030c0b8809"></a><!-- doxytag: member="LightMaps::setZoom_m" ref="af16072c5bd79130a24265b030c0b8809" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::setZoom_m </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>zníži zoom a aktualizuje mapu </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00048">48</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae85fe95103f428f0511510789f02bb0f"></a><!-- doxytag: member="LightMaps::setZoom_p" ref="ae85fe95103f428f0511510789f02bb0f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::setZoom_p </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>zvýši zoom a aktualizuje mapu </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00039">39</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a231905fb3ab4d3d488a64f3ac3bba7a3"></a><!-- doxytag: member="LightMaps::toggleNightMode" ref="a231905fb3ab4d3d488a64f3ac3bba7a3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::toggleNightMode </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Nastaví premennú označujúcu nočný mód </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00032">32</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae5e717309f666a3462cf5c5f5c5fbe43"></a><!-- doxytag: member="LightMaps::updateMap" ref="ae5e717309f666a3462cf5c5f5c5fbe43" args="(const QRect &amp;r)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::updateMap </td>
+          <td>(</td>
+          <td class="paramtype">const QRect &amp;&nbsp;</td>
+          <td class="paramname"> <em>r</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>nastavi rozsah a prepočíta vykreslene trasy </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00057">57</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0081d72b865b488cc91a14fe813474b"></a><!-- doxytag: member="LightMaps::wheelEvent" ref="ad0081d72b865b488cc91a14fe813474b" args="(QWheelEvent *event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightMaps::wheelEvent </td>
+          <td>(</td>
+          <td class="paramtype">QWheelEvent *&nbsp;</td>
+          <td class="paramname"> <em>event</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Rolovanie kolečka myši </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>QWheelEvent</em>&nbsp;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8cpp_source.html#l00157">157</a> v súbore <a class="el" href="lightmaps_8cpp_source.html">lightmaps.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentácia k dátovým členom</h2>
+<a class="anchor" id="a4189db3145c2d7dbe45a68332e7079a0"></a><!-- doxytag: member="LightMaps::min" ref="a4189db3145c2d7dbe45a68332e7079a0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPointF <a class="el" href="classLightMaps.html#a4189db3145c2d7dbe45a68332e7079a0">LightMaps.min</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Rozsah dát pre vykreslenie. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8h_source.html#l00021">21</a> v súbore <a class="el" href="lightmaps_8h_source.html">lightmaps.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a72af9794c82a592fc213594d0423dcb8"></a><!-- doxytag: member="LightMaps::track_in_points" ref="a72af9794c82a592fc213594d0423dcb8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVector&lt;QPolygonF&gt; <a class="el" href="classLightMaps.html#a72af9794c82a592fc213594d0423dcb8">LightMaps.track_in_points</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Dáta pre vykreslenie trás. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8h_source.html#l00028">28</a> v súbore <a class="el" href="lightmaps_8h_source.html">lightmaps.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd15888f98736cf71f88b41178ec633a"></a><!-- doxytag: member="LightMaps::waypointCoor" ref="abd15888f98736cf71f88b41178ec633a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PointVector <a class="el" href="classLightMaps.html#abd15888f98736cf71f88b41178ec633a">LightMaps.waypointCoor</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Dáta pre vykreslenie zaujímavých bodov sú udávané v geografických súradniciach kôli prepočtom pri pohybe mapy. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="lightmaps_8h_source.html#l00033">33</a> v súbore <a class="el" href="lightmaps_8h_source.html">lightmaps.h</a>.</p>
+
+</div>
+</div>
+</div>
+<hr></hr>
+<div id="footer">OSM_Navigation </div>
+</body>
+</html>

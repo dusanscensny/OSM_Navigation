@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" href="$classTracks.html" title="Táto trieda komunikuje s GUI častou aplikácie." alt="" coords="5,101,64,131"/>
+<area shape="rect" href="$classLightMaps.html" title="LightMaps" alt="" coords="88,101,168,131"/>
+<area shape="rect" href="$classSlippyMap.html" title="SlippyMap" alt="" coords="87,5,169,35"/>
+<area shape="rect" href="$classNavigation.html" title="Táto trieda konvertuje dáta pri vykresľovaní aktuálnej pozície." alt="" coords="192,101,275,131"/>
+</map>

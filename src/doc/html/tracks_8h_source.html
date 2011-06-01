@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>OSM_Navigation: tracks.h Source File</title>
+  <link href="simunet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+<a href="index.html">Hlavná stránka</a>&nbsp;&middot;&nbsp;<a href="annotated.html">Triedy</a>
+</div>
+<!-- Generované programom Doxygen 1.6.1 -->
+<h1>tracks.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef TRACKS_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define TRACKS_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &lt;QFileDialog&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QApplication&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QXmlStreamReader&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00013"></a><a class="code" href="classTracks.html">00013</a> <span class="keyword">class </span><a class="code" href="classTracks.html" title="Táto trieda komunikuje s GUI častou aplikácie.">Tracks</a>        
+<a name="l00014"></a>00014 {    
+<a name="l00015"></a>00015 <span class="keyword">private</span>:
+<a name="l00016"></a>00016     QString dir;
+<a name="l00017"></a>00017     QFileDialog file;
+<a name="l00018"></a>00018     QVector &lt;QPointF&gt; waypoint;
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020     QXmlStreamReader xml;
+<a name="l00021"></a>00021     QPointF <a class="code" href="classTracks.html#a031d959d79171b3a8403c8b4a9b264ba">parseXml</a>(QXmlStreamAttributes atr);
+<a name="l00022"></a>00022 <span class="keyword">public</span>:
+<a name="l00023"></a>00023     <a class="code" href="classTracks.html#a132fed3ad9faf9115e3665e2de5af2b2">Tracks</a>();
+<a name="l00024"></a>00024     QVector &lt;QPointF&gt; <a class="code" href="classTracks.html#a420b5f0afac1466a72b07bd347a6a6e5">open</a>();
+<a name="l00025"></a>00025     QVector &lt;QPointF&gt; getWaypoints();
+<a name="l00026"></a>00026 };
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="preprocessor">#endif // TRACKS_H</span>
+</pre></div></div>
+<hr></hr>
+<div id="footer">OSM_Navigation </div>
+</body>
+</html>

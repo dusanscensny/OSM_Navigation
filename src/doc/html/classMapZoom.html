@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>OSM_Navigation: Dokumentácia triedy MapZoom</title>
+  <link href="simunet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+<a href="index.html">Hlavná stránka</a>&nbsp;&middot;&nbsp;<a href="annotated.html">Triedy</a>
+</div>
+<!-- Generované programom Doxygen 1.6.1 -->
+<div class="contents">
+<h1>Dokumentácia triedy MapZoom</h1><!-- doxytag: class="MapZoom" -->
+<p>Táto trieda vytvára GUI hlavného menu V hlavnom menu sú spúštané podprocesy pomocou triedy QProcess na pripájanie zariadení potrebných na navigáciu.  
+<a href="#_details">...</a></p>
+
+<p><code>#include &lt;<a class="el" href="mapzoom_8h_source.html">mapzoom.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagram tried pre MapZoom:</div>
+<div class="dynsection">
+<div class="center"><img src="classMapZoom__coll__graph.png" border="0" usemap="#MapZoom_coll__map" alt="Collaboration graph"/></div>
+<map name="MapZoom_coll__map" id="MapZoom_coll__map">
+<area shape="rect" href="classTracks.html" title="Táto trieda komunikuje s GUI častou aplikácie." alt="" coords="5,101,64,131"/><area shape="rect" href="classLightMaps.html" title="LightMaps" alt="" coords="88,101,168,131"/><area shape="rect" href="classSlippyMap.html" title="SlippyMap" alt="" coords="87,5,169,35"/><area shape="rect" href="classNavigation.html" title="Táto trieda konvertuje dáta pri vykresľovaní aktuálnej pozície." alt="" coords="192,101,275,131"/></map>
+<center><span class="legend">[<a href="graph_legend.html">vysvetlivky</a>]</span></center></div>
+
+<p><a href="classMapZoom-members.html">Zoznam všetkých členov.</a></p>
+<h2>Verejné metódy</h2>
+<ul>
+<li><a class="el" href="classMapZoom.html#ad44e439a9c8949d40280e76fb9974329">MapZoom</a> ()
+<li>virtual <a class="el" href="classMapZoom.html#a6d5346fb9275c3a8b09d1abfc465563c">~MapZoom</a> ()
+</ul>
+<h2>Privátne sloty</h2>
+<ul>
+<li>void <a class="el" href="classMapZoom.html#af41b79184e441659075289d449535a03">runGebabel</a> ()
+<li>void <a class="el" href="classMapZoom.html#a005b2a7dae51e8e1b70102e6a9cb86e4">zoom_plus_click</a> ()
+<li>void <a class="el" href="classMapZoom.html#ad3c2639f8fd05ea568e942e678b49c5a">zoom_minus_click</a> ()
+<li>void <a class="el" href="classMapZoom.html#aadc5e5faa2353fa99966147ae2ae1210">set_home</a> ()
+<li>void <a class="el" href="classMapZoom.html#adb8536319cebf99fc41779603f088e3c">draw_tracks</a> ()
+<li>void <a class="el" href="classMapZoom.html#ac86310fa30d676c989c918c414701aa7">draw_waypoints</a> ()
+<li>void <a class="el" href="classMapZoom.html#ab2ddf948e409f0a7d81449fe141858d9">actual_position</a> ()
+<li>void <a class="el" href="classMapZoom.html#a490ebd27b7fa5dc3714cb522d0ba8bea">control_devices</a> ()
+<li>void <a class="el" href="classMapZoom.html#a9f0fe8df4f670a09484df864c12355d9">readStdout</a> ()
+<li>void <a class="el" href="classMapZoom.html#aff2d6e7225bbd67b1b70cfc9177aa887">connectToDevice</a> ()
+<li>void <a class="el" href="classMapZoom.html#a9f1d51f28cdb3aca55d9b046e454f65c">infoAboutDevice</a> ()
+</ul>
+<h2>Privátne atribúty</h2>
+<ul>
+<li>bool <a class="el" href="classMapZoom.html#a8b9ba3c646470c8a8d61d7a20bc547ee">wptBtn</a>
+<li>bool <a class="el" href="classMapZoom.html#ae7476ca44a95115779c424eb2614d422">conBtn</a>
+<li>bool <a class="el" href="classMapZoom.html#aaa6f3d277e39812dc1a4736077ced013">conDev</a>
+<li>bool <a class="el" href="classMapZoom.html#a493be1c970c38d15e65cd101fa186744">usb</a>
+<li>bool <a class="el" href="classMapZoom.html#a2123cd2139a7c7fbadee15bd50ddc836">conBab</a>
+<li>QProcess * <a class="el" href="classMapZoom.html#ac86ba683af15f8b23d9cdc8a005ebff2">babel</a>
+<li>QTimer * <a class="el" href="classMapZoom.html#a26f6592f35ebdeedc1f9715593afb764">timer</a>
+</ul>
+<hr/><a name="_details"></a><h2>Detailný popis</h2>
+<p>Táto trieda vytvára GUI hlavného menu V hlavnom menu sú spúštané podprocesy pomocou triedy QProcess na pripájanie zariadení potrebných na navigáciu. </p>
+<dl class="author"><dt><b>Autor:</b></dt><dd>Dušan Ščensný </dd></dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8h_source.html#l00019">19</a> v súbore <a class="el" href="mapzoom_8h_source.html">mapzoom.h</a>.</p>
+<hr/><h2>Dokumentácia konštruktoru a deštruktoru</h2>
+<a class="anchor" id="ad44e439a9c8949d40280e76fb9974329"></a><!-- doxytag: member="MapZoom::MapZoom" ref="ad44e439a9c8949d40280e76fb9974329" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MapZoom::MapZoom </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Vytvorenie hlavného menu</p>
+<p>V hlavnom menu sa inicializuje mapa a vytvoria všetky tlačidlá a akcie potrebné pri práci V hlavnom menu sú spúštané podprocesy pomocou triedy QProcess na pripájanie zariadení potrebných na navigáciu </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8cpp_source.html#l00010">10</a> v súbore <a class="el" href="mapzoom_8cpp_source.html">mapzoom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d5346fb9275c3a8b09d1abfc465563c"></a><!-- doxytag: member="MapZoom::~MapZoom" ref="a6d5346fb9275c3a8b09d1abfc465563c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MapZoom::~MapZoom </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Deštruktor zruší procesy ktoré neboli ukončené. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8cpp_source.html#l00303">303</a> v súbore <a class="el" href="mapzoom_8cpp_source.html">mapzoom.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentácia k metódam</h2>
+<a class="anchor" id="ab2ddf948e409f0a7d81449fe141858d9"></a><!-- doxytag: member="MapZoom::actual_position" ref="ab2ddf948e409f0a7d81449fe141858d9" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapZoom::actual_position </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Nastaví aktuálnu pozíciu na ktorej sa nachádzame. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8cpp_source.html#l00168">168</a> v súbore <a class="el" href="mapzoom_8cpp_source.html">mapzoom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aff2d6e7225bbd67b1b70cfc9177aa887"></a><!-- doxytag: member="MapZoom::connectToDevice" ref="aff2d6e7225bbd67b1b70cfc9177aa887" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapZoom::connectToDevice </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Pripojí aktuálne nastavené zariadenia podľa MAC adresy prístroja. Nastavuje názov tlačidla. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8cpp_source.html#l00220">220</a> v súbore <a class="el" href="mapzoom_8cpp_source.html">mapzoom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a490ebd27b7fa5dc3714cb522d0ba8bea"></a><!-- doxytag: member="MapZoom::control_devices" ref="a490ebd27b7fa5dc3714cb522d0ba8bea" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapZoom::control_devices </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Ak proces nie je otvorený spustí načítavanie dát </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8cpp_source.html#l00187">187</a> v súbore <a class="el" href="mapzoom_8cpp_source.html">mapzoom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb8536319cebf99fc41779603f088e3c"></a><!-- doxytag: member="MapZoom::draw_tracks" ref="adb8536319cebf99fc41779603f088e3c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapZoom::draw_tracks </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Vyzve k výberu súboru obsahujúceho gps dáta. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8cpp_source.html#l00152">152</a> v súbore <a class="el" href="mapzoom_8cpp_source.html">mapzoom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac86310fa30d676c989c918c414701aa7"></a><!-- doxytag: member="MapZoom::draw_waypoints" ref="ac86310fa30d676c989c918c414701aa7" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapZoom::draw_waypoints </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Vykreslí zaujímavé body. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8cpp_source.html#l00160">160</a> v súbore <a class="el" href="mapzoom_8cpp_source.html">mapzoom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f1d51f28cdb3aca55d9b046e454f65c"></a><!-- doxytag: member="MapZoom::infoAboutDevice" ref="a9f1d51f28cdb3aca55d9b046e454f65c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapZoom::infoAboutDevice </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Vráti dáta z výstupu stdout po pripojení zariadenia. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8cpp_source.html#l00292">292</a> v súbore <a class="el" href="mapzoom_8cpp_source.html">mapzoom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f0fe8df4f670a09484df864c12355d9"></a><!-- doxytag: member="MapZoom::readStdout" ref="a9f0fe8df4f670a09484df864c12355d9" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapZoom::readStdout </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Spustenie nastavenia aktuálnej pozície. V prípade že vstup dát z prístroja nie je čitateľný nastaví aktuálnu pozíciu. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8cpp_source.html#l00202">202</a> v súbore <a class="el" href="mapzoom_8cpp_source.html">mapzoom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af41b79184e441659075289d449535a03"></a><!-- doxytag: member="MapZoom::runGebabel" ref="af41b79184e441659075289d449535a03" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapZoom::runGebabel </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>sloty potrebné v hlavnom menu</p>
+<p>Spustí program Gebabbel. Pri pokuse o ukončenie programu je možnosť výberu či progam naozaj ukončiť. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8cpp_source.html#l00106">106</a> v súbore <a class="el" href="mapzoom_8cpp_source.html">mapzoom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aadc5e5faa2353fa99966147ae2ae1210"></a><!-- doxytag: member="MapZoom::set_home" ref="aadc5e5faa2353fa99966147ae2ae1210" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapZoom::set_home </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Nastaví mapu na prednastavenú GPS súradnicu. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8cpp_source.html#l00145">145</a> v súbore <a class="el" href="mapzoom_8cpp_source.html">mapzoom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad3c2639f8fd05ea568e942e678b49c5a"></a><!-- doxytag: member="MapZoom::zoom_minus_click" ref="ad3c2639f8fd05ea568e942e678b49c5a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapZoom::zoom_minus_click </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Vzdiali zoom. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8cpp_source.html#l00137">137</a> v súbore <a class="el" href="mapzoom_8cpp_source.html">mapzoom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a005b2a7dae51e8e1b70102e6a9cb86e4"></a><!-- doxytag: member="MapZoom::zoom_plus_click" ref="a005b2a7dae51e8e1b70102e6a9cb86e4" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapZoom::zoom_plus_click </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Priblíži zoom. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8cpp_source.html#l00128">128</a> v súbore <a class="el" href="mapzoom_8cpp_source.html">mapzoom.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentácia k dátovým členom</h2>
+<a class="anchor" id="ac86ba683af15f8b23d9cdc8a005ebff2"></a><!-- doxytag: member="MapZoom::babel" ref="ac86ba683af15f8b23d9cdc8a005ebff2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QProcess* <a class="el" href="classMapZoom.html#ac86ba683af15f8b23d9cdc8a005ebff2">MapZoom.babel</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>podproces gebabbel </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8h_source.html#l00064">64</a> v súbore <a class="el" href="mapzoom_8h_source.html">mapzoom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2123cd2139a7c7fbadee15bd50ddc836"></a><!-- doxytag: member="MapZoom::conBab" ref="a2123cd2139a7c7fbadee15bd50ddc836" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classMapZoom.html#a2123cd2139a7c7fbadee15bd50ddc836">MapZoom.conBab</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>používa sa pri podprocese spuštajúcom aplikáciu gebabbel </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8h_source.html#l00060">60</a> v súbore <a class="el" href="mapzoom_8h_source.html">mapzoom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae7476ca44a95115779c424eb2614d422"></a><!-- doxytag: member="MapZoom::conBtn" ref="ae7476ca44a95115779c424eb2614d422" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classMapZoom.html#ae7476ca44a95115779c424eb2614d422">MapZoom.conBtn</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Potrebná pri zmene názvu tlačidla connect. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8h_source.html#l00047">47</a> v súbore <a class="el" href="mapzoom_8h_source.html">mapzoom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa6f3d277e39812dc1a4736077ced013"></a><!-- doxytag: member="MapZoom::conDev" ref="aaa6f3d277e39812dc1a4736077ced013" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classMapZoom.html#aaa6f3d277e39812dc1a4736077ced013">MapZoom.conDev</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Pri pipojení zariadenia sa nastaví na true. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8h_source.html#l00051">51</a> v súbore <a class="el" href="mapzoom_8h_source.html">mapzoom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a26f6592f35ebdeedc1f9715593afb764"></a><!-- doxytag: member="MapZoom::timer" ref="a26f6592f35ebdeedc1f9715593afb764" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTimer* <a class="el" href="classMapZoom.html#a26f6592f35ebdeedc1f9715593afb764">MapZoom.timer</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>timer na nastavovanie aktuálne pozície zísakenj zo zariadenia </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8h_source.html#l00068">68</a> v súbore <a class="el" href="mapzoom_8h_source.html">mapzoom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a493be1c970c38d15e65cd101fa186744"></a><!-- doxytag: member="MapZoom::usb" ref="a493be1c970c38d15e65cd101fa186744" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classMapZoom.html#a493be1c970c38d15e65cd101fa186744">MapZoom.usb</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Voľba vstupu USB/Bluetooth </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8h_source.html#l00056">56</a> v súbore <a class="el" href="mapzoom_8h_source.html">mapzoom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8b9ba3c646470c8a8d61d7a20bc547ee"></a><!-- doxytag: member="MapZoom::wptBtn" ref="a8b9ba3c646470c8a8d61d7a20bc547ee" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classMapZoom.html#a8b9ba3c646470c8a8d61d7a20bc547ee">MapZoom.wptBtn</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Pri zmene názvu sa použije táto premenná </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="mapzoom_8h_source.html#l00043">43</a> v súbore <a class="el" href="mapzoom_8h_source.html">mapzoom.h</a>.</p>
+
+</div>
+</div>
+</div>
+<hr></hr>
+<div id="footer">OSM_Navigation </div>
+</body>
+</html>

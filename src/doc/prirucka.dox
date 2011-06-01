@@ -1,0 +1,89 @@
+/*!
+
+\mainpage Dokumentácia k softvéru OSM_Navigation
+
+\section techdoc Technická dokumentácia
+
+Zoznam sekcií
+<ul>
+ <li><a href="files.html">Zdrojové kódy</a></li>
+ <li><a href="annotated.html">Zoznam tried</a></li>
+ <li><a href="functions_func.html">Zoznam funkcií</a></li>
+ <li><a href="functions_vars.html">Zoznam premenných</a></li>
+</ul>
+
+Dôležité triedy
+  - \ref MapZoom
+  - \ref LightMaps
+
+\section prirucka Používateľská príručka
+
+V tomto manuáli sú popísané základy práce s programom.
+
+
+\subsection prirucka-mainwin Hlavné okno
+
+Základ programu bol použitý z grafických vzorov knižnice Qt graphics-dojo. Viac o
+grafických vzoroch Qt Graphics Dojo nájdeme na stránke: http://labs.trolltech.com/page/Graphics/About/Dojo . Veľkosť zobrazenej mapy je daná veľkosťou otvorenej aplikácie. V našom prípade je
+aplikácia spúšťaná s rozlíšením 800x600 bodov.
+
+\image html img/main.png "Spustenie programu"
+
+\b Položky aplikácie: \n
+    - \b Toolbar \n
+      Skladájúci sa zo zoom-u , nastavenia domovskej pozície, prácou s trasami a významnými bodmi a pripojením navigačného zariadenia.
+    - \b Menu \n 
+     Skladá sa z nasatvenia domovskej pozície, invertovania na nočný režim a položkou ktorá odkazuje na open street mapy. 
+
+
+\subsubsection prirucka-mainwin-zoom Zoom
+
+V hornej časti programu máme možnosť meniť zoom mapy, no nielen tam. Zoom môžme meniť taktiež kolieskom myši. 
+
+\image html img/main_zoom.png "Zmena zoom-u"
+
+
+\subsection prirucka-gebabbel Spustenie programu Gebabbel
+
+Program spustíme z menu po kliknutí na položku Gebabel. 
+
+\image html img/gebabbel.png "Spustený program gebabbel"
+
+Pre ukončenie je potrebné opätovné kliknutie a následne nás program vyzve k ukončeniu procesu ktorý spustil program Gebabbel. 
+
+\image html img/endgebabel.png "Výzva pre ukončenie"
+
+
+\subsection prirucka-nocny-mod Nočný mód
+
+V menu, prvej položke je možnosť prepnúť program na nočný mód ktorý je šetrnejší voči očiam :-). 
+\image html img/night_mode.png "Nočný mód"
+
+
+\subsection prirucka-vykreslenie Vykreslenie trás a významných bodov
+
+Po kliknutí na tlačidlo Načítaj trasy nás program vyzýva načítanie gpx súboru z ktorého program vykreslí trasy. Trasy sú umiestenné na mape. Pre vykreslenie bodov ktoré sa v súbore nachádzajú stačí kliknúť na tlačidlo Vykresliť body. 
+
+\image html img/tracks_and_waypoints.png "Trasy a významné body"
+
+
+\subsection prirucka-pripojenie Pripojenie navigačného zariadenia
+
+  V tejto aplikácii existujú dve možnosti ako zariadenie pripojiť. Na výber nás v aplikácii vyzve podoknom (prvý obrázok). Prvá možnosť je pripojenie pomocou USB portu kde po pripojení vytvára OS port ttyUSB0. Z tohto portu je možné čítať dáta vo forme
+NMEA protokolu. Druhou možnosťou je pripojiť zariadenie pomocou bezdrôtového pripojenia Bluetooth. V aplikácii je potrebné zadať MAC. V prípade, že si v aplikácii zvolíme bezdrôtové pripojenie musíme zadať MAC adresu zariadenia. Po
+úspešnom pripojení už je možné čítať potrebné dáta.
+
+\image html img/mac_usb.png "Voľby pri pripájaní zariadenia"
+
+
+\subsection prirucka-pozicia Hľadanie aktuálnej pozície
+
+   Hľadanie aktuálnej pozície má určitú postupnosť krokov. Ak je GPS zariadenie aktívne. Môže sa spustiť vyhľadávanie aktuálnej pozície. Príjem dát je riešený podproce som ktorý spustí príkaz na čítanie dát z jedného z portu (USB – ttyUSB0, Bluetooth – rfcomm0).
+   Prístroj posiela dáta v protokole NMEA, dáta stačí rozdeliť a vhodne použiť na zistenie aktuálnej pozície.
+   Po výzve používateľa sa výsledné dáta načítajú a pravidelne zobrazujú na mape.
+Vizuálnym výsledkom je mapa na ktorej je zobrazená naša aktuálna pozícia.
+
+
+\image html img/actualposition.png "Aktuálna pozícia - červený znak v strede obrázka"
+
+ */

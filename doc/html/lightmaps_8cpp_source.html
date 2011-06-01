@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>OSM_Navigation: lightmaps.cpp Source File</title>
+  <link href="simunet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+<a href="index.html">Hlavná stránka</a>&nbsp;&middot;&nbsp;<a href="annotated.html">Triedy</a>
+</div>
+<!-- Generované programom Doxygen 1.6.1 -->
+<h1>lightmaps.cpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;lightmaps.h&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 <span class="keyword">const</span> <span class="keywordtype">int</span> tdim = 256;
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00011"></a><a class="code" href="classLightMaps.html#ae481a3b0cb8f2bce40e8ae2703aa6cbd">00011</a> <a class="code" href="classLightMaps.html#ae481a3b0cb8f2bce40e8ae2703aa6cbd">LightMaps::LightMaps</a>(QWidget *parent)
+<a name="l00012"></a>00012             : QWidget(parent)
+<a name="l00013"></a>00013             , pressed(false)
+<a name="l00014"></a>00014             , snapped(false)  
+<a name="l00015"></a>00015             , invert(false) {
+<a name="l00016"></a>00016         m_normalMap = <span class="keyword">new</span> <a class="code" href="classSlippyMap.html">SlippyMap</a>(<span class="keyword">this</span>);        
+<a name="l00017"></a>00017         connect(m_normalMap, SIGNAL(updated(QRect)), SLOT(<a class="code" href="classLightMaps.html#ae5e717309f666a3462cf5c5f5c5fbe43">updateMap</a>(QRect)));
+<a name="l00018"></a>00018 }
+<a name="l00019"></a>00019 
+<a name="l00024"></a><a class="code" href="classLightMaps.html#a48a673b2f3167a02004ced0b182a8498">00024</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a48a673b2f3167a02004ced0b182a8498">LightMaps::setCenter</a>(qreal lat, qreal lng) {
+<a name="l00025"></a>00025     m_normalMap-&gt;latitude = lat;
+<a name="l00026"></a>00026     m_normalMap-&gt;longitude = lng;
+<a name="l00027"></a>00027     m_normalMap-&gt;invalidate();
+<a name="l00028"></a>00028 }
+<a name="l00032"></a><a class="code" href="classLightMaps.html#a231905fb3ab4d3d488a64f3ac3bba7a3">00032</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a231905fb3ab4d3d488a64f3ac3bba7a3">LightMaps::toggleNightMode</a>() {
+<a name="l00033"></a>00033     invert = !invert;
+<a name="l00034"></a>00034     update();
+<a name="l00035"></a>00035 }
+<a name="l00039"></a><a class="code" href="classLightMaps.html#ae85fe95103f428f0511510789f02bb0f">00039</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#ae85fe95103f428f0511510789f02bb0f">LightMaps::setZoom_p</a>(){
+<a name="l00040"></a>00040     <span class="keywordflow">if</span>(m_normalMap-&gt;zoom &lt;18){
+<a name="l00041"></a>00041         m_normalMap-&gt;zoom += 1;
+<a name="l00042"></a>00042         m_normalMap-&gt;invalidate();
+<a name="l00043"></a>00043     }
+<a name="l00044"></a>00044 }
+<a name="l00048"></a><a class="code" href="classLightMaps.html#af16072c5bd79130a24265b030c0b8809">00048</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#af16072c5bd79130a24265b030c0b8809">LightMaps::setZoom_m</a>(){
+<a name="l00049"></a>00049     <span class="keywordflow">if</span>(m_normalMap-&gt;zoom &gt;1){
+<a name="l00050"></a>00050         m_normalMap-&gt;zoom -= 1;
+<a name="l00051"></a>00051         m_normalMap-&gt;invalidate();
+<a name="l00052"></a>00052     }
+<a name="l00053"></a>00053 }
+<a name="l00057"></a><a class="code" href="classLightMaps.html#ae5e717309f666a3462cf5c5f5c5fbe43">00057</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#ae5e717309f666a3462cf5c5f5c5fbe43">LightMaps::updateMap</a>(<span class="keyword">const</span> QRect &amp;r) {
+<a name="l00058"></a>00058     <a class="code" href="classLightMaps.html#a8444c215b861e9aabfb254d0d11466da">setRange</a>();
+<a name="l00059"></a>00059     <a class="code" href="classLightMaps.html#a2e242c439bdc56abb1875f99e5b60ca8">recalculateTrack</a>();
+<a name="l00060"></a>00060     <a class="code" href="classLightMaps.html#a889854d44217e5fc911c0fc57f126b3e">recalculateWpt</a>();
+<a name="l00061"></a>00061     update(r);
+<a name="l00062"></a>00062 }
+<a name="l00067"></a><a class="code" href="classLightMaps.html#a1a4eb844187dd9fe819925312a000748">00067</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a1a4eb844187dd9fe819925312a000748">LightMaps::resizeEvent</a>(QResizeEvent *) {
+<a name="l00068"></a>00068     m_normalMap-&gt;width = width();
+<a name="l00069"></a>00069     m_normalMap-&gt;height = height();
+<a name="l00070"></a>00070     m_normalMap-&gt;invalidate();
+<a name="l00071"></a>00071 }
+<a name="l00075"></a><a class="code" href="classLightMaps.html#a5ef253065acd4c9d3ea3015b0fa1e336">00075</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a5ef253065acd4c9d3ea3015b0fa1e336">LightMaps::paintEvent</a>(QPaintEvent *event) {
+<a name="l00076"></a>00076     QPainter p;
+<a name="l00077"></a>00077     <span class="keywordtype">char</span> data[255];
+<a name="l00078"></a>00078     p.begin(<span class="keyword">this</span>);
+<a name="l00079"></a>00079     m_normalMap-&gt;<a class="code" href="classSlippyMap.html#ada1e00e2870d0fdeb70c037b3222a0ad">render</a>(&amp;p, event-&gt;rect());
+<a name="l00080"></a>00080     p.setPen(Qt::black);
+<a name="l00081"></a>00081     <span class="keywordflow">if</span>(m_normalMap-&gt;zoom &lt;18){
+<a name="l00082"></a>00082         sprintf(data,<span class="stringliteral">&quot;Lat: %f,  Long: %f, Zoom: %d &quot;</span>,
+<a name="l00083"></a>00083                 m_normalMap-&gt;latitude,m_normalMap-&gt;longitude, m_normalMap-&gt;zoom);        
+<a name="l00084"></a>00084     }<span class="keywordflow">else</span> sprintf(data,<span class="stringliteral">&quot;Lat: %f,  Long: %f, Zoom: MAX&quot;</span>,
+<a name="l00085"></a>00085                   m_normalMap-&gt;latitude,m_normalMap-&gt;longitude);
+<a name="l00086"></a>00086     p.drawText(rect(),  Qt::AlignBottom | Qt::TextWordWrap,<span class="stringliteral">&quot;OSM Navigation&quot;</span>);
+<a name="l00087"></a>00087     p.drawText(rect(),  Qt::AlignBottom |Qt::AlignRight | Qt::TextWordWrap,data);
+<a name="l00088"></a>00088     p.end();
+<a name="l00089"></a>00089     <span class="comment">//p.~QPainter;</span>
+<a name="l00090"></a>00090     <span class="keywordflow">if</span> (invert) {
+<a name="l00091"></a>00091         QPainter p(<span class="keyword">this</span>);
+<a name="l00092"></a>00092         p.setCompositionMode(QPainter::CompositionMode_Difference);
+<a name="l00093"></a>00093         p.fillRect(event-&gt;rect(), Qt::white);
+<a name="l00094"></a>00094         p.end();
+<a name="l00095"></a>00095     }
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 }
+<a name="l00102"></a><a class="code" href="classLightMaps.html#a12c0b5ff0ef36b7f160dd9184036e346">00102</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a12c0b5ff0ef36b7f160dd9184036e346">LightMaps::mousePressEvent</a>(QMouseEvent *event) {
+<a name="l00103"></a>00103     <span class="keywordflow">if</span> (event-&gt;buttons() != Qt::LeftButton)
+<a name="l00104"></a>00104         <span class="keywordflow">return</span>;
+<a name="l00105"></a>00105     pressed = snapped = <span class="keyword">true</span>;
+<a name="l00106"></a>00106     pressPos = dragPos = <span class="keyword">event</span>-&gt;pos();
+<a name="l00107"></a>00107 }
+<a name="l00112"></a><a class="code" href="classLightMaps.html#ab55b7bda0a50fd27457ed52118513109">00112</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#ab55b7bda0a50fd27457ed52118513109">LightMaps::mouseMoveEvent</a>(QMouseEvent *event) {
+<a name="l00113"></a>00113     <span class="keywordflow">if</span> (!event-&gt;buttons())
+<a name="l00114"></a>00114         <span class="keywordflow">return</span>;
+<a name="l00115"></a>00115     <span class="keywordflow">if</span> (!pressed || !snapped) {
+<a name="l00116"></a>00116         QPoint delta = <span class="keyword">event</span>-&gt;pos() - pressPos;
+<a name="l00117"></a>00117         pressPos = <span class="keyword">event</span>-&gt;pos();
+<a name="l00118"></a>00118         m_normalMap-&gt;<a class="code" href="classSlippyMap.html#ae954bbb164e84e5cecf3fbb518eb266c">pan</a>(delta);
+<a name="l00119"></a>00119         <span class="keywordflow">return</span>;
+<a name="l00120"></a>00120     } <span class="keywordflow">else</span> {
+<a name="l00121"></a>00121         <span class="keyword">const</span> <span class="keywordtype">int</span> threshold = 10; <span class="comment">//tolerancia pohybu</span>
+<a name="l00122"></a>00122         QPoint delta = <span class="keyword">event</span>-&gt;pos() - pressPos;
+<a name="l00123"></a>00123         <span class="keywordflow">if</span> (snapped) {
+<a name="l00124"></a>00124             snapped &amp;= delta.x() &lt; threshold;
+<a name="l00125"></a>00125             snapped &amp;= delta.y() &lt; threshold;
+<a name="l00126"></a>00126             snapped &amp;= delta.x() &gt; -threshold;
+<a name="l00127"></a>00127             snapped &amp;= delta.y() &gt; -threshold;
+<a name="l00128"></a>00128         }
+<a name="l00129"></a>00129     }
+<a name="l00130"></a>00130     update();
+<a name="l00131"></a>00131 }
+<a name="l00136"></a><a class="code" href="classLightMaps.html#a4c66425af6f5ecbca3d0af52e9cee998">00136</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a4c66425af6f5ecbca3d0af52e9cee998">LightMaps::mouseReleaseEvent</a>(QMouseEvent *) {
+<a name="l00137"></a>00137     update();
+<a name="l00138"></a>00138 }
+<a name="l00143"></a><a class="code" href="classLightMaps.html#ae07556bfe8f8643ef06db0d042ee7891">00143</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#ae07556bfe8f8643ef06db0d042ee7891">LightMaps::mouseDoubleClickEvent</a>(QMouseEvent *event){
+<a name="l00144"></a>00144     <span class="keywordflow">if</span>(event-&gt;buttons() == Qt::LeftButton){
+<a name="l00145"></a>00145         <a class="code" href="classLightMaps.html#ae85fe95103f428f0511510789f02bb0f">setZoom_p</a>();
+<a name="l00146"></a>00146         update();
+<a name="l00147"></a>00147     }
+<a name="l00148"></a>00148     <span class="keywordflow">if</span>(event-&gt;buttons() == Qt::RightButton){
+<a name="l00149"></a>00149         <a class="code" href="classLightMaps.html#af16072c5bd79130a24265b030c0b8809">setZoom_m</a>();
+<a name="l00150"></a>00150         update();
+<a name="l00151"></a>00151     }
+<a name="l00152"></a>00152 }
+<a name="l00157"></a><a class="code" href="classLightMaps.html#ad0081d72b865b488cc91a14fe813474b">00157</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#ad0081d72b865b488cc91a14fe813474b">LightMaps::wheelEvent</a>(QWheelEvent *event){
+<a name="l00158"></a>00158     <span class="keywordtype">int</span> numDegrees = <span class="keyword">event</span>-&gt;delta() / 8;
+<a name="l00159"></a>00159     <span class="keywordtype">int</span> numSteps = numDegrees / 15;
+<a name="l00160"></a>00160     <span class="keywordflow">if</span>( Qt::Vertical == event-&gt;orientation()){
+<a name="l00161"></a>00161         <span class="keywordflow">if</span> (numSteps &gt; 0) <a class="code" href="classLightMaps.html#ae85fe95103f428f0511510789f02bb0f">setZoom_p</a>();
+<a name="l00162"></a>00162         <span class="keywordflow">if</span> (numSteps &lt; 0) <a class="code" href="classLightMaps.html#af16072c5bd79130a24265b030c0b8809">setZoom_m</a>();
+<a name="l00163"></a>00163     }
+<a name="l00164"></a>00164 }
+<a name="l00169"></a><a class="code" href="classLightMaps.html#ae6752e8bbc4bd80b4080e6308cb40a99">00169</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#ae6752e8bbc4bd80b4080e6308cb40a99">LightMaps::keyPressEvent</a>(QKeyEvent *event) {
+<a name="l00170"></a>00170     <span class="keywordflow">if</span> (event-&gt;key() == Qt::Key_Left)
+<a name="l00171"></a>00171         m_normalMap-&gt;<a class="code" href="classSlippyMap.html#ae954bbb164e84e5cecf3fbb518eb266c">pan</a>(QPoint(20, 0));
+<a name="l00172"></a>00172     <span class="keywordflow">if</span> (event-&gt;key() == Qt::Key_Right)
+<a name="l00173"></a>00173         m_normalMap-&gt;<a class="code" href="classSlippyMap.html#ae954bbb164e84e5cecf3fbb518eb266c">pan</a>(QPoint(-20, 0));
+<a name="l00174"></a>00174     <span class="keywordflow">if</span> (event-&gt;key() == Qt::Key_Up)
+<a name="l00175"></a>00175         m_normalMap-&gt;<a class="code" href="classSlippyMap.html#ae954bbb164e84e5cecf3fbb518eb266c">pan</a>(QPoint(0, 20));
+<a name="l00176"></a>00176     <span class="keywordflow">if</span> (event-&gt;key() == Qt::Key_Down)
+<a name="l00177"></a>00177         m_normalMap-&gt;<a class="code" href="classSlippyMap.html#ae954bbb164e84e5cecf3fbb518eb266c">pan</a>(QPoint(0, -20));
+<a name="l00178"></a>00178     <span class="keywordflow">if</span> (event-&gt;key() == Qt::Key_Z || <span class="keyword">event</span>-&gt;key() == Qt::Key_Select) {
+<a name="l00179"></a>00179         dragPos = QPoint(width() / 2, height() / 2);
+<a name="l00180"></a>00180     }
+<a name="l00181"></a>00181 }
+<a name="l00188"></a><a class="code" href="classLightMaps.html#a860139dfc662ad79a925fa6d4a3a0fda">00188</a> QPoint <a class="code" href="classLightMaps.html#a860139dfc662ad79a925fa6d4a3a0fda">LightMaps::getPixelFROMlatitude</a>(QPointF pos){
+<a name="l00189"></a>00189     QPoint pos_in_pix;
+<a name="l00190"></a>00190     QPointF pom;
+<a name="l00191"></a>00191     pom.setX(pos.y());
+<a name="l00192"></a>00192     pom.setY(pos.x());
+<a name="l00193"></a>00193     qreal xsur = m_normalMap-&gt;width - (m_normalMap-&gt;width /(<a class="code" href="classLightMaps.html#a4189db3145c2d7dbe45a68332e7079a0">min</a>.x()-max.x())*(pom.x()-max.x()));
+<a name="l00194"></a>00194     pos_in_pix.setX(xsur);
+<a name="l00195"></a>00195     <span class="comment">//nastavime X</span>
+<a name="l00196"></a>00196     qreal ysur =m_normalMap-&gt;height - (m_normalMap-&gt;height/(<a class="code" href="classLightMaps.html#a4189db3145c2d7dbe45a68332e7079a0">min</a>.y()-max.y())*(pom.y()-max.y()));
+<a name="l00197"></a>00197     pos_in_pix.setY(ysur);
+<a name="l00198"></a>00198     <span class="comment">//nastavime Y</span>
+<a name="l00199"></a>00199     <span class="keywordflow">return</span> pos_in_pix;
+<a name="l00200"></a>00200 }
+<a name="l00205"></a><a class="code" href="classLightMaps.html#a8444c215b861e9aabfb254d0d11466da">00205</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a8444c215b861e9aabfb254d0d11466da">LightMaps::setRange</a>(){
+<a name="l00206"></a>00206     QPoint position(0,0);<span class="comment">//in pixel</span>
+<a name="l00207"></a>00207     <a class="code" href="classLightMaps.html#a4189db3145c2d7dbe45a68332e7079a0">min</a> = <a class="code" href="classLightMaps.html#a37a10a45edbd09df465cbead39b4acd6">getPositionData</a>(position); <span class="comment">//return lat and lon</span>
+<a name="l00208"></a>00208     position.setX(m_normalMap-&gt;width);
+<a name="l00209"></a>00209     position.setY(m_normalMap-&gt;height);
+<a name="l00210"></a>00210     max = <a class="code" href="classLightMaps.html#a37a10a45edbd09df465cbead39b4acd6">getPositionData</a>(position);
+<a name="l00211"></a>00211 }
+<a name="l00217"></a><a class="code" href="classLightMaps.html#a37a10a45edbd09df465cbead39b4acd6">00217</a> QPointF <a class="code" href="classLightMaps.html#a37a10a45edbd09df465cbead39b4acd6">LightMaps::getPositionData</a>(QPoint pos){
+<a name="l00218"></a>00218     QPointF dx = QPointF(pos);
+<a name="l00219"></a>00219     dx.setX(m_normalMap-&gt;width/2 - dx.x());
+<a name="l00220"></a>00220     dx.setY(m_normalMap-&gt;height/2- dx.y());
+<a name="l00221"></a>00221     dx = dx/ qreal(tdim);
+<a name="l00222"></a>00222     QPointF center = tileForCoordinate(m_normalMap-&gt;latitude,m_normalMap-&gt;longitude, m_normalMap-&gt;zoom) - dx;
+<a name="l00223"></a>00223     actual_coor.setY(latitudeFromTile(center.y(), m_normalMap-&gt;zoom));
+<a name="l00224"></a>00224     actual_coor.setX(longitudeFromTile(center.x(), m_normalMap-&gt;zoom));    
+<a name="l00225"></a>00225     <span class="keywordflow">return</span> actual_coor;
+<a name="l00226"></a>00226 }
+<a name="l00231"></a><a class="code" href="classLightMaps.html#a8f244b845c00c6f15417b4fbc5409027">00231</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a8f244b845c00c6f15417b4fbc5409027">LightMaps::setTrack</a>(QVector&lt;QPointF&gt; track){
+<a name="l00232"></a>00232     <span class="keywordflow">if</span> (!track.isEmpty()){
+<a name="l00233"></a>00233         trk.clear();
+<a name="l00234"></a>00234         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i &lt; track.size();i++){
+<a name="l00235"></a>00235             trk.append(track.at(i));
+<a name="l00236"></a>00236         }
+<a name="l00237"></a>00237         <a class="code" href="classLightMaps.html#a2e242c439bdc56abb1875f99e5b60ca8">recalculateTrack</a>();
+<a name="l00238"></a>00238         update();
+<a name="l00239"></a>00239     }
+<a name="l00240"></a>00240 }
+<a name="l00248"></a><a class="code" href="classLightMaps.html#a2e242c439bdc56abb1875f99e5b60ca8">00248</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a2e242c439bdc56abb1875f99e5b60ca8">LightMaps::recalculateTrack</a>(){
+<a name="l00249"></a>00249     QPointF controlPoint(999999.9,999999.9);
+<a name="l00250"></a>00250     QPolygon pg;
+<a name="l00251"></a>00251     QVector&lt;QPolygon&gt; setOfPg; <span class="comment">//set of polygon contains one track</span>
+<a name="l00252"></a>00252     QPoint p,pl;
+<a name="l00253"></a>00253     <span class="keywordtype">int</span> track =1;    
+<a name="l00254"></a>00254     allTracks.clear();
+<a name="l00255"></a>00255     trk.begin();
+<a name="l00256"></a>00256     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i &lt; trk.size();i++){
+<a name="l00257"></a>00257         <span class="keywordflow">if</span>(trk.at(i) != controlPoint){ <span class="comment">//ak je to kontrolný bod musíme vytvoriť novú trasu</span>
+<a name="l00258"></a>00258             pl =p;
+<a name="l00259"></a>00259             p = <a class="code" href="classLightMaps.html#a860139dfc662ad79a925fa6d4a3a0fda">getPixelFROMlatitude</a>(trk.at(i));
+<a name="l00260"></a>00260             <span class="keywordflow">if</span>(<a class="code" href="classLightMaps.html#a13f8d329cec001cff0bcb6c01b97b695">rangeIn</a>(p,0)){
+<a name="l00261"></a>00261                 <span class="keywordflow">if</span>(i&gt;0)
+<a name="l00262"></a>00262                     <span class="keywordflow">if</span>((trk.at(i-1) != controlPoint)){
+<a name="l00263"></a>00263                         <span class="comment">//      pl = getPixelFROMlatitude(trk.at(i-1));</span>
+<a name="l00264"></a>00264                         pg.append(pl);
+<a name="l00265"></a>00265                     }
+<a name="l00266"></a>00266                 pg.append(p);
+<a name="l00267"></a>00267                     <span class="comment">//printf(&quot;Track: %d, point X: %d, Y: %d \n&quot;,track,p.x(),p.y());                </span>
+<a name="l00268"></a>00268             }<span class="keywordflow">else</span>{<span class="comment">//ak sme našli kontrolný bod musime vytvoriť dalšiu trasu</span>
+<a name="l00269"></a>00269                 <span class="keywordflow">if</span>(!<a class="code" href="classLightMaps.html#a13f8d329cec001cff0bcb6c01b97b695">rangeIn</a>(pl,0)){ <span class="comment">//ak je posledny bod mimo rozsah zapripocita este jeden</span>
+<a name="l00270"></a>00270                     <span class="keywordflow">if</span>(!pg.isEmpty()){
+<a name="l00271"></a>00271                         setOfPg.append(pg);
+<a name="l00272"></a>00272                         pg.clear();
+<a name="l00273"></a>00273                         track++;
+<a name="l00274"></a>00274                     }                    
+<a name="l00275"></a>00275                 }<span class="keywordflow">else</span>{
+<a name="l00276"></a>00276                     pg.append(p);
+<a name="l00277"></a>00277                     pl = p;
+<a name="l00278"></a>00278                 }
+<a name="l00279"></a>00279             }
+<a name="l00280"></a>00280         }<span class="keywordflow">else</span>{
+<a name="l00281"></a>00281             <span class="keywordflow">if</span>(!pg.isEmpty()){
+<a name="l00282"></a>00282             }<span class="keywordflow">else</span> pg.append(p);
+<a name="l00283"></a>00283             setOfPg.append(pg);
+<a name="l00284"></a>00284             pg.clear();
+<a name="l00285"></a>00285             allTracks.append(setOfPg);
+<a name="l00286"></a>00286             setOfPg.clear();
+<a name="l00287"></a>00287         }
+<a name="l00288"></a>00288         <span class="keywordflow">if</span>((i == trk.size()-1) &amp;&amp; (!pg.isEmpty())){
+<a name="l00289"></a>00289             setOfPg.append(pg);
+<a name="l00290"></a>00290             <span class="keywordflow">if</span>(allTracks.isEmpty()) allTracks.append(setOfPg);
+<a name="l00291"></a>00291         }
+<a name="l00292"></a>00292     }
+<a name="l00293"></a>00293     m_normalMap-&gt;<a class="code" href="classSlippyMap.html#aa356b5be43bc1ea6b49e213f18da09ba">setTrack</a>(allTracks);<span class="comment">//setOfPg);</span>
+<a name="l00294"></a>00294 }
+<a name="l00298"></a><a class="code" href="classLightMaps.html#a43bc06f6dd6a20196c55e945aadca5d5">00298</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a43bc06f6dd6a20196c55e945aadca5d5">LightMaps::setWayPoints</a>(QVector&lt;QPointF&gt;wpt){
+<a name="l00299"></a>00299     <span class="keywordflow">if</span>(!wpt.isEmpty()){
+<a name="l00300"></a>00300         <a class="code" href="classLightMaps.html#abd15888f98736cf71f88b41178ec633a">waypointCoor</a>.clear();
+<a name="l00301"></a>00301         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i &lt; wpt.size();i++){
+<a name="l00302"></a>00302             <a class="code" href="classLightMaps.html#abd15888f98736cf71f88b41178ec633a">waypointCoor</a>.append(wpt.at(i));
+<a name="l00303"></a>00303         }
+<a name="l00304"></a>00304         <a class="code" href="classLightMaps.html#a889854d44217e5fc911c0fc57f126b3e">recalculateWpt</a>();
+<a name="l00305"></a>00305         update();
+<a name="l00306"></a>00306     }
+<a name="l00307"></a>00307 }
+<a name="l00311"></a><a class="code" href="classLightMaps.html#a889854d44217e5fc911c0fc57f126b3e">00311</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a889854d44217e5fc911c0fc57f126b3e">LightMaps::recalculateWpt</a>(){
+<a name="l00312"></a>00312     QVector&lt;QPoint&gt; waypoints;
+<a name="l00313"></a>00313     QPoint p;
+<a name="l00314"></a>00314     <span class="keywordtype">int</span> lim = 30;
+<a name="l00315"></a>00315     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i &lt; <a class="code" href="classLightMaps.html#abd15888f98736cf71f88b41178ec633a">waypointCoor</a>.size();i++){
+<a name="l00316"></a>00316         p = <a class="code" href="classLightMaps.html#a860139dfc662ad79a925fa6d4a3a0fda">getPixelFROMlatitude</a>(<a class="code" href="classLightMaps.html#abd15888f98736cf71f88b41178ec633a">waypointCoor</a>.at(i));
+<a name="l00317"></a>00317         <span class="keywordflow">if</span>(<a class="code" href="classLightMaps.html#a13f8d329cec001cff0bcb6c01b97b695">rangeIn</a>(p,lim)){
+<a name="l00318"></a>00318             waypoints.append(p);
+<a name="l00319"></a>00319             <span class="comment">//printf(&quot;Track: %d, point X: %d, Y: %d \n&quot;,track,p.x(),p.y());</span>
+<a name="l00320"></a>00320         }
+<a name="l00321"></a>00321     }
+<a name="l00322"></a>00322     m_normalMap-&gt;<a class="code" href="classSlippyMap.html#a299e4c0fd46ed2d3de7fb98912f2e1f4">setWpt</a>(waypoints);
+<a name="l00323"></a>00323 }
+<a name="l00327"></a><a class="code" href="classLightMaps.html#a779d04ee61a8235d0b31c7064dca8f44">00327</a> <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a779d04ee61a8235d0b31c7064dca8f44">LightMaps::drawActualPosition</a>(<span class="keywordtype">bool</span> status){
+<a name="l00328"></a>00328     m_normalMap-&gt;navigate = status;
+<a name="l00329"></a>00329 }
+<a name="l00333"></a><a class="code" href="classLightMaps.html#a13f8d329cec001cff0bcb6c01b97b695">00333</a> <span class="keywordtype">bool</span> <a class="code" href="classLightMaps.html#a13f8d329cec001cff0bcb6c01b97b695">LightMaps::rangeIn</a>(QPoint p,<span class="keywordtype">int</span> lim){
+<a name="l00334"></a>00334     <span class="keywordflow">if</span>((p.x()&gt;-lim &amp;&amp; p.x()&lt;m_normalMap-&gt;width+lim) &amp;&amp; (p.y()&gt;-lim ) &amp;&amp; (p.y()&lt; m_normalMap-&gt;height+lim)){
+<a name="l00335"></a>00335         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00336"></a>00336     }<span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00337"></a>00337 }
+<a name="l00338"></a>00338 
+<a name="l00339"></a>00339 LightMaps::~LightMaps(){
+<a name="l00340"></a>00340 }
+</pre></div></div>
+<hr></hr>
+<div id="footer">OSM_Navigation </div>
+</body>
+</html>

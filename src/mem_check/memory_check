@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#valgrind --leak-check=yes ./OSM_Navigation
+
+#valgrind --leak-check=full --show-reachable=yes ./OSM_Navigation
+
+
+#vložiť ako alias do bashrc a bude to spustat priamo filtrovane valgrind --suppressions=valgrind.supp ./OSM_Navigation
+#valgrind --suppressions=cesta_k_tvojmu_suboru  a automaticky čo si tam dal bude preskakovať
+valgrind --leak-check=full --leak-resolution=high --suppressions=valgrind.supp --gen-suppressions=all ./OSM_Navigation
+#--gen-suppression=all
+#valgrind --leak-check=full --leak-resolution=high  --track-origins=yes --suppressions=valgrind.supp ./OSM_Navigation
+
+

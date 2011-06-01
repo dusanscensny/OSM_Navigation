@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>OSM_Navigation: lightmaps.h Source File</title>
+  <link href="simunet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+<a href="index.html">Hlavná stránka</a>&nbsp;&middot;&nbsp;<a href="annotated.html">Triedy</a>
+</div>
+<!-- Generované programom Doxygen 1.6.1 -->
+<h1>lightmaps.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef LIGHTMAPS_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define LIGHTMAPS_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &lt;QWidget&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;slippymap.h&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00012"></a>00012 <span class="keyword">typedef</span> QVector&lt;QPointF&gt; PointVector; <span class="comment">//Vektor bodov</span>
+<a name="l00013"></a>00013 <span class="keywordtype">bool</span> rangeIn(QPoint p,<span class="keywordtype">int</span> lim);
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="classLightMaps.html">00015</a> <span class="keyword">class </span><a class="code" href="classLightMaps.html">LightMaps</a> : <span class="keyword">public</span> QWidget{
+<a name="l00016"></a>00016     Q_OBJECT
+<a name="l00017"></a>00017 <span class="keyword">private</span>:
+<a name="l00021"></a><a class="code" href="classLightMaps.html#a4189db3145c2d7dbe45a68332e7079a0">00021</a>     QPointF <a class="code" href="classLightMaps.html#a4189db3145c2d7dbe45a68332e7079a0">min</a>;
+<a name="l00022"></a>00022     QPointF max;
+<a name="l00023"></a>00023     QPoint getPoint(qreal lat,qreal lon);<span class="comment">//zatial nevyuzita</span>
+<a name="l00024"></a>00024     QPointF <a class="code" href="classLightMaps.html#a37a10a45edbd09df465cbead39b4acd6">getPositionData</a>(QPoint pos);    
+<a name="l00028"></a><a class="code" href="classLightMaps.html#a72af9794c82a592fc213594d0423dcb8">00028</a>     QVector&lt;QPolygonF&gt; <a class="code" href="classLightMaps.html#a72af9794c82a592fc213594d0423dcb8">track_in_points</a>;
+<a name="l00029"></a>00029     PointVector trk;
+<a name="l00033"></a><a class="code" href="classLightMaps.html#abd15888f98736cf71f88b41178ec633a">00033</a>     PointVector <a class="code" href="classLightMaps.html#abd15888f98736cf71f88b41178ec633a">waypointCoor</a>;
+<a name="l00034"></a>00034     QVector&lt;PolygonVector&gt; allTracks; <span class="comment">//vsetky mozne trasy spolu v jednom poli</span>
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a8444c215b861e9aabfb254d0d11466da">setRange</a>();
+<a name="l00042"></a>00042     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a2e242c439bdc56abb1875f99e5b60ca8">recalculateTrack</a>();
+<a name="l00046"></a>00046     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a889854d44217e5fc911c0fc57f126b3e">recalculateWpt</a>();
+<a name="l00050"></a>00050     <span class="keywordtype">bool</span> <a class="code" href="classLightMaps.html#a13f8d329cec001cff0bcb6c01b97b695">rangeIn</a>(QPoint p,<span class="keywordtype">int</span> lim);
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 <span class="keyword">public</span>:
+<a name="l00053"></a>00053     <a class="code" href="classLightMaps.html#ae481a3b0cb8f2bce40e8ae2703aa6cbd">LightMaps</a>(QWidget *parent = 0);
+<a name="l00054"></a>00054     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a8f244b845c00c6f15417b4fbc5409027">setTrack</a>(QVector&lt;QPointF&gt; track);<span class="comment">//set one track to Vector of QPointF</span>
+<a name="l00055"></a>00055     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a43bc06f6dd6a20196c55e945aadca5d5">setWayPoints</a>(QVector&lt;QPointF&gt; wpt);<span class="comment">//set one track to Vector of QPointF</span>
+<a name="l00056"></a>00056     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a48a673b2f3167a02004ced0b182a8498">setCenter</a>(qreal lat, qreal lng); <span class="comment">//set center of map</span>
+<a name="l00057"></a>00057     QPoint <a class="code" href="classLightMaps.html#a860139dfc662ad79a925fa6d4a3a0fda">getPixelFROMlatitude</a>(QPointF pos);<span class="comment">//fuction returns position on map from coordinates</span>
+<a name="l00058"></a>00058     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a779d04ee61a8235d0b31c7064dca8f44">drawActualPosition</a>(<span class="keywordtype">bool</span> status);
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060     <span class="keyword">virtual</span> ~<a class="code" href="classLightMaps.html">LightMaps</a>();
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 <span class="keyword">public</span> slots:
+<a name="l00063"></a>00063     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a231905fb3ab4d3d488a64f3ac3bba7a3">toggleNightMode</a>();
+<a name="l00064"></a>00064     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#ae85fe95103f428f0511510789f02bb0f">setZoom_p</a>();
+<a name="l00065"></a>00065     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#af16072c5bd79130a24265b030c0b8809">setZoom_m</a>();
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 <span class="keyword">private</span> slots:
+<a name="l00068"></a>00068     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#ae5e717309f666a3462cf5c5f5c5fbe43">updateMap</a>(<span class="keyword">const</span> QRect &amp;r);
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 <span class="keyword">protected</span>:
+<a name="l00071"></a>00071     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a1a4eb844187dd9fe819925312a000748">resizeEvent</a>(QResizeEvent *);
+<a name="l00072"></a>00072     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a5ef253065acd4c9d3ea3015b0fa1e336">paintEvent</a>(QPaintEvent *event); 
+<a name="l00073"></a>00073     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a12c0b5ff0ef36b7f160dd9184036e346">mousePressEvent</a>(QMouseEvent *event);
+<a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#ab55b7bda0a50fd27457ed52118513109">mouseMoveEvent</a>(QMouseEvent *event);
+<a name="l00075"></a>00075     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#a4c66425af6f5ecbca3d0af52e9cee998">mouseReleaseEvent</a>(QMouseEvent *);
+<a name="l00076"></a>00076     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#ae6752e8bbc4bd80b4080e6308cb40a99">keyPressEvent</a>(QKeyEvent *event);
+<a name="l00077"></a>00077     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#ae07556bfe8f8643ef06db0d042ee7891">mouseDoubleClickEvent</a>(QMouseEvent *event);
+<a name="l00078"></a>00078     <span class="keywordtype">void</span> <a class="code" href="classLightMaps.html#ad0081d72b865b488cc91a14fe813474b">wheelEvent</a>(QWheelEvent *event);
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 <span class="keyword">private</span>:
+<a name="l00083"></a>00083     <a class="code" href="classSlippyMap.html">SlippyMap</a> *m_normalMap;    
+<a name="l00084"></a>00084     <span class="keywordtype">bool</span> pressed;
+<a name="l00085"></a>00085     <span class="keywordtype">bool</span> snapped;
+<a name="l00086"></a>00086     QPoint pressPos;
+<a name="l00087"></a>00087     QPoint dragPos;
+<a name="l00088"></a>00088     QPointF actual_coor;        
+<a name="l00089"></a>00089     QPixmap zoomPixmap;
+<a name="l00090"></a>00090     QPixmap maskPixmap;
+<a name="l00091"></a>00091     <span class="keywordtype">bool</span> invert;
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 };
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095 <span class="preprocessor">#endif // LIGHTMAPS_H</span>
+</pre></div></div>
+<hr></hr>
+<div id="footer">OSM_Navigation </div>
+</body>
+</html>

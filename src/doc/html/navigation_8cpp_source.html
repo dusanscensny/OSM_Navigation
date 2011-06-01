@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>OSM_Navigation: navigation.cpp Source File</title>
+  <link href="simunet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+<a href="index.html">Hlavná stránka</a>&nbsp;&middot;&nbsp;<a href="annotated.html">Triedy</a>
+</div>
+<!-- Generované programom Doxygen 1.6.1 -->
+<h1>navigation.cpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;navigation.h&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QFile&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QIODevice&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00011"></a>00011 <span class="keywordtype">float</span> degmin2deg(QByteArray in){
+<a name="l00012"></a>00012     <span class="keywordtype">int</span> i,j;
+<a name="l00013"></a>00013     QByteArray deg;
+<a name="l00014"></a>00014     QByteArray min;    
+<a name="l00015"></a>00015     i = 0;
+<a name="l00016"></a>00016     <span class="keywordflow">while</span> (in[i] != <span class="charliteral">&apos;.&apos;</span>){
+<a name="l00017"></a>00017         i++;
+<a name="l00018"></a>00018     }
+<a name="l00019"></a>00019     <span class="keywordflow">for</span> (j=0; j&lt;=(i-3); j++){
+<a name="l00020"></a>00020         deg.append(in[j]);
+<a name="l00021"></a>00021     }
+<a name="l00022"></a>00022     <span class="keywordflow">for</span> (j=(i-2); j &lt;= in.length(); j++){
+<a name="l00023"></a>00023         min.append(in[j]);
+<a name="l00024"></a>00024     }
+<a name="l00025"></a>00025     <span class="keywordflow">return</span> deg.toFloat()+min.toFloat()/60;
+<a name="l00026"></a>00026 }
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 Navigation::Navigation()
+<a name="l00030"></a>00030 {
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 }
+<a name="l00033"></a>00033 
+<a name="l00039"></a><a class="code" href="classNavigation.html#afadec7aadf1478bcb73873fc222d84c0">00039</a> QPointF <a class="code" href="classNavigation.html#afadec7aadf1478bcb73873fc222d84c0">Navigation::findDevices</a>(QByteArray data){     
+<a name="l00040"></a>00040     <span class="keywordtype">int</span> ciarky=0;    
+<a name="l00041"></a>00041     <span class="keywordtype">int</span> i,j;
+<a name="l00042"></a>00042     QPointF sur;<span class="comment">//= new QPointF(0.0,0.0);</span>
+<a name="l00043"></a>00043     QByteArray vs =data;
+<a name="l00044"></a>00044     QByteArray outlt = 0;<span class="comment">// = new QByteArray(30);</span>
+<a name="l00045"></a>00045     QByteArray outln = 0;
+<a name="l00046"></a>00046     QByteArray sat;
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048     <span class="keywordflow">for</span>(i = data.length()-5; i&gt;=0 ; i--){<span class="comment">//nájde retazce kde sa nachádza gpgga</span>
+<a name="l00049"></a>00049         <span class="keywordflow">if</span> ((vs[i] == <span class="charliteral">&apos;G&apos;</span>)and (vs[i+1]== <span class="charliteral">&apos;P&apos;</span>)and (vs[i+2] == <span class="charliteral">&apos;G&apos;</span>) and (vs[i+3] == <span class="charliteral">&apos;G&apos;</span>) and (vs[i+4] == <span class="charliteral">&apos;A&apos;</span>)){
+<a name="l00050"></a>00050             <span class="keywordflow">if</span>(ciarky ==0){
+<a name="l00051"></a>00051             <span class="comment">//std::cerr&lt;&lt;&quot;Test: &quot;&lt;&lt;vs[i]&lt;&lt;vs[i+1]&lt;&lt;vs[i+2]&lt;&lt;vs[i+3] &lt;&lt; std::endl;</span>
+<a name="l00052"></a>00052             <span class="keywordflow">for</span>(j=0;j&lt;60;j++){
+<a name="l00053"></a>00053                 <span class="keywordflow">if</span>((ciarky == 2) and (vs[i+j] !=<span class="charliteral">&apos;,&apos;</span>)){
+<a name="l00054"></a>00054                     outlt.append(vs[i+j]);
+<a name="l00055"></a>00055                     <span class="comment">//std::cerr&lt;&lt;&quot;outlt: &quot;&lt;&lt;outln[i] &lt;&lt; std::endl;</span>
+<a name="l00056"></a>00056                 }
+<a name="l00057"></a>00057                 <span class="keywordflow">if</span>((ciarky == 4) and (vs[i+j] !=<span class="charliteral">&apos;,&apos;</span>)){
+<a name="l00058"></a>00058                     outln.append(vs[i+j]);
+<a name="l00059"></a>00059                 }
+<a name="l00060"></a>00060                 <span class="keywordflow">if</span>((ciarky == 7) and (vs[i+j] !=<span class="charliteral">&apos;,&apos;</span>)){
+<a name="l00061"></a>00061                     sat.append(vs[i+j]);
+<a name="l00062"></a>00062                 }
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064                 <span class="keywordflow">if</span> (vs[i+j] == <span class="charliteral">&apos;,&apos;</span>) ciarky++;
+<a name="l00065"></a>00065                 <span class="keywordflow">if</span> (ciarky &gt; 7) i=0;
+<a name="l00066"></a>00066             }
+<a name="l00067"></a>00067             <span class="comment">//std::cerr&lt;&lt;&quot;Ciarky: &quot;&lt;&lt;toascii(ciarky) &lt;&lt; std::endl;</span>
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069         }
+<a name="l00070"></a>00070         }
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072     }
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074     ciarky = 0;
+<a name="l00075"></a>00075     QByteArray speed;
+<a name="l00076"></a>00076     <span class="keywordflow">for</span>(i = data.length()-5; i&gt;=0 ; i--){<span class="comment">//nájde retazce kde sa nachádza gpvtg</span>
+<a name="l00077"></a>00077         <span class="keywordflow">if</span> ((vs[i] == <span class="charliteral">&apos;G&apos;</span>)and (vs[i+1]== <span class="charliteral">&apos;P&apos;</span>)and (vs[i+2] == <span class="charliteral">&apos;V&apos;</span>) and (vs[i+3] == <span class="charliteral">&apos;T&apos;</span>) and (vs[i+4] == <span class="charliteral">&apos;G&apos;</span>)){
+<a name="l00078"></a>00078             <span class="keywordflow">if</span>(ciarky ==0){
+<a name="l00079"></a>00079             <span class="comment">//std::cerr&lt;&lt;&quot;Test: &quot;&lt;&lt;vs[i]&lt;&lt;vs[i+1]&lt;&lt;vs[i+2]&lt;&lt;vs[i+3] &lt;&lt; std::endl;</span>
+<a name="l00080"></a>00080             <span class="keywordflow">for</span>(j=0;j&lt;60;j++){
+<a name="l00081"></a>00081                 <span class="keywordflow">if</span>((ciarky == 7) and (vs[i+j] !=<span class="charliteral">&apos;,&apos;</span>)){
+<a name="l00082"></a>00082                     speed.append(vs[i+j]);
+<a name="l00083"></a>00083                     <span class="comment">//std::cerr&lt;&lt;&quot;outlt: &quot;&lt;&lt;outln[i] &lt;&lt; std::endl;</span>
+<a name="l00084"></a>00084                 }
+<a name="l00085"></a>00085                 <span class="keywordflow">if</span> (vs[i+j] == <span class="charliteral">&apos;,&apos;</span>) ciarky++;
+<a name="l00086"></a>00086                 <span class="keywordflow">if</span> (ciarky &gt; 8) i=0;
+<a name="l00087"></a>00087             }
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090         }
+<a name="l00091"></a>00091         }
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093     }
+<a name="l00094"></a>00094     std::cerr&lt;&lt;<span class="stringliteral">&quot;Speed: &quot;</span>&lt;&lt;speed.constData()&lt;&lt;<span class="stringliteral">&quot;  Sat: &quot;</span>&lt;&lt; sat.constData() &lt;&lt; std::endl;<span class="comment">//vypíše rýchlosť a počet satelitov</span>
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096     sur.setX(degmin2deg(outlt));
+<a name="l00097"></a>00097     sur.setY(degmin2deg(outln));
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099     <span class="keywordflow">return</span> sur;
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102     <span class="comment">//printf(&quot;LT: %f, LN: %f&quot;,degmin2deg(outlt),degmin2deg(outln));</span>
+<a name="l00103"></a>00103     <span class="comment">//std::cerr&lt;&lt;&quot;Data: &quot;&lt;&lt;data.constData()&lt;&lt; std::endl;</span>
+<a name="l00104"></a>00104     <span class="comment">//std::cerr&lt;&lt;&quot;Lt: &quot;&lt;&lt;&lt;&lt; std::endl;</span>
+<a name="l00105"></a>00105 }
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107 QPointF Navigation::getCoordinates(){
+<a name="l00108"></a>00108     QPointF actual(0.0,0.0); <span class="comment">//koordinaty ktorymi vratime aktulanu poziciu</span>
+<a name="l00109"></a>00109   <span class="keywordflow">return</span> actual;
+<a name="l00110"></a>00110 }
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112 <span class="keywordtype">void</span> Navigation::readStdout(){
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 }
+</pre></div></div>
+<hr></hr>
+<div id="footer">OSM_Navigation </div>
+</body>
+</html>

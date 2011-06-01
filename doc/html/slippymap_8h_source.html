@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>OSM_Navigation: slippymap.h Source File</title>
+  <link href="simunet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+<a href="index.html">Hlavná stránka</a>&nbsp;&middot;&nbsp;<a href="annotated.html">Triedy</a>
+</div>
+<!-- Generované programom Doxygen 1.6.1 -->
+<h1>slippymap.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef SLIPPYMAP_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define SLIPPYMAP_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="comment">//=================</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QtCore&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QtGui&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;QtNetwork&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="preprocessor">#if QT_VERSION &lt; 0x0040500</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#error You need Qt 4.5 or newer</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="preprocessor">#ifndef M_PI</span>
+<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#define M_PI 3.14159265358979323846</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span>
+<a name="l00016"></a>00016 
+<a name="l00023"></a>00023 QPointF tileForCoordinate(qreal lat, qreal lng, <span class="keywordtype">int</span> zoom);
+<a name="l00024"></a>00024 qreal longitudeFromTile(qreal tx, <span class="keywordtype">int</span> zoom);<span class="comment">//Vrati hodnotu zemepisnej dlzky</span>
+<a name="l00025"></a>00025 qreal latitudeFromTile(qreal ty, <span class="keywordtype">int</span> zoom);<span class="comment">//Vrati honotu zemepisnej sirky</span>
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="keyword">typedef</span> QVector&lt;QPolygon&gt; PolygonVector; <span class="comment">//Vektor polygónov</span>
+<a name="l00028"></a>00028 
+<a name="l00029"></a><a class="code" href="classSlippyMap.html">00029</a> <span class="keyword">class </span><a class="code" href="classSlippyMap.html">SlippyMap</a> : <span class="keyword">public</span> QObject
+<a name="l00030"></a>00030 {
+<a name="l00031"></a>00031     Q_OBJECT
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="keyword">public</span>:
+<a name="l00034"></a>00034     <span class="keywordtype">int</span> width;
+<a name="l00035"></a>00035     <span class="keywordtype">int</span> height;
+<a name="l00036"></a>00036     <span class="keywordtype">int</span> zoom;
+<a name="l00037"></a>00037     qreal latitude;
+<a name="l00038"></a>00038     qreal longitude;
+<a name="l00039"></a>00039     <span class="keywordtype">bool</span> navigate;
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041     <a class="code" href="classSlippyMap.html#aefaa28b154b2e9602b391668ed167080">SlippyMap</a>(QObject *parent = 0);
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043     <span class="keyword">virtual</span> ~<a class="code" href="classSlippyMap.html">SlippyMap</a>();
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046     <span class="keywordtype">void</span> invalidate();
+<a name="l00047"></a>00047     <span class="keywordtype">void</span> <a class="code" href="classSlippyMap.html#ada1e00e2870d0fdeb70c037b3222a0ad">render</a>(QPainter *p, <span class="keyword">const</span> QRect &amp;rect);
+<a name="l00048"></a>00048     <span class="keywordtype">void</span> <a class="code" href="classSlippyMap.html#ae954bbb164e84e5cecf3fbb518eb266c">pan</a>(<span class="keyword">const</span> QPoint &amp;delta);
+<a name="l00049"></a>00049     <span class="keywordtype">void</span> <a class="code" href="classSlippyMap.html#aa356b5be43bc1ea6b49e213f18da09ba">setTrack</a>(QVector&lt;PolygonVector&gt; pg);
+<a name="l00050"></a>00050     <span class="keywordtype">void</span> <a class="code" href="classSlippyMap.html#a299e4c0fd46ed2d3de7fb98912f2e1f4">setWpt</a>(QVector&lt;QPoint&gt; wpt);
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 <span class="keyword">private</span> slots:
+<a name="l00053"></a>00053     <span class="keywordtype">void</span> handleNetworkData(QNetworkReply *reply);
+<a name="l00054"></a>00054     <span class="keywordtype">void</span> <a class="code" href="classSlippyMap.html#a25dc08d50224b8aa392adbaa1667bbc1">download</a>();
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 signals:
+<a name="l00057"></a>00057     <span class="keywordtype">void</span> updated(<span class="keyword">const</span> QRect &amp;rect);
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="keyword">protected</span>:
+<a name="l00060"></a>00060     QRect tileRect(<span class="keyword">const</span> QPoint &amp;tp);
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 <span class="keyword">private</span>:
+<a name="l00066"></a><a class="code" href="classSlippyMap.html#a47e59b8548b1717b5c3209116d6ca7ac">00066</a>     <span class="keywordtype">int</span> <a class="code" href="classSlippyMap.html#a47e59b8548b1717b5c3209116d6ca7ac">numberOfTracks</a>;
+<a name="l00070"></a><a class="code" href="classSlippyMap.html#ab567edcd36cf42a7375024fb954c9eb8">00070</a>     QVector&lt;QPolygon&gt; <a class="code" href="classSlippyMap.html#ab567edcd36cf42a7375024fb954c9eb8">oneTrack</a>;
+<a name="l00074"></a><a class="code" href="classSlippyMap.html#a0fe04653e97bcbafd9326eb0ace795c6">00074</a>     QVector&lt;PolygonVector&gt; <a class="code" href="classSlippyMap.html#a0fe04653e97bcbafd9326eb0ace795c6">allTracks</a>;
+<a name="l00078"></a><a class="code" href="classSlippyMap.html#a063abfa3d11e33fe71b7552c6db1c46b">00078</a>     QVector&lt;QPoint&gt; <a class="code" href="classSlippyMap.html#a063abfa3d11e33fe71b7552c6db1c46b">wayPoints</a>;
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080     QPoint m_offset;
+<a name="l00081"></a>00081     QRect m_tilesRect;
+<a name="l00082"></a>00082     QPixmap m_emptyTile;
+<a name="l00083"></a>00083     QHash&lt;QPoint, QPixmap&gt; m_tilePixmaps;
+<a name="l00084"></a>00084     QNetworkAccessManager m_manager;
+<a name="l00085"></a>00085     QUrl m_url;
+<a name="l00086"></a>00086 };
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 <span class="preprocessor">#endif // SLIPPYMAP_H</span>
+</pre></div></div>
+<hr></hr>
+<div id="footer">OSM_Navigation </div>
+</body>
+</html>

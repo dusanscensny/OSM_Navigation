@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>OSM_Navigation: mapzoom.cpp Source File</title>
+  <link href="simunet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+<a href="index.html">Hlavná stránka</a>&nbsp;&middot;&nbsp;<a href="annotated.html">Triedy</a>
+</div>
+<!-- Generované programom Doxygen 1.6.1 -->
+<h1>mapzoom.cpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;mapzoom.h&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;iostream&quot;</span>
+<a name="l00010"></a><a class="code" href="classMapZoom.html#ad44e439a9c8949d40280e76fb9974329">00010</a>     <a class="code" href="classMapZoom.html#ad44e439a9c8949d40280e76fb9974329">MapZoom::MapZoom</a>(): QMainWindow(0) {
+<a name="l00011"></a>00011         map = <span class="keyword">new</span> <a class="code" href="classLightMaps.html">LightMaps</a>(<span class="keyword">this</span>);
+<a name="l00012"></a>00012         QWidget *main = <span class="keyword">new</span> QWidget;
+<a name="l00013"></a>00013         setCentralWidget(main);        
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015         QToolBar *toolbar = <span class="keyword">new</span> QToolBar(tr(<span class="stringliteral">&quot;Tool&quot;</span>), 0);
+<a name="l00016"></a>00016         toolbar-&gt;setMaximumHeight(30);
+<a name="l00017"></a>00017         QPushButton *zoom_plus = <span class="keyword">new</span> QPushButton(QIcon(<span class="stringliteral">&quot;img/plus.png&quot;</span>),tr(<span class="stringliteral">&quot;&amp;+&quot;</span>));
+<a name="l00018"></a>00018         QPushButton *zoom_minus = <span class="keyword">new</span> QPushButton(QIcon(<span class="stringliteral">&quot;img/minus.png&quot;</span>),tr(<span class="stringliteral">&quot;&amp;-&quot;</span>));
+<a name="l00019"></a>00019         QPushButton *home = <span class="keyword">new</span> QPushButton(QIcon(<span class="stringliteral">&quot;img/home.png&quot;</span>),tr(<span class="stringliteral">&quot;&amp;Žilina&quot;</span>));        
+<a name="l00020"></a>00020         QPushButton *drawTracks = <span class="keyword">new</span> QPushButton(QIcon(<span class="stringliteral">&quot;img/open.png&quot;</span>),tr(<span class="stringliteral">&quot;Load T&amp;racks&quot;</span>));
+<a name="l00021"></a>00021         navigate = <span class="keyword">new</span> QPushButton(QIcon(<span class="stringliteral">&quot;img/find.png&quot;</span>),tr(<span class="stringliteral">&quot;Find position&quot;</span>));
+<a name="l00022"></a>00022         connectBTN = <span class="keyword">new</span> QPushButton(QIcon(<span class="stringliteral">&quot;img/connect.png&quot;</span>),tr(<span class="stringliteral">&quot;Connect&quot;</span>));
+<a name="l00023"></a>00023         waypoints = <span class="keyword">new</span> QPushButton(QIcon(<span class="stringliteral">&quot;img/draw.png&quot;</span>),tr(<span class="stringliteral">&quot;Draw waypoints&quot;</span>));
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025         toolbar -&gt; addWidget(zoom_plus);
+<a name="l00026"></a>00026         toolbar -&gt; addWidget(zoom_minus);
+<a name="l00027"></a>00027         toolbar -&gt; addSeparator();
+<a name="l00028"></a>00028         toolbar -&gt; addWidget(home);
+<a name="l00029"></a>00029         toolbar -&gt; addSeparator();
+<a name="l00030"></a>00030         toolbar -&gt; addWidget(drawTracks);
+<a name="l00031"></a>00031         toolbar -&gt; addWidget(waypoints);
+<a name="l00032"></a>00032         toolbar -&gt; addSeparator();
+<a name="l00033"></a>00033         toolbar -&gt; addWidget(navigate);        
+<a name="l00034"></a>00034         toolbar -&gt; addWidget(connectBTN);
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037         control_layout = <span class="keyword">new</span> QHBoxLayout;
+<a name="l00038"></a>00038         control_layout-&gt;addWidget(toolbar);
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040         main_layout = <span class="keyword">new</span> QVBoxLayout;
+<a name="l00041"></a>00041         main_layout -&gt; addLayout(control_layout);
+<a name="l00042"></a>00042         main_layout -&gt; addWidget(map);
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044         main-&gt;setLayout(main_layout);
+<a name="l00045"></a>00045         map-&gt;setFocus();        
+<a name="l00046"></a>00046         <a class="code" href="classMapZoom.html#aadc5e5faa2353fa99966147ae2ae1210">set_home</a>();
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048         QAction *nightModeAction = <span class="keyword">new</span> QAction(QIcon(<span class="stringliteral">&quot;img/night.png&quot;</span>),tr(<span class="stringliteral">&quot;Night Mode&quot;</span>), <span class="keyword">this</span>);
+<a name="l00049"></a>00049         nightModeAction-&gt;setCheckable(<span class="keyword">true</span>);
+<a name="l00050"></a>00050         nightModeAction-&gt;setChecked(<span class="keyword">false</span>);
+<a name="l00051"></a>00051         QAction *osmAction = <span class="keyword">new</span> QAction(QIcon(<span class="stringliteral">&quot;img/osm.png&quot;</span>),tr(<span class="stringliteral">&quot;About OpenStreetMap&quot;</span>), <span class="keyword">this</span>);
+<a name="l00052"></a>00052         QAction *zilinaAction = <span class="keyword">new</span> QAction(QIcon(<span class="stringliteral">&quot;img/home.png&quot;</span>),tr(<span class="stringliteral">&quot;Ž&amp;ilina&quot;</span>),<span class="keyword">this</span>);
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054         connect(nightModeAction, SIGNAL(triggered()), map, SLOT(toggleNightMode()));
+<a name="l00055"></a>00055         connect(zoom_plus, SIGNAL(clicked()), SLOT(<a class="code" href="classMapZoom.html#a005b2a7dae51e8e1b70102e6a9cb86e4">zoom_plus_click</a>()));
+<a name="l00056"></a>00056         connect(zoom_minus, SIGNAL(clicked()), SLOT(<a class="code" href="classMapZoom.html#ad3c2639f8fd05ea568e942e678b49c5a">zoom_minus_click</a>()));
+<a name="l00057"></a>00057         connect(home, SIGNAL(clicked()),SLOT(<a class="code" href="classMapZoom.html#aadc5e5faa2353fa99966147ae2ae1210">set_home</a>()));
+<a name="l00058"></a>00058         connect(zilinaAction, SIGNAL(triggered()),SLOT(<a class="code" href="classMapZoom.html#aadc5e5faa2353fa99966147ae2ae1210">set_home</a>()));
+<a name="l00059"></a>00059         connect(osmAction, SIGNAL(triggered()), SLOT(aboutOsm()));
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061         <span class="comment">//trasy a zaujímavé body</span>
+<a name="l00062"></a>00062         connect(drawTracks, SIGNAL(clicked()),SLOT(<a class="code" href="classMapZoom.html#adb8536319cebf99fc41779603f088e3c">draw_tracks</a>()));
+<a name="l00063"></a>00063         connect(waypoints, SIGNAL(clicked()),SLOT(<a class="code" href="classMapZoom.html#ac86310fa30d676c989c918c414701aa7">draw_waypoints</a>()));
+<a name="l00064"></a>00064         waypoints-&gt;setDisabled(<span class="keyword">true</span>);<span class="comment">//Zablokuje talčidlo pretože bez načítania dát zo súboru je nepoužiteľné</span>
+<a name="l00065"></a>00065         track = <span class="keyword">new</span> <a class="code" href="classTracks.html" title="Táto trieda komunikuje s GUI častou aplikácie.">Tracks</a>();
+<a name="l00066"></a>00066         <span class="comment">//trasy a zaujímavé body</span>
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068         <span class="comment">//pripojenie gps prístroja</span>
+<a name="l00069"></a>00069         connect(connectBTN, SIGNAL(clicked()),SLOT(<a class="code" href="classMapZoom.html#aff2d6e7225bbd67b1b70cfc9177aa887">connectToDevice</a>()));
+<a name="l00070"></a>00070         procConnect = <span class="keyword">new</span> QProcess(<span class="keyword">this</span>);
+<a name="l00071"></a>00071         procConnect-&gt;setReadChannel(QProcess::StandardError);
+<a name="l00072"></a>00072         connect(procConnect, SIGNAL(readyReadStandardOutput()), <span class="keyword">this</span>, SLOT(<a class="code" href="classMapZoom.html#a9f1d51f28cdb3aca55d9b046e454f65c">infoAboutDevice</a>()));
+<a name="l00073"></a>00073         <a class="code" href="classMapZoom.html#aaa6f3d277e39812dc1a4736077ced013">conDev</a> = <span class="keyword">false</span>;<span class="comment">//pripojenie pristroja  použijeme pri zmene stavu</span>
+<a name="l00074"></a>00074         <span class="comment">//pripojenie gps prístroja</span>
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076         <span class="comment">//cast pre timer a nastavenie aktuálnej pozície</span>
+<a name="l00077"></a>00077         navigate-&gt;setDisabled(<span class="keyword">true</span>);<span class="comment">//Zablokuje talčidlo pretože bez pripojenia prístroja je nepoužiteľné</span>
+<a name="l00078"></a>00078         connect(navigate, SIGNAL(clicked()),SLOT(<a class="code" href="classMapZoom.html#ab2ddf948e409f0a7d81449fe141858d9">actual_position</a>()));
+<a name="l00079"></a>00079         <a class="code" href="classMapZoom.html#ae7476ca44a95115779c424eb2614d422">conBtn</a> = <span class="keyword">true</span>; <span class="comment">//nastaví stav (dôležitý pri zmene názvu tlačidla)</span>
+<a name="l00080"></a>00080         <a class="code" href="classMapZoom.html#a26f6592f35ebdeedc1f9715593afb764">timer</a> = <span class="keyword">new</span> QTimer(<span class="keyword">this</span>);
+<a name="l00081"></a>00081         connect(<a class="code" href="classMapZoom.html#a26f6592f35ebdeedc1f9715593afb764">timer</a>, SIGNAL(timeout()), <span class="keyword">this</span>, SLOT(<a class="code" href="classMapZoom.html#a490ebd27b7fa5dc3714cb522d0ba8bea">control_devices</a>()));
+<a name="l00082"></a>00082         proc = <span class="keyword">new</span> QProcess(<span class="keyword">this</span>);
+<a name="l00083"></a>00083         proc-&gt;setReadChannel(QProcess::StandardOutput);        
+<a name="l00084"></a>00084         connect(proc, SIGNAL(readyReadStandardOutput()), <span class="keyword">this</span>, SLOT(<a class="code" href="classMapZoom.html#a9f0fe8df4f670a09484df864c12355d9">readStdout</a>()));
+<a name="l00085"></a>00085         <span class="comment">//cast pre timer</span>
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087         QMenu *menu = menuBar()-&gt;addMenu(QIcon(<span class="stringliteral">&quot;img/options.png&quot;</span>),tr(<span class="stringliteral">&quot;&amp;Options&quot;</span>));
+<a name="l00088"></a>00088         menu-&gt;addAction(nightModeAction);
+<a name="l00089"></a>00089         menu-&gt;addSeparator();
+<a name="l00090"></a>00090         menu-&gt;addAction(zilinaAction);
+<a name="l00091"></a>00091         menu-&gt;addAction(osmAction);
+<a name="l00092"></a>00092         menu = menuBar()-&gt;addMenu(tr(<span class="stringliteral">&quot;Gebabbel&quot;</span>));
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094         <span class="comment">//spustenie programu gebabbel</span>
+<a name="l00095"></a>00095         <a class="code" href="classMapZoom.html#a2123cd2139a7c7fbadee15bd50ddc836">conBab</a> = <span class="keyword">true</span>;
+<a name="l00096"></a>00096         <a class="code" href="classMapZoom.html#ac86ba683af15f8b23d9cdc8a005ebff2">babel</a> = <span class="keyword">new</span> QProcess(<span class="keyword">this</span>);
+<a name="l00097"></a>00097         QAction *gbabel = <span class="keyword">new</span> QAction(QIcon(<span class="stringliteral">&quot;img/gebabbel.png&quot;</span>),tr(<span class="stringliteral">&quot;Run Gebabel&quot;</span>),<span class="keyword">this</span>);
+<a name="l00098"></a>00098         menu-&gt;addAction(gbabel);
+<a name="l00099"></a>00099         connect(gbabel, SIGNAL(triggered()),SLOT(<a class="code" href="classMapZoom.html#af41b79184e441659075289d449535a03">runGebabel</a>()));
+<a name="l00100"></a>00100         <span class="comment">//spustenie programu gebabbel</span>
+<a name="l00101"></a>00101     }
+<a name="l00106"></a><a class="code" href="classMapZoom.html#af41b79184e441659075289d449535a03">00106</a>     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#af41b79184e441659075289d449535a03">MapZoom::runGebabel</a>(){        
+<a name="l00107"></a>00107         <span class="keywordflow">if</span>(<a class="code" href="classMapZoom.html#a2123cd2139a7c7fbadee15bd50ddc836">conBab</a>){        
+<a name="l00108"></a>00108         <a class="code" href="classMapZoom.html#ac86ba683af15f8b23d9cdc8a005ebff2">babel</a>-&gt;start(<span class="stringliteral">&quot;gebabbel&quot;</span>);        
+<a name="l00109"></a>00109         <a class="code" href="classMapZoom.html#a2123cd2139a7c7fbadee15bd50ddc836">conBab</a> = <span class="keyword">false</span>;
+<a name="l00110"></a>00110     }<span class="keywordflow">else</span>{        
+<a name="l00111"></a>00111         <span class="keywordflow">if</span>(QMessageBox::information(<span class="keyword">this</span>,
+<a name="l00112"></a>00112                               <span class="stringliteral">&quot;End the application?&quot;</span>,
+<a name="l00113"></a>00113                               <span class="stringliteral">&quot;OK to END&quot;</span>,
+<a name="l00114"></a>00114                               QMessageBox::Ok, QMessageBox::Cancel) == 0x400){
+<a name="l00115"></a>00115         <a class="code" href="classMapZoom.html#ac86ba683af15f8b23d9cdc8a005ebff2">babel</a>-&gt;terminate();
+<a name="l00116"></a>00116         <a class="code" href="classMapZoom.html#ac86ba683af15f8b23d9cdc8a005ebff2">babel</a>-&gt;close();
+<a name="l00117"></a>00117         <a class="code" href="classMapZoom.html#a2123cd2139a7c7fbadee15bd50ddc836">conBab</a> = <span class="keyword">true</span>;
+<a name="l00118"></a>00118     }
+<a name="l00119"></a>00119     }
+<a name="l00120"></a>00120     }
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122     <span class="keywordtype">void</span> MapZoom::aboutOsm() {
+<a name="l00123"></a>00123         QDesktopServices::openUrl(QUrl(<span class="stringliteral">&quot;http://www.openstreetmap.org&quot;</span>));
+<a name="l00124"></a>00124     }
+<a name="l00128"></a><a class="code" href="classMapZoom.html#a005b2a7dae51e8e1b70102e6a9cb86e4">00128</a>     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#a005b2a7dae51e8e1b70102e6a9cb86e4">MapZoom::zoom_plus_click</a>(){
+<a name="l00129"></a>00129         map-&gt;<a class="code" href="classLightMaps.html#ae85fe95103f428f0511510789f02bb0f">setZoom_p</a>();
+<a name="l00130"></a>00130         map-&gt;setFocus();
+<a name="l00131"></a>00131     }
+<a name="l00132"></a>00132 
+<a name="l00137"></a><a class="code" href="classMapZoom.html#ad3c2639f8fd05ea568e942e678b49c5a">00137</a>     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#ad3c2639f8fd05ea568e942e678b49c5a">MapZoom::zoom_minus_click</a>(){
+<a name="l00138"></a>00138         map-&gt;<a class="code" href="classLightMaps.html#af16072c5bd79130a24265b030c0b8809">setZoom_m</a>();
+<a name="l00139"></a>00139         map-&gt;setFocus();
+<a name="l00140"></a>00140     }
+<a name="l00141"></a>00141 
+<a name="l00145"></a><a class="code" href="classMapZoom.html#aadc5e5faa2353fa99966147ae2ae1210">00145</a>     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#aadc5e5faa2353fa99966147ae2ae1210">MapZoom::set_home</a>(){<span class="comment">//zilina</span>
+<a name="l00146"></a>00146         map-&gt;<a class="code" href="classLightMaps.html#a48a673b2f3167a02004ced0b182a8498">setCenter</a>(49.223377,18.739277);
+<a name="l00147"></a>00147         map-&gt;setFocus();
+<a name="l00148"></a>00148     }
+<a name="l00152"></a><a class="code" href="classMapZoom.html#adb8536319cebf99fc41779603f088e3c">00152</a>     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#adb8536319cebf99fc41779603f088e3c">MapZoom::draw_tracks</a>(){                
+<a name="l00153"></a>00153         map-&gt;<a class="code" href="classLightMaps.html#a8f244b845c00c6f15417b4fbc5409027">setTrack</a>(track-&gt;<a class="code" href="classTracks.html#a420b5f0afac1466a72b07bd347a6a6e5">open</a>());
+<a name="l00154"></a>00154         map-&gt;setFocus();
+<a name="l00155"></a>00155         waypoints-&gt;setDisabled(<span class="keyword">false</span>);
+<a name="l00156"></a>00156     }    
+<a name="l00160"></a><a class="code" href="classMapZoom.html#ac86310fa30d676c989c918c414701aa7">00160</a>     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#ac86310fa30d676c989c918c414701aa7">MapZoom::draw_waypoints</a>(){
+<a name="l00161"></a>00161         map-&gt;<a class="code" href="classLightMaps.html#a43bc06f6dd6a20196c55e945aadca5d5">setWayPoints</a>(track-&gt;getWaypoints());
+<a name="l00162"></a>00162         map-&gt;setFocus();
+<a name="l00163"></a>00163     }
+<a name="l00168"></a><a class="code" href="classMapZoom.html#ab2ddf948e409f0a7d81449fe141858d9">00168</a>     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#ab2ddf948e409f0a7d81449fe141858d9">MapZoom::actual_position</a>(){
+<a name="l00169"></a>00169         <span class="keywordflow">if</span> (<a class="code" href="classMapZoom.html#ae7476ca44a95115779c424eb2614d422">conBtn</a>){
+<a name="l00170"></a>00170         navigate-&gt;setText(tr(<span class="stringliteral">&quot;Stop&quot;</span>));
+<a name="l00171"></a>00171         <a class="code" href="classMapZoom.html#a26f6592f35ebdeedc1f9715593afb764">timer</a>-&gt;start(1000);
+<a name="l00172"></a>00172         <a class="code" href="classMapZoom.html#ae7476ca44a95115779c424eb2614d422">conBtn</a> = <span class="keyword">false</span>;
+<a name="l00173"></a>00173         map-&gt;<a class="code" href="classLightMaps.html#a779d04ee61a8235d0b31c7064dca8f44">drawActualPosition</a>(<span class="keyword">true</span>);
+<a name="l00174"></a>00174         }<span class="keywordflow">else</span> {
+<a name="l00175"></a>00175             <a class="code" href="classMapZoom.html#a26f6592f35ebdeedc1f9715593afb764">timer</a>-&gt;stop();
+<a name="l00176"></a>00176             <a class="code" href="classMapZoom.html#ae7476ca44a95115779c424eb2614d422">conBtn</a> = <span class="keyword">true</span>;
+<a name="l00177"></a>00177             navigate-&gt;setText(tr(<span class="stringliteral">&quot;Find position&quot;</span>));
+<a name="l00178"></a>00178             map-&gt;<a class="code" href="classLightMaps.html#a779d04ee61a8235d0b31c7064dca8f44">drawActualPosition</a>(<span class="keyword">false</span>);
+<a name="l00179"></a>00179         }
+<a name="l00180"></a>00180         map-&gt;setFocus();
+<a name="l00181"></a>00181     }
+<a name="l00182"></a>00182 
+<a name="l00187"></a><a class="code" href="classMapZoom.html#a490ebd27b7fa5dc3714cb522d0ba8bea">00187</a>     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#a490ebd27b7fa5dc3714cb522d0ba8bea">MapZoom::control_devices</a>(){              
+<a name="l00188"></a>00188     <span class="keywordflow">if</span>(!<a class="code" href="classMapZoom.html#ae7476ca44a95115779c424eb2614d422">conBtn</a>){
+<a name="l00189"></a>00189         <span class="keywordflow">if</span>(!proc-&gt;isOpen()){
+<a name="l00190"></a>00190             <span class="keywordflow">if</span>(<a class="code" href="classMapZoom.html#a493be1c970c38d15e65cd101fa186744">usb</a>){
+<a name="l00191"></a>00191                 proc-&gt;start(<span class="stringliteral">&quot;cat /dev/ttyUSB0&quot;</span>);
+<a name="l00192"></a>00192             }<span class="keywordflow">else</span> proc-&gt;start(<span class="stringliteral">&quot;cat /dev/rfcomm0&quot;</span>);
+<a name="l00193"></a>00193 
+<a name="l00194"></a>00194 
+<a name="l00195"></a>00195         }<span class="keywordflow">else</span> proc-&gt;close();
+<a name="l00196"></a>00196     }
+<a name="l00197"></a>00197     }      
+<a name="l00202"></a><a class="code" href="classMapZoom.html#a9f0fe8df4f670a09484df864c12355d9">00202</a>     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#a9f0fe8df4f670a09484df864c12355d9">MapZoom::readStdout</a>(){
+<a name="l00203"></a>00203         <span class="keywordflow">if</span> (proc-&gt;isReadable()){
+<a name="l00204"></a>00204             QByteArray data = proc-&gt;readAllStandardOutput();            
+<a name="l00205"></a>00205             actualPos = nav.<a class="code" href="classNavigation.html#afadec7aadf1478bcb73873fc222d84c0">findDevices</a>(data);
+<a name="l00206"></a>00206             <span class="keywordflow">if</span>((actualPos.x() != 0.0) or (actualPos.y()!= 0.0)){
+<a name="l00207"></a>00207                 map-&gt;<a class="code" href="classLightMaps.html#a48a673b2f3167a02004ced0b182a8498">setCenter</a>(actualPos.x(),actualPos.y());
+<a name="l00208"></a>00208             }<span class="keywordflow">else</span> <a class="code" href="classMapZoom.html#ab2ddf948e409f0a7d81449fe141858d9">actual_position</a>();
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210         }
+<a name="l00211"></a>00211         proc-&gt;terminate();
+<a name="l00212"></a>00212         proc-&gt;close();
+<a name="l00213"></a>00213 
+<a name="l00214"></a>00214     }      
+<a name="l00220"></a><a class="code" href="classMapZoom.html#aff2d6e7225bbd67b1b70cfc9177aa887">00220</a>     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#aff2d6e7225bbd67b1b70cfc9177aa887">MapZoom::connectToDevice</a>(){
+<a name="l00221"></a>00221         <span class="keywordflow">if</span>(!<a class="code" href="classMapZoom.html#aaa6f3d277e39812dc1a4736077ced013">conDev</a>){<span class="comment">//ak nie je pripojený prístroj</span>
+<a name="l00222"></a>00222         QByteArray data;
+<a name="l00223"></a>00223         QDialog *choosedialog = <span class="keyword">new</span> QDialog(<span class="keyword">this</span>);
+<a name="l00224"></a>00224         QVBoxLayout *chooselayout = <span class="keyword">new</span> QVBoxLayout;
+<a name="l00225"></a>00225         QRadioButton *radio1 = <span class="keyword">new</span> QRadioButton(tr(<span class="stringliteral">&quot;&amp;USB&quot;</span>));
+<a name="l00226"></a>00226         QRadioButton *radio2 = <span class="keyword">new</span> QRadioButton(tr(<span class="stringliteral">&quot;&amp;Bluetooth&quot;</span>));
+<a name="l00227"></a>00227         radio1-&gt;setChecked(<span class="keyword">true</span>);
+<a name="l00228"></a>00228         chooselayout-&gt;addWidget(radio1);
+<a name="l00229"></a>00229         chooselayout-&gt;addWidget(radio2);
+<a name="l00230"></a>00230         QDialogButtonBox *btn = <span class="keyword">new</span> QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+<a name="l00231"></a>00231         chooselayout-&gt;addWidget(btn);
+<a name="l00232"></a>00232         connect(btn, SIGNAL(accepted()), choosedialog, SLOT(accept()));
+<a name="l00233"></a>00233         connect(btn, SIGNAL(rejected()), choosedialog, SLOT(reject()));
+<a name="l00234"></a>00234         choosedialog-&gt;setLayout(chooselayout);
+<a name="l00235"></a>00235 
+<a name="l00236"></a>00236         <span class="keywordflow">if</span>(choosedialog-&gt;exec() == QDialog::Accepted){
+<a name="l00237"></a>00237             <span class="keywordflow">if</span>(radio1-&gt;isChecked()){
+<a name="l00238"></a>00238                 <span class="keywordflow">if</span>(!<a class="code" href="classMapZoom.html#aaa6f3d277e39812dc1a4736077ced013">conDev</a>){
+<a name="l00239"></a>00239                     map-&gt;setFocus();
+<a name="l00240"></a>00240                     navigate-&gt;setDisabled(<span class="keyword">false</span>);
+<a name="l00241"></a>00241                     connectBTN-&gt;setText(tr(<span class="stringliteral">&quot;Disconnect&quot;</span>));
+<a name="l00242"></a>00242                     <a class="code" href="classMapZoom.html#aaa6f3d277e39812dc1a4736077ced013">conDev</a> = <span class="keyword">true</span>;
+<a name="l00243"></a>00243                     <a class="code" href="classMapZoom.html#a493be1c970c38d15e65cd101fa186744">usb</a> = <span class="keyword">true</span>;
+<a name="l00244"></a>00244                 }
+<a name="l00245"></a>00245 
+<a name="l00246"></a>00246             }<span class="keywordflow">else</span>{
+<a name="l00247"></a>00247                 <a class="code" href="classMapZoom.html#a493be1c970c38d15e65cd101fa186744">usb</a> = <span class="keyword">false</span>;<span class="comment">//bolo označebé Bluetooth</span>
+<a name="l00248"></a>00248 
+<a name="l00249"></a>00249                     QDialog *dialog = <span class="keyword">new</span> QDialog(<span class="keyword">this</span>);
+<a name="l00250"></a>00250                     QVBoxLayout *layout = <span class="keyword">new</span> QVBoxLayout;
+<a name="l00251"></a>00251                     dialog-&gt;setLayout(layout);
+<a name="l00252"></a>00252                     QLineEdit *line = <span class="keyword">new</span> QLineEdit;
+<a name="l00253"></a>00253                     line-&gt;setInputMask(<span class="stringliteral">&quot;HH:HH:HH:HH:HH:HH&quot;</span>);
+<a name="l00254"></a>00254                     layout-&gt;addWidget(line);
+<a name="l00255"></a>00255                     QDialogButtonBox *buttons = <span class="keyword">new</span> QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+<a name="l00256"></a>00256                     layout-&gt;addWidget(buttons);
+<a name="l00257"></a>00257                     connect(buttons, SIGNAL(accepted()), dialog, SLOT(accept()));
+<a name="l00258"></a>00258                     connect(buttons, SIGNAL(rejected()), dialog, SLOT(reject()));
+<a name="l00259"></a>00259                     line-&gt;setText(<span class="stringliteral">&quot;00:0B:0D:95:70:D1&quot;</span>);
+<a name="l00260"></a>00260                     <span class="keywordflow">if</span> (dialog-&gt;exec() == QDialog::Accepted){
+<a name="l00261"></a>00261                         procConnect-&gt;start(<span class="stringliteral">&quot;rfcomm connect rfc0 &quot;</span> + line-&gt;text());
+<a name="l00262"></a>00262                         <span class="keywordflow">if</span>(procConnect-&gt;isReadable()){
+<a name="l00263"></a>00263                             data = procConnect-&gt;readAllStandardOutput();
+<a name="l00264"></a>00264                             std::cerr&lt;&lt;<span class="stringliteral">&quot;Data: &quot;</span>&lt;&lt;data.size()&lt;&lt;procConnect-&gt;exitCode()&lt;&lt; std::endl;
+<a name="l00265"></a>00265                             map-&gt;setFocus();
+<a name="l00266"></a>00266                             navigate-&gt;setDisabled(<span class="keyword">false</span>);
+<a name="l00267"></a>00267                             connectBTN-&gt;setText(tr(<span class="stringliteral">&quot;Disconnect&quot;</span>));
+<a name="l00268"></a>00268                             <a class="code" href="classMapZoom.html#aaa6f3d277e39812dc1a4736077ced013">conDev</a> = <span class="keyword">true</span>;
+<a name="l00269"></a>00269                         }<span class="keywordflow">else</span> {
+<a name="l00270"></a>00270                             QMessageBox::warning(<span class="keyword">this</span>,
+<a name="l00271"></a>00271                                                  procConnect-&gt;errorString(),
+<a name="l00272"></a>00272                                                  <span class="stringliteral">&quot;OK to END&quot;</span>,
+<a name="l00273"></a>00273                                                  QMessageBox::Ok, QMessageBox::Cancel);
+<a name="l00274"></a>00274                         }
+<a name="l00275"></a>00275                     }                
+<a name="l00276"></a>00276             }
+<a name="l00277"></a>00277         }
+<a name="l00278"></a>00278         }<span class="keywordflow">else</span>{
+<a name="l00279"></a>00279                     <span class="keywordflow">if</span>(!<a class="code" href="classMapZoom.html#ae7476ca44a95115779c424eb2614d422">conBtn</a>) <a class="code" href="classMapZoom.html#ab2ddf948e409f0a7d81449fe141858d9">actual_position</a>();
+<a name="l00280"></a>00280                     navigate-&gt;setDisabled(<span class="keyword">true</span>);
+<a name="l00281"></a>00281                     connectBTN-&gt;setText(tr(<span class="stringliteral">&quot;Connect&quot;</span>));
+<a name="l00282"></a>00282                     procConnect-&gt;terminate();
+<a name="l00283"></a>00283                     procConnect-&gt;kill();
+<a name="l00284"></a>00284                     procConnect-&gt;close();
+<a name="l00285"></a>00285                     <a class="code" href="classMapZoom.html#aaa6f3d277e39812dc1a4736077ced013">conDev</a>= <span class="keyword">false</span>;
+<a name="l00286"></a>00286                 }
+<a name="l00287"></a>00287     }
+<a name="l00292"></a><a class="code" href="classMapZoom.html#a9f1d51f28cdb3aca55d9b046e454f65c">00292</a>     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#a9f1d51f28cdb3aca55d9b046e454f65c">MapZoom::infoAboutDevice</a>(){
+<a name="l00293"></a>00293         <span class="keywordflow">if</span>(proc-&gt;isReadable()){
+<a name="l00294"></a>00294             QByteArray data = procConnect-&gt;readAllStandardOutput();
+<a name="l00295"></a>00295             std::cerr&lt;&lt;<span class="stringliteral">&quot;Data: &quot;</span>&lt;&lt;data.constData()&lt;&lt; std::endl;
+<a name="l00296"></a>00296             <span class="comment">//printf(&quot;%s \n&quot;,data.constData());</span>
+<a name="l00297"></a>00297         }<span class="keywordflow">else</span> std::cerr&lt;&lt;<span class="stringliteral">&quot;No redeable process: &quot;</span>&lt;&lt; std::endl;
+<a name="l00298"></a>00298     }
+<a name="l00299"></a>00299 
+<a name="l00303"></a><a class="code" href="classMapZoom.html#a6d5346fb9275c3a8b09d1abfc465563c">00303</a>     <a class="code" href="classMapZoom.html#a6d5346fb9275c3a8b09d1abfc465563c">MapZoom::~MapZoom</a>(){
+<a name="l00304"></a>00304         <a class="code" href="classMapZoom.html#ac86ba683af15f8b23d9cdc8a005ebff2">babel</a>-&gt;terminate();
+<a name="l00305"></a>00305         <a class="code" href="classMapZoom.html#ac86ba683af15f8b23d9cdc8a005ebff2">babel</a>-&gt;close();
+<a name="l00306"></a>00306         <span class="keywordflow">if</span> (<a class="code" href="classMapZoom.html#ac86ba683af15f8b23d9cdc8a005ebff2">babel</a> != NULL){
+<a name="l00307"></a>00307             <span class="keyword">delete</span> <a class="code" href="classMapZoom.html#ac86ba683af15f8b23d9cdc8a005ebff2">babel</a>;
+<a name="l00308"></a>00308             <a class="code" href="classMapZoom.html#ac86ba683af15f8b23d9cdc8a005ebff2">babel</a> = NULL;
+<a name="l00309"></a>00309         }
+<a name="l00310"></a>00310         <span class="keywordflow">if</span>(<a class="code" href="classMapZoom.html#a26f6592f35ebdeedc1f9715593afb764">timer</a> != NULL){
+<a name="l00311"></a>00311             <span class="keyword">delete</span> <a class="code" href="classMapZoom.html#a26f6592f35ebdeedc1f9715593afb764">timer</a>;
+<a name="l00312"></a>00312             <a class="code" href="classMapZoom.html#a26f6592f35ebdeedc1f9715593afb764">timer</a> = NULL;
+<a name="l00313"></a>00313         }        
+<a name="l00314"></a>00314         <span class="keywordflow">if</span>(proc != NULL){
+<a name="l00315"></a>00315             <span class="keyword">delete</span> proc;
+<a name="l00316"></a>00316             proc = NULL;
+<a name="l00317"></a>00317         }
+<a name="l00318"></a>00318         <span class="keywordflow">if</span>(procConnect != NULL){
+<a name="l00319"></a>00319             <span class="keyword">delete</span> procConnect;
+<a name="l00320"></a>00320             procConnect = NULL;
+<a name="l00321"></a>00321         }
+<a name="l00322"></a>00322         <span class="keywordflow">if</span>(track != NULL){
+<a name="l00323"></a>00323             <span class="keyword">delete</span> track;
+<a name="l00324"></a>00324             track = NULL;
+<a name="l00325"></a>00325         }
+<a name="l00326"></a>00326 
+<a name="l00327"></a>00327     }
+</pre></div></div>
+<hr></hr>
+<div id="footer">OSM_Navigation </div>
+</body>
+</html>

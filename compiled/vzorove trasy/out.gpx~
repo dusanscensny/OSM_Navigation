@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx
+  version="1.0"
+  creator="GPSBabel - http://www.gpsbabel.org"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.topografix.com/GPX/1/0"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<time>2010-04-14T13:38:18Z</time>
+<trk>
+  <name>SkyTraq tracklog</name>
+  <desc>SkyTraq GPS tracklog data</desc>
+<trkseg>
+<trkpt lat="49.208751144" lon="18.760320946">
+  <ele>412.645970</ele>
+  <time>2010-04-14T10:51:10Z</time>
+  <speed>0.277778</speed>
+  <name>TP1570</name>
+</trkpt>
+<trkpt lat="49.208741938" lon="18.760325113">
+  <ele>414.850367</ele>
+  <time>2010-04-14T10:51:20Z</time>
+  <speed>0.000000</speed>
+  <name>TP1571</name>
+</trkpt>
+<trkpt lat="49.208736064" lon="18.760325113">
+  <ele>414.093273</ele>
+  <time>2010-04-14T10:51:39Z</time>
+  <speed>0.000000</speed>
+  <name>TP1572</name>
+</trkpt>
+<trkpt lat="49.208726955" lon="18.760359927">
+  <ele>411.005015</ele>
+  <time>2010-04-14T10:51:49Z</time>
+  <speed>1.666667</speed>
+  <name>TP1573</name>
+</trkpt>
+<trkpt lat="49.208657132" lon="18.760615639">
+  <ele>408.460281</ele>
+  <time>2010-04-14T10:51:59Z</time>
+  <speed>1.944444</speed>
+  <name>TP1574</name>
+</trkpt>
+<trkpt lat="49.208662650" lon="18.760819128">
+  <ele>418.497454</ele>
+  <time>2010-04-14T10:52:09Z</time>
+  <speed>1.388889</speed>
+  <name>TP1575</name>
+</trkpt>
+<trkpt lat="49.208709534" lon="18.760715177">
+  <ele>420.602008</ele>
+  <time>2010-04-14T10:52:19Z</time>
+  <speed>0.000000</speed>
+  <name>TP1576</name>
+</trkpt>
+<trkpt lat="49.208690906" lon="18.760515608">
+  <ele>417.106435</ele>
+  <time>2010-04-14T10:52:29Z</time>
+  <speed>0.277778</speed>
+  <name>TP1577</name>
+</trkpt>
+<trkpt lat="49.208626890" lon="18.760445978">
+  <ele>412.683626</ele>
+  <time>2010-04-14T10:52:39Z</time>
+  <speed>0.000000</speed>
+  <name>TP1578</name>
+</trkpt>
+<trkpt lat="49.208602373" lon="18.760393756">
+  <ele>412.394899</ele>
+  <time>2010-04-14T10:52:49Z</time>
+  <speed>0.000000</speed>
+  <name>TP1579</name>
+</trkpt>
+<trkpt lat="49.208587987" lon="18.760358942">
+  <ele>412.454781</ele>
+  <time>2010-04-14T10:52:59Z</time>
+  <speed>0.000000</speed>
+  <name>TP1580</name>
+</trkpt>
+<trkpt lat="49.208583731" lon="18.760341534">
+  <ele>412.863268</ele>
+  <time>2010-04-14T10:53:09Z</time>
+  <speed>0.000000</speed>
+  <name>TP1581</name>
+</trkpt>
+<trkpt lat="49.208587538" lon="18.760311133">
+  <ele>413.818739</ele>
+  <time>2010-04-14T10:53:19Z</time>
+  <speed>0.000000</speed>
+  <name>TP1582</name>
+</trkpt>
+<trkpt lat="49.208589155" lon="18.760293726">
+  <ele>414.984321</ele>
+  <time>2010-04-14T10:53:29Z</time>
+  <speed>0.000000</speed>
+  <name>TP1583</name>
+</trkpt>
+<trkpt lat="49.208611727" lon="18.760272151">
+  <ele>415.459689</ele>
+  <time>2010-04-14T10:53:39Z</time>
+  <speed>0.000000</speed>
+  <name>TP1584</name>
+</trkpt>
+<trkpt lat="49.208625786" lon="18.760215762">
+  <ele>416.752038</ele>
+  <time>2010-04-14T10:53:49Z</time>
+  <speed>0.000000</speed>
+  <name>TP1585</name>
+</trkpt>
+<trkpt lat="49.208652165" lon="18.760163786">
+  <ele>418.182884</ele>
+  <time>2010-04-14T10:53:59Z</time>
+  <speed>0.000000</speed>
+  <name>TP1586</name>
+</trkpt>
+<trkpt lat="49.208662989" lon="18.760142212">
+  <ele>417.144070</ele>
+  <time>2010-04-14T10:54:09Z</time>
+  <speed>0.000000</speed>
+  <name>TP1587</name>
+</trkpt>
+<trkpt lat="49.208665178" lon="18.760129218">
+  <ele>416.933962</ele>
+  <time>2010-04-14T10:54:19Z</time>
+  <speed>0.000000</speed>
+  <name>TP1588</name>
+</trkpt>
+<trkpt lat="49.208665750" lon="18.760133631">
+  <ele>415.558271</ele>
+  <time>2010-04-14T10:54:29Z</time>
+  <speed>0.277778</speed>
+  <name>TP1589</name>
+</trkpt>
+<trkpt lat="49.208659876" lon="18.760133631">
+  <ele>414.801177</ele>
+  <time>2010-04-14T10:54:39Z</time>
+  <speed>0.000000</speed>
+  <name>TP1590</name>
+</trkpt>
+<trkpt lat="49.208666321" lon="18.760138045">
+  <ele>414.182579</ele>
+  <time>2010-04-14T10:54:49Z</time>
+  <speed>0.277778</speed>
+  <name>TP1591</name>
+</trkpt>
+<trkpt lat="49.208672195" lon="18.760138045">
+  <ele>414.939673</ele>
+  <time>2010-04-14T10:54:59Z</time>
+  <speed>0.277778</speed>
+  <name>TP1592</name>
+</trkpt>
+<trkpt lat="49.208686704" lon="18.760129464">
+  <ele>414.868061</ele>
+  <time>2010-04-14T10:55:09Z</time>
+  <speed>0.000000</speed>
+  <name>TP1593</name>
+</trkpt>
+<trkpt lat="49.208707087" lon="18.760120884">
+  <ele>415.553544</ele>
+  <time>2010-04-14T10:55:19Z</time>
+  <speed>0.000000</speed>
+  <name>TP1594</name>
+</trkpt>
+<trkpt lat="49.208694767" lon="18.760116470">
+  <ele>415.415048</ele>
+  <time>2010-04-14T10:55:29Z</time>
+  <speed>0.277778</speed>
+  <name>TP1595</name>
+</trkpt>
+<trkpt lat="49.208676574" lon="18.760112057">
+  <ele>414.519457</ele>
+  <time>2010-04-14T10:55:39Z</time>
+  <speed>0.555556</speed>
+  <name>TP1596</name>
+</trkpt>
+<trkpt lat="49.208584694" lon="18.760141719">
+  <ele>416.733317</ele>
+  <time>2010-04-14T10:55:49Z</time>
+  <speed>1.111111</speed>
+  <name>TP1597</name>
+</trkpt>
+<trkpt lat="49.208542678" lon="18.760046102">
+  <ele>414.161605</ele>
+  <time>2010-04-14T10:55:59Z</time>
+  <speed>0.555556</speed>
+  <name>TP1598</name>
+</trkpt>
+<trkpt lat="49.208504468" lon="18.759920084">
+  <ele>412.545384</ele>
+  <time>2010-04-14T10:56:09Z</time>
+  <speed>0.555556</speed>
+  <name>TP1599</name>
+</trkpt>
+<trkpt lat="49.208458073" lon="18.759850455">
+  <ele>410.393907</ele>
+  <time>2010-04-14T10:56:19Z</time>
+  <speed>0.555556</speed>
+  <name>TP1600</name>
+</trkpt>
+<trkpt lat="49.208466708" lon="18.759841874">
+  <ele>409.565200</ele>
+  <time>2010-04-14T10:56:29Z</time>
+  <speed>0.555556</speed>
+  <name>TP1601</name>
+</trkpt>
+<trkpt lat="49.208459910" lon="18.759820300">
+  <ele>406.255113</ele>
+  <time>2010-04-14T10:56:39Z</time>
+  <speed>0.555556</speed>
+  <name>TP1602</name>
+</trkpt>
+<trkpt lat="49.208480292" lon="18.759811719">
+  <ele>406.940589</ele>
+  <time>2010-04-14T10:56:49Z</time>
+  <speed>0.000000</speed>
+  <name>TP1603</name>
+</trkpt>
+<trkpt lat="49.208509310" lon="18.759794558">
+  <ele>406.797360</ele>
+  <time>2010-04-14T10:56:59Z</time>
+  <speed>0.000000</speed>
+  <name>TP1604</name>
+</trkpt>
+<trkpt lat="49.208507120" lon="18.759807552">
+  <ele>407.007465</ele>
+  <time>2010-04-14T10:57:09Z</time>
+  <speed>0.277778</speed>
+  <name>TP1605</name>
+</trkpt>
+<trkpt lat="49.208513566" lon="18.759811965">
+  <ele>406.388864</ele>
+  <time>2010-04-14T10:57:19Z</time>
+  <speed>0.000000</speed>
+  <name>TP1606</name>
+</trkpt>
+<trkpt lat="49.208533948" lon="18.759803385">
+  <ele>407.074342</ele>
+  <time>2010-04-14T10:57:29Z</time>
+  <speed>0.000000</speed>
+  <name>TP1607</name>
+</trkpt>
+<trkpt lat="49.208539822" lon="18.759803385">
+  <ele>407.831435</ele>
+  <time>2010-04-14T10:57:39Z</time>
+  <speed>0.000000</speed>
+  <name>TP1608</name>
+</trkpt>
+<trkpt lat="49.208573096" lon="18.759803631">
+  <ele>407.279713</ele>
+  <time>2010-04-14T10:57:49Z</time>
+  <speed>0.000000</speed>
+  <name>TP1609</name>
+</trkpt>
+<trkpt lat="49.208581159" lon="18.759790637">
+  <ele>407.826702</ele>
+  <time>2010-04-14T10:57:59Z</time>
+  <speed>0.000000</speed>
+  <name>TP1610</name>
+</trkpt>
+<trkpt lat="49.208611672" lon="18.759799463">
+  <ele>408.860781</ele>
+  <time>2010-04-14T10:58:09Z</time>
+  <speed>0.277778</speed>
+  <name>TP1611</name>
+</trkpt>
+<trkpt lat="49.208624563" lon="18.759808290">
+  <ele>407.623581</ele>
+  <time>2010-04-14T10:58:19Z</time>
+  <speed>0.000000</speed>
+  <name>TP1612</name>
+</trkpt>
+<trkpt lat="49.208630437" lon="18.759808290">
+  <ele>408.380674</ele>
+  <time>2010-04-14T10:58:29Z</time>
+  <speed>0.000000</speed>
+  <name>TP1613</name>
+</trkpt>
+<trkpt lat="49.208615928" lon="18.759816871">
+  <ele>408.452285</ele>
+  <time>2010-04-14T10:58:39Z</time>
+  <speed>0.000000</speed>
+  <name>TP1614</name>
+</trkpt>
+<trkpt lat="49.208603609" lon="18.759812457">
+  <ele>408.313792</ele>
+  <time>2010-04-14T10:58:49Z</time>
+  <speed>0.000000</speed>
+  <name>TP1615</name>
+</trkpt>
+<trkpt lat="49.208610054" lon="18.759816871">
+  <ele>407.695192</ele>
+  <time>2010-04-14T10:59:01Z</time>
+  <speed>0.000000</speed>
+  <name>TP1616</name>
+</trkpt>
+<trkpt lat="49.208615928" lon="18.759816871">
+  <ele>408.452285</ele>
+  <time>2010-04-14T10:59:20Z</time>
+  <speed>0.000000</speed>
+  <name>TP1617</name>
+</trkpt>
+<trkpt lat="49.208630437" lon="18.759808290">
+  <ele>408.380674</ele>
+  <time>2010-04-14T10:59:30Z</time>
+  <speed>0.000000</speed>
+  <name>TP1618</name>
+</trkpt>
+<trkpt lat="49.208636311" lon="18.759808290">
+  <ele>409.137768</ele>
+  <time>2010-04-14T10:59:40Z</time>
+  <speed>0.000000</speed>
+  <name>TP1619</name>
+</trkpt>
+<trkpt lat="49.208638500" lon="18.759795296">
+  <ele>408.927664</ele>
+  <time>2010-04-14T10:59:50Z</time>
+  <speed>0.000000</speed>
+  <name>TP1620</name>
+</trkpt>
+<trkpt lat="49.208650819" lon="18.759799710">
+  <ele>409.066158</ele>
+  <time>2010-04-14T11:00:00Z</time>
+  <speed>0.000000</speed>
+  <name>TP1621</name>
+</trkpt>
+<trkpt lat="49.208636311" lon="18.759808290">
+  <ele>409.137768</ele>
+  <time>2010-04-14T11:00:10Z</time>
+  <speed>0.000000</speed>
+  <name>TP1622</name>
+</trkpt>
+<trkpt lat="49.208642756" lon="18.759812704">
+  <ele>408.519168</ele>
+  <time>2010-04-14T11:00:20Z</time>
+  <speed>0.000000</speed>
+  <name>TP1623</name>
+</trkpt>
+<trkpt lat="49.208648630" lon="18.759812704">
+  <ele>409.276262</ele>
+  <time>2010-04-14T11:00:37Z</time>
+  <speed>0.000000</speed>
+  <name>TP1624</name>
+</trkpt>
+<trkpt lat="49.208652887" lon="18.759830111">
+  <ele>408.867767</ele>
+  <time>2010-04-14T11:00:47Z</time>
+  <speed>0.277778</speed>
+  <name>TP1625</name>
+</trkpt>
+<trkpt lat="49.208647013" lon="18.759830111">
+  <ele>408.110673</ele>
+  <time>2010-04-14T11:00:57Z</time>
+  <speed>0.000000</speed>
+  <name>TP1626</name>
+</trkpt>
+<trkpt lat="49.208651269" lon="18.759847518">
+  <ele>407.702179</ele>
+  <time>2010-04-14T11:01:07Z</time>
+  <speed>0.277778</speed>
+  <name>TP1627</name>
+</trkpt>
+<trkpt lat="49.208657143" lon="18.759847518">
+  <ele>408.459272</ele>
+  <time>2010-04-14T11:01:17Z</time>
+  <speed>0.277778</speed>
+  <name>TP1628</name>
+</trkpt>
+<trkpt lat="49.208667273" lon="18.759864925">
+  <ele>408.807872</ele>
+  <time>2010-04-14T11:01:37Z</time>
+  <speed>0.555556</speed>
+  <name>TP1629</name>
+</trkpt>
+<trkpt lat="49.208695597" lon="18.759886746">
+  <ele>410.052061</ele>
+  <time>2010-04-14T11:01:47Z</time>
+  <speed>0.000000</speed>
+  <name>TP1630</name>
+</trkpt>
+<trkpt lat="49.208680164" lon="18.759873752">
+  <ele>407.570674</ele>
+  <time>2010-04-14T11:01:57Z</time>
+  <speed>0.000000</speed>
+  <name>TP1631</name>
+</trkpt>
+<trkpt lat="49.208686610" lon="18.759878166">
+  <ele>406.952075</ele>
+  <time>2010-04-14T11:02:07Z</time>
+  <speed>0.000000</speed>
+  <name>TP1632</name>
+</trkpt>
+<trkpt lat="49.208690294" lon="18.759891160">
+  <ele>407.919274</ele>
+  <time>2010-04-14T11:02:17Z</time>
+  <speed>0.000000</speed>
+  <name>TP1633</name>
+</trkpt>
+<trkpt lat="49.208688105" lon="18.759904154">
+  <ele>408.129379</ele>
+  <time>2010-04-14T11:02:27Z</time>
+  <speed>0.000000</speed>
+  <name>TP1634</name>
+</trkpt>
+<trkpt lat="49.208694551" lon="18.759908567">
+  <ele>407.510781</ele>
+  <time>2010-04-14T11:02:41Z</time>
+  <speed>0.000000</speed>
+  <name>TP1635</name>
+</trkpt>
+<trkpt lat="49.208698235" lon="18.759921561">
+  <ele>408.477980</ele>
+  <time>2010-04-14T11:02:51Z</time>
+  <speed>0.000000</speed>
+  <name>TP1636</name>
+</trkpt>
+<trkpt lat="49.208692361" lon="18.759921561">
+  <ele>407.720886</ele>
+  <time>2010-04-14T11:03:01Z</time>
+  <speed>0.000000</speed>
+  <name>TP1637</name>
+</trkpt>
+<trkpt lat="49.208698235" lon="18.759921561">
+  <ele>408.477980</ele>
+  <time>2010-04-14T11:03:20Z</time>
+  <speed>0.000000</speed>
+  <name>TP1638</name>
+</trkpt>
+<trkpt lat="49.208700425" lon="18.759908567">
+  <ele>408.267875</ele>
+  <time>2010-04-14T11:03:48Z</time>
+  <speed>0.000000</speed>
+  <name>TP1639</name>
+</trkpt>
+<trkpt lat="49.208712744" lon="18.759912980">
+  <ele>408.406371</ele>
+  <time>2010-04-14T11:04:02Z</time>
+  <speed>0.833333</speed>
+  <name>TP1640</name>
+</trkpt>
+<trkpt lat="49.208965797" lon="18.759992914">
+  <ele>405.253377</ele>
+  <time>2010-04-14T11:04:12Z</time>
+  <speed>3.055556</speed>
+  <name>TP1641</name>
+</trkpt>
+<trkpt lat="49.209639431" lon="18.760015491">
+  <ele>389.474247</ele>
+  <time>2010-04-14T11:04:35Z</time>
+  <speed>5.833333</speed>
+  <name>TP1642</name>
+</trkpt>
+</trkseg>
+</trk>
+</gpx>

@@ -1,0 +1,57 @@
+%\chapter*{Zoznam príloh}
+%príloha č. 1 -- CD s popisovanými skriptami
+
+%pri kopírovaní z www adries z tohto súboru odstrániť: \ znaky kde nepatria
+\addcontentsline{toc}{chapter}{Literatúra}
+\begin{thebibliography}{99}
+%vzor
+%[7] WIKIPEDIA: 23:09, 20. február 2010, Wikipedia: My SQL, 23:09, 20. február 2010.
+%(http://sk.wikipedia.org/wiki/MySQL)
+%1
+\bibitem{GPSbabel}GPSbabel - časť skytraq datalogger. [2010] Dostupné na: \\
+\verb|<|\emph{\url{http://www.gpsbabel.org/htmldoc-development/fmt\_skytraq.html}}\verb|>|
+%\emph{} http://www.gpsbabel.org/htmldoc-development/The\_Formats.html
+%2
+\bibitem{GOL}Marián Jurík - GOL, diplomová práca . [2008] [Cit. 2010.2.22] Dostupné na:\\
+\emph{univerzitná knižnica}
+%3
+\bibitem{GPX}GPX format   Dostupné na: \\
+\verb|<|\emph{\url{http://www.topografix.com/gpx.asp}}\verb|>|
+%4
+\bibitem{GPX 2}GPX ďalšie informácie [2009] Dostupné na: \\
+\verb|<|\emph{\url{http://wiki.geocaching.cz/index.php?title=GPX}}\verb|>|
+%5
+\bibitem{GoogleMaps}Google mapy. [2010] [Cit. 2010.4.16] Dostupné na: \\
+\verb|<|\emph{\url{http://sk.wikipedia.org/wiki/Google\_Maps}}\verb|>|
+%6
+\bibitem{Kar Projekcia}Kartografická projekcia. [1996] Dostupné na: \\
+\verb|<|\emph{\url{http://nic.sav.sk/logos/journals/geoinfo/0196/milan.html}}\verb|>|
+%7
+\bibitem{Qt class}Qt Classes. [2010] Dostupné na: \\
+\verb|<|\emph{\url{http://doc.trolltech.com/3.3/classes.html}}\verb|>|
+%8
+\bibitem{Qtgraph}Qt Graphics dojo. [2008] Dostupné na:\\
+\verb|<|\emph{\url{http://labs.trolltech.com/page/Graphics/About/Dojo}}\verb|>|
+%9
+\bibitem{OSM}Open Street mapy. [2010] [Cit. 2010.4.16] Dostupné na: \\
+\verb|<|\emph{\url{http://sk.wikipedia.org/wiki/OpenStreetMap}}\verb|>|
+%10
+\bibitem{Slovník}Slovník pojmov týkajúcich sa GPS systému. [2010] [Cit. 2010.3.11] Dostupné na: 
+\verb|<|\emph{\url{http://www.commander.sk/index.php?dok=0094}}\verb|>|
+%11
+\bibitem{GPS} Wikipédia: Global Positioning System. [2010] [Cit. 2010.4.7] Dostupné na: \verb|<|\emph{\url{http://sk.wikipedia.org/w/index.php?title=Global_Positioning_System&oldid=2923803}}\verb|>|
+%12
+\bibitem{WGS}Wikipédia:Svetový geodetický systém 1984 [2009][Cit. 2010.4.20]Dostupné na: \verb|<|
+   \emph{\url{http://sk.wikipedia.org/w/index.php?title=Svetov\%C3\%BD_geodetick\%C3\%BD_syst\%C3\%A9m_1984&oldid=2468574}}\verb|>|
+%13
+\bibitem{GPS Bluetooth}Navilock GPS Bluetooth Receiver BT-308. [2010] Dostupné na: 
+\verb|<|\emph{\url{http://www.gpstechnologies.com.au/bt308.htm}}\verb|>|
+%14
+\bibitem{NMEA}Protokol NMEA, popis[online]. [2010] Dostupné na: \\
+\verb|<|\emph{\url{http://www.kh-gps.de/nmea-faq.htm}}\verb|>|
+
+%15
+%\bibitem{GPS}GPS MULTITRACKER ( MT5013 )[online]. [s.a.] [Cit. 2010.3.11] Dostupné na: \\
+%\verb|<|\emph{\url{http://www.google.sk/url?sa=t&source=web&ct=res&cd=1&ved=0CBcQFjAA&url=http\%3A\%2F\%2Fwww.media-tech.eu\%2Fupload\%2Fmanuals%2FMT5013_EN_user_manual.pdf&ei=OGDlS5zBAo6mOJv00OUN&usg=AFQjCNF7g6LukSgT6to8LIGI6b-_fzqfIg&sig2=BwRBPIlCSX8FeINcMHOJtg}}\verb|>|
+
+\end{thebibliography}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>OSM_Navigation: Vysvetlivky ku grafu</title>
+  <link href="simunet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+<a href="index.html">Hlavná stránka</a>&nbsp;&middot;&nbsp;<a href="annotated.html">Triedy</a>
+</div>
+<!-- Generované programom Doxygen 1.6.1 -->
+<div class="contents">
+<h1>Vysvetlivky ku grafu</h1><p>Tu nájdete vysvetlenie, ako majú byť interpretované grafy, ktoré boli generované programom doxygen.</p>
+<p>Uvažujte nasledujúci príklad: </p>
+<div class="fragment"><pre class="fragment"><span class="comment">/*! Neviditelná trieda, ktorá sa v grafe nezobrazuje, pretože došlo k orezaniu grafu. */</span>
+<span class="keyword">class </span>Invisible { };
+<span class="comment"></span>
+<span class="comment">/*! Trieda, u ktorej došlo k orezaniu grafu. Vzťah dedičnosti je skrytý. */</span>
+<span class="keyword">class </span>Truncated : <span class="keyword">public</span> Invisible { };
+
+<span class="comment">/* Trieda, ktorá nieje dokumentovaná komentármi programu doxygen. */</span>
+<span class="keyword">class </span>Undocumented { };
+<span class="comment"></span>
+<span class="comment">/*! Odvodená trieda s verejným (public) dedením bázovej triedy. */</span>
+<span class="keyword">class </span>PublicBase : <span class="keyword">public</span> Truncated { };
+<span class="comment"></span>
+<span class="comment">/*! Odvodená trieda s chráneným (protected) dedením bázovej triedy. */</span><span class="comment"></span>
+<span class="comment">/*! A template class */</span>
+<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span>Templ { };
+
+<span class="keyword">class </span>ProtectedBase { };
+<span class="comment"></span>
+<span class="comment">/*! Odvodená trieda s privátnym dedením bázovej triedy. */</span>
+<span class="keyword">class </span>PrivateBase { };
+<span class="comment"></span>
+<span class="comment">/*! Trieda, ktorá je využívaná triedou Inherited. */</span>
+<span class="keyword">class </span>Used { };
+<span class="comment"></span>
+<span class="comment">/*! Odvodená trieda, ktorá rôznym spôsobom dedí od viacerých bázových tried. */</span>
+<span class="keyword">class </span>Inherited : <span class="keyword">public</span> PublicBase,
+                  <span class="keyword">protected</span> ProtectedBase,
+                  <span class="keyword">private</span> PrivateBase,
+                  <span class="keyword">public</span> Undocumented,
+                  <span class="keyword">public</span> Templ&lt;int&gt;
+{
+  <span class="keyword">private</span>:
+     Used *m_usedClass;
+};
+</pre></div><p> Pokiaľ je položka <code>MAX_DOT_GRAPH_HEIGHT</code> konfiguračného súboru nastavená na hodnotu 200, bude vygenerovaný nasledujúci graf:</p>
+<center><div align="center">
+<img src="graph_legend.png" alt="graph_legend.png"/>
+</div>
+</center> <p>Bloky (tj. uzly) v uvedenom grafe majú nasledujúci význam: </p>
+<ul>
+<li>
+Čierne vyplnený obdĺžnik reprezentuje štruktúru alebo triedu, pre ktorú bol graf generovaný. </li>
+<li>
+Obdĺžnik s čiernym obrysom označuje dokumentovanú štruktúru alebo triedu. </li>
+<li>
+Obdĺžnik so šedým obrysom označuje nedokumentovanú štruktúru alebo triedu. </li>
+<li>
+Obdĺžnik s červeným obrysom označuje dokumentovanú štruktúru alebo triedu, pre ktorú niesú zobrazené všetky vzťahy dedičnosti alebo obsiahnutia. Graf je orezaný v prípade, kedy ho nieje možné umiestniť do vymedzených hraníc. </li>
+</ul>
+<p>Šípky (tj. hrany grafu) majú nasledujúcí význam: </p>
+<ul>
+<li>
+Tmavo modrá šípka sa používa pre označenie vzťahu verejnej dedičnosti medzi dvoma triedami. </li>
+<li>
+Tmavo zelená šípka označuje vzťah chránenej dedičnosti (protected). </li>
+<li>
+Tmavo červená šípka označuje vzťah privátnej dedičnosti. </li>
+<li>
+Purpurová šípka kreslená čiarkovane sa používa v prípade, ak je trieda obsiahnutá v inej triede, alebo ak je používaná inou triedou. Je označená identifikátorom jednej alebo viacerých premenných (objektov), cez ktoré je trieda alebo štruktúra zprístupnena. </li>
+</ul>
+</div>
+<hr></hr>
+<div id="footer">OSM_Navigation </div>
+</body>
+</html>

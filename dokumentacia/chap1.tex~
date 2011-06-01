@@ -1,0 +1,23 @@
+\chapter*{Úvod}
+
+%\section{GPS prístroje}
+\paragraph{}
+Dnešný vývoj komunikačných nástrojov značne stúpol. K dispozícii máme mnoho GPS
+príjmačov ktoré sú schopné komunikovať so satelitnými družicami. Prístroje sú v
+predaji v rôznych cenových hladinách. V tejto práci sme sa zaoberali viac lacnejšími,
+schopnými zistiť aktuálnu pozíciu, prípadne zapísať túto pozíciu do vlastnej
+pamäte. 
+Pri ukladaní dát do pamäte je dôležité vedieť pod akým formátom sú dáta
+uložené. 
+
+\section{Výber softvéru}
+\paragraph{}
+Pri výbere softvéru sa dnes často stretávame s problémom nekompatibility s
+operačným systémom. Dnes máme dostupné rôzne navigačné aplikácie pod OS Windows
+ktoré ale nie je možné používať pod OS Linux. Tento problém nám môže vyriešiť
+správna voľba programovacieho jazyka a vývojového prostredia. 
+V tejto práci sme sa zameriavali na OS Linux, no pri výbere programovacieho
+jazyka, ako aj vývojového prostredia sme kládli dôraz na kompatibilitu s inými
+OS aby pri budúcom pokračovaní na tomto projekte ho bolo možné nakompilovať aj
+pre iné OS. Príklad programu pre jeden OS bol program GPS Multitracker bežiaci pod OS Windows.
+

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>OSM_Navigation: tracks.cpp Source File</title>
+  <link href="simunet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+<a href="index.html">Hlavná stránka</a>&nbsp;&middot;&nbsp;<a href="annotated.html">Triedy</a>
+</div>
+<!-- Generované programom Doxygen 1.6.1 -->
+<h1>tracks.cpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;tracks.h&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;QtGui&gt;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;QDir&gt;</span>
+<a name="l00010"></a><a class="code" href="classTracks.html#a132fed3ad9faf9115e3665e2de5af2b2">00010</a> <a class="code" href="classTracks.html#a132fed3ad9faf9115e3665e2de5af2b2">Tracks::Tracks</a>()
+<a name="l00011"></a>00011 {
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 }
+<a name="l00019"></a><a class="code" href="classTracks.html#a420b5f0afac1466a72b07bd347a6a6e5">00019</a> QVector &lt;QPointF&gt; <a class="code" href="classTracks.html#a420b5f0afac1466a72b07bd347a6a6e5">Tracks::open</a>(){
+<a name="l00020"></a>00020     QWidget *parent=0;    
+<a name="l00021"></a>00021     dir = QFileDialog::getOpenFileName(parent,<span class="stringliteral">&quot;Open GPX File&quot;</span>,
+<a name="l00022"></a>00022                                                  QDir::currentPath(), <span class="stringliteral">&quot;GPX files (*.gpx)&quot;</span>);
+<a name="l00023"></a>00023     QXmlStreamAttributes attributes;    
+<a name="l00024"></a>00024     <span class="keywordtype">int</span> seg = 0;
+<a name="l00025"></a>00025     <span class="keywordtype">int</span> track_num = 0; <span class="comment">//number of track</span>
+<a name="l00026"></a>00026     QVector &lt;QPointF&gt; track;
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028     QPointF point;
+<a name="l00029"></a>00029     track.clear();
+<a name="l00030"></a>00030     waypoint.clear();<span class="comment">//Zrusi predosle data typu waypoint</span>
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032     <span class="keywordflow">if</span> (dir.isEmpty())
+<a name="l00033"></a>00033         <span class="keywordflow">return</span> track;
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035     QFile* file = <span class="keyword">new</span> QFile(dir);
+<a name="l00036"></a>00036     <span class="keywordflow">if</span> (!file-&gt;open(QIODevice::ReadOnly | QIODevice::Text)) {
+<a name="l00037"></a>00037         QMessageBox::warning(parent, <span class="stringliteral">&quot;GPX Files&quot;</span>,
+<a name="l00038"></a>00038                              <span class="stringliteral">&quot;Cannot read file&quot;</span> + dir + <span class="stringliteral">&quot; :&quot;</span> + file-&gt;errorString(),
+<a name="l00039"></a>00039                              QMessageBox::Ok);
+<a name="l00040"></a>00040         <span class="keywordflow">return</span> track;
+<a name="l00041"></a>00041     }
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043     QXmlStreamReader xml(file);
+<a name="l00044"></a>00044     <span class="keywordflow">while</span>(!xml.atEnd() &amp;&amp;
+<a name="l00045"></a>00045             !xml.hasError()) {
+<a name="l00046"></a>00046         QXmlStreamReader::TokenType token = xml.readNext();
+<a name="l00047"></a>00047         <span class="comment">/* If token is just StartDocument, we&apos;ll go to next.*/</span>
+<a name="l00048"></a>00048         <span class="keywordflow">if</span>(token == QXmlStreamReader::StartDocument) {
+<a name="l00049"></a>00049             <span class="keywordflow">continue</span>;
+<a name="l00050"></a>00050         }
+<a name="l00051"></a>00051         <span class="comment">/* If token is StartElement, we&apos;ll see if we can read it.*/</span>
+<a name="l00052"></a>00052         <span class="keywordflow">if</span>(token == QXmlStreamReader::StartElement) {            
+<a name="l00053"></a>00053             <span class="comment">/*if(xml.name() == &quot;gpx&quot;) {</span>
+<a name="l00054"></a>00054 <span class="comment">                if (xml.attributes().value(&quot;version&quot;) != &quot;1.0&quot;){</span>
+<a name="l00055"></a>00055 <span class="comment">                    QMessageBox::critical(parent,</span>
+<a name="l00056"></a>00056 <span class="comment">                              &quot;Version of gpx&quot;,</span>
+<a name="l00057"></a>00057 <span class="comment">                              &quot;Bad xml version&quot;,</span>
+<a name="l00058"></a>00058 <span class="comment">                              QMessageBox::Ok);</span>
+<a name="l00059"></a>00059 <span class="comment">                    break;</span>
+<a name="l00060"></a>00060 <span class="comment">        }</span>
+<a name="l00061"></a>00061 <span class="comment">        }     */</span>
+<a name="l00062"></a>00062             <span class="comment">/* If it&apos;s named persons, we&apos;ll go to the next.*/</span>
+<a name="l00063"></a>00063             <span class="keywordflow">if</span>(xml.name() == <span class="stringliteral">&quot;wpt&quot;</span>) {
+<a name="l00064"></a>00064                     <span class="keywordflow">if</span>(!(point = <a class="code" href="classTracks.html#a031d959d79171b3a8403c8b4a9b264ba">parseXml</a>(xml.attributes())).isNull()){
+<a name="l00065"></a>00065                         waypoint.append(point);
+<a name="l00066"></a>00066                     }
+<a name="l00067"></a>00067             }            
+<a name="l00068"></a>00068             <span class="keywordflow">if</span>(seg == 1){
+<a name="l00069"></a>00069                 <span class="keywordflow">if</span>(xml.name() == <span class="stringliteral">&quot;trkpt&quot;</span>) {
+<a name="l00070"></a>00070                     <span class="keywordflow">if</span>(!(point = <a class="code" href="classTracks.html#a031d959d79171b3a8403c8b4a9b264ba">parseXml</a>(xml.attributes())).isNull()){
+<a name="l00071"></a>00071                         track.append(point);
+<a name="l00072"></a>00072                     }
+<a name="l00073"></a>00073                 }                
+<a name="l00074"></a>00074             }
+<a name="l00075"></a>00075         <span class="comment">//printf(&quot;XML:: %s&quot;,xml.name().toString().toAscii());</span>
+<a name="l00076"></a>00076         }
+<a name="l00077"></a>00077         <span class="keywordflow">if</span>(token == QXmlStreamReader::StartElement) {
+<a name="l00078"></a>00078                 <span class="keywordflow">if</span>(xml.name() == <span class="stringliteral">&quot;trkseg&quot;</span>){
+<a name="l00079"></a>00079                     seg++;
+<a name="l00080"></a>00080                     track_num++;
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082                 }
+<a name="l00083"></a>00083             }
+<a name="l00084"></a>00084             <span class="keywordflow">if</span>(token == QXmlStreamReader::EndElement){
+<a name="l00085"></a>00085                 <span class="keywordflow">if</span>(xml.name() == <span class="stringliteral">&quot;trkseg&quot;</span>){
+<a name="l00086"></a>00086                     seg--;
+<a name="l00087"></a>00087                     track.append(QPointF(999999.9,999999.9));
+<a name="l00088"></a>00088                 }
+<a name="l00089"></a>00089             }
+<a name="l00090"></a>00090     }
+<a name="l00091"></a>00091     printf(<span class="stringliteral">&quot;FILE XML:: %d , Seg: %d \n&quot;</span>,track.size(),seg);<span class="comment">//,xml.name().toString().toAscii());</span>
+<a name="l00092"></a>00092     <span class="keywordflow">if</span>(xml.hasError()) {
+<a name="l00093"></a>00093         QMessageBox::critical(parent,
+<a name="l00094"></a>00094                               <span class="stringliteral">&quot;QXSRExample::parseXML&quot;</span>,
+<a name="l00095"></a>00095                               xml.errorString(),
+<a name="l00096"></a>00096                               QMessageBox::Ok);
+<a name="l00097"></a>00097     }<span class="keywordflow">else</span>{
+<a name="l00098"></a>00098         QString num;
+<a name="l00099"></a>00099         num.setNum(track_num);
+<a name="l00100"></a>00100         QMessageBox::information(parent,
+<a name="l00101"></a>00101                               <span class="stringliteral">&quot;Track status&quot;</span>,
+<a name="l00102"></a>00102                               <span class="stringliteral">&quot;Number of tracks: &quot;</span>+num,
+<a name="l00103"></a>00103                               QMessageBox::Ok);
+<a name="l00104"></a>00104     }
+<a name="l00105"></a>00105     <span class="comment">/* Removes any device() or data from the reader</span>
+<a name="l00106"></a>00106 <span class="comment">     * and resets its internal state to the initial state. */</span>
+<a name="l00107"></a>00107     xml.clear();
+<a name="l00108"></a>00108     file-&gt;close();
+<a name="l00109"></a>00109     <span class="keywordflow">if</span> (file != NULL){
+<a name="l00110"></a>00110         <span class="keyword">delete</span> file;
+<a name="l00111"></a>00111         file = NULL;
+<a name="l00112"></a>00112     }
+<a name="l00113"></a>00113     <span class="keywordflow">return</span> track;
+<a name="l00114"></a>00114 }
+<a name="l00121"></a><a class="code" href="classTracks.html#a031d959d79171b3a8403c8b4a9b264ba">00121</a> QPointF <a class="code" href="classTracks.html#a031d959d79171b3a8403c8b4a9b264ba">Tracks::parseXml</a>(QXmlStreamAttributes atr){
+<a name="l00122"></a>00122     qreal lat =0.0;
+<a name="l00123"></a>00123     qreal lon =0.0;     
+<a name="l00124"></a>00124     <span class="keywordflow">if</span>(!atr.isEmpty()){
+<a name="l00125"></a>00125         lat = atr.value(<span class="stringliteral">&quot;lat&quot;</span>).toString().toFloat();
+<a name="l00126"></a>00126         lon = atr.value(<span class="stringliteral">&quot;lon&quot;</span>).toString().toFloat();
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128         <span class="keywordflow">if</span>((lat != 0.0 )&amp;&amp; (lon != 0.0)){
+<a name="l00129"></a>00129                     <span class="comment">//printf(&quot;Latitude from file: %s \n&quot;,atr.value(&quot;lat&quot;).toString().toAscii().data());</span>
+<a name="l00130"></a>00130         <span class="comment">//printf(&quot;Latitude from file: %f \n&quot;,lat);    </span>
+<a name="l00131"></a>00131         }<span class="comment">//else</span>
+<a name="l00132"></a>00132                     <span class="comment">//printf(&quot;Latitude or longitude is incorrect \n&quot;);</span>
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134     }
+<a name="l00135"></a>00135     <span class="keywordflow">return</span> QPointF(lat,lon);
+<a name="l00136"></a>00136 }
+<a name="l00137"></a>00137 QVector &lt;QPointF&gt; Tracks::getWaypoints(){
+<a name="l00138"></a>00138     <span class="keywordflow">return</span> waypoint;
+<a name="l00139"></a>00139 }
+</pre></div></div>
+<hr></hr>
+<div id="footer">OSM_Navigation </div>
+</body>
+</html>

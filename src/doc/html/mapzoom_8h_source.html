@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>OSM_Navigation: mapzoom.h Source File</title>
+  <link href="simunet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+<a href="index.html">Hlavná stránka</a>&nbsp;&middot;&nbsp;<a href="annotated.html">Triedy</a>
+</div>
+<!-- Generované programom Doxygen 1.6.1 -->
+<h1>mapzoom.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef MAPZOOM_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define MAPZOOM_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &lt;slippymap.h&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;lightmaps.h&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;tracks.h&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;navigation.h&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;QHBoxLayout&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;QVBoxLayout&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;QTimer&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;QProcess&gt;</span>
+<a name="l00013"></a>00013 
+<a name="l00019"></a><a class="code" href="classMapZoom.html">00019</a> <span class="keyword">class </span><a class="code" href="classMapZoom.html" title="Táto trieda vytvára GUI hlavného menu V hlavnom menu sú spúštané podprocesy...">MapZoom</a> : <span class="keyword">public</span> QMainWindow
+<a name="l00020"></a>00020 {
+<a name="l00021"></a>00021     Q_OBJECT
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">private</span>:
+<a name="l00024"></a>00024     <a class="code" href="classLightMaps.html">LightMaps</a> *map;
+<a name="l00025"></a>00025     QHBoxLayout *control_layout;
+<a name="l00026"></a>00026     QVBoxLayout *main_layout;
+<a name="l00027"></a>00027     <span class="comment">//Tracks *trk;</span>
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029     QProcess *procConnect;
+<a name="l00030"></a>00030     QProcess *proc;
+<a name="l00031"></a>00031     <a class="code" href="classTracks.html" title="Táto trieda komunikuje s GUI častou aplikácie.">Tracks</a> *track;<span class="comment">//trieda na vykreslenie tratí</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033     <a class="code" href="classNavigation.html" title="Táto trieda konvertuje dáta pri vykresľovaní aktuálnej pozície.">Navigation</a> nav; <span class="comment">//pripojenie zariadenia, nastavenie aktuálnej pozície, identifikácia dát</span>
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035     QPointF actualPos;<span class="comment">//aktálne pozícia na mape získaná z nav. prístroja</span>
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037     QPushButton *navigate;
+<a name="l00038"></a>00038     QPushButton *connectBTN;    
+<a name="l00039"></a>00039     QPushButton *waypoints;
+<a name="l00043"></a><a class="code" href="classMapZoom.html#a8b9ba3c646470c8a8d61d7a20bc547ee">00043</a>     <span class="keywordtype">bool</span> <a class="code" href="classMapZoom.html#a8b9ba3c646470c8a8d61d7a20bc547ee">wptBtn</a>;
+<a name="l00047"></a><a class="code" href="classMapZoom.html#ae7476ca44a95115779c424eb2614d422">00047</a>     <span class="keywordtype">bool</span> <a class="code" href="classMapZoom.html#ae7476ca44a95115779c424eb2614d422">conBtn</a>;
+<a name="l00051"></a><a class="code" href="classMapZoom.html#aaa6f3d277e39812dc1a4736077ced013">00051</a>     <span class="keywordtype">bool</span> <a class="code" href="classMapZoom.html#aaa6f3d277e39812dc1a4736077ced013">conDev</a>;
+<a name="l00052"></a>00052 
+<a name="l00056"></a><a class="code" href="classMapZoom.html#a493be1c970c38d15e65cd101fa186744">00056</a>     <span class="keywordtype">bool</span> <a class="code" href="classMapZoom.html#a493be1c970c38d15e65cd101fa186744">usb</a>;
+<a name="l00060"></a><a class="code" href="classMapZoom.html#a2123cd2139a7c7fbadee15bd50ddc836">00060</a>     <span class="keywordtype">bool</span> <a class="code" href="classMapZoom.html#a2123cd2139a7c7fbadee15bd50ddc836">conBab</a>;<span class="comment">//</span>
+<a name="l00064"></a><a class="code" href="classMapZoom.html#ac86ba683af15f8b23d9cdc8a005ebff2">00064</a> <span class="comment"></span>    QProcess *<a class="code" href="classMapZoom.html#ac86ba683af15f8b23d9cdc8a005ebff2">babel</a>;
+<a name="l00068"></a><a class="code" href="classMapZoom.html#a26f6592f35ebdeedc1f9715593afb764">00068</a>     QTimer *<a class="code" href="classMapZoom.html#a26f6592f35ebdeedc1f9715593afb764">timer</a>;
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 <span class="keyword">public</span>:
+<a name="l00071"></a>00071     <a class="code" href="classMapZoom.html#ad44e439a9c8949d40280e76fb9974329">MapZoom</a>();
+<a name="l00072"></a>00072     <span class="keyword">virtual</span> <a class="code" href="classMapZoom.html#a6d5346fb9275c3a8b09d1abfc465563c">~MapZoom</a>();
+<a name="l00075"></a>00075 <span class="keyword">private</span> slots:
+<a name="l00076"></a>00076     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#af41b79184e441659075289d449535a03">runGebabel</a>();
+<a name="l00077"></a>00077     <span class="keywordtype">void</span> aboutOsm();
+<a name="l00078"></a>00078     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#a005b2a7dae51e8e1b70102e6a9cb86e4">zoom_plus_click</a>();
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#ad3c2639f8fd05ea568e942e678b49c5a">zoom_minus_click</a>();    
+<a name="l00080"></a>00080     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#aadc5e5faa2353fa99966147ae2ae1210">set_home</a>();
+<a name="l00081"></a>00081     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#adb8536319cebf99fc41779603f088e3c">draw_tracks</a>();
+<a name="l00082"></a>00082     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#ac86310fa30d676c989c918c414701aa7">draw_waypoints</a>();
+<a name="l00083"></a>00083     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#ab2ddf948e409f0a7d81449fe141858d9">actual_position</a>();
+<a name="l00084"></a>00084     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#a490ebd27b7fa5dc3714cb522d0ba8bea">control_devices</a>();<span class="comment">//slot na kontrolu pripojenia zariadenia</span>
+<a name="l00085"></a>00085     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#a9f0fe8df4f670a09484df864c12355d9">readStdout</a>();
+<a name="l00086"></a>00086     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#aff2d6e7225bbd67b1b70cfc9177aa887">connectToDevice</a>();<span class="comment">//slot na pripojenei zariadenia na navigaciu</span>
+<a name="l00087"></a>00087     <span class="keywordtype">void</span> <a class="code" href="classMapZoom.html#a9f1d51f28cdb3aca55d9b046e454f65c">infoAboutDevice</a>();
+<a name="l00088"></a>00088 };
+<a name="l00089"></a>00089 <span class="preprocessor">#endif // MAPZOOM_H</span>
+<a name="l00090"></a>00090 <span class="preprocessor"></span>
+<a name="l00091"></a>00091 
+</pre></div></div>
+<hr></hr>
+<div id="footer">OSM_Navigation </div>
+</body>
+</html>

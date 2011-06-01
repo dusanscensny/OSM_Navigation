@@ -1,0 +1,73 @@
+\chapter{GPS prístroje použité v práci}
+\paragraph{}
+V GPS prístrojoch nastal široký rozmach práve v dnešných časoch. Máme dostupnú
+širokú škálu prijímačov z rôznymi presnosťami a to od 10 metrov až po niekoľko
+milimetrov. V prístrojoch je snaho o čo najpresnejšie dáta, ale z čo možno najnižšou spotrebou energie pre zaitenie čo najdlšieho času snímania dát. V tejto práci sme mali k dispozícii dva prístroje ktoré boli od seba značne
+odlišné.
+\paragraph{}
+Prvý prístroj mal v sebe zabudovanú vnútronú pamäť a dokázal zapisovať prejdené dáta, zobrazovať aktuálnu pozíciu čo ho robilo zaujímaveším a komplexnejším.
+Druhý prístroj bol modul na posielanie aktuálnych GPS dát.V7hodou tohoto prístroja bol kvalitný signál a tým aj väčšia presnosť.
+
+\subsection*{Spôsob pripojenia}
+\paragraph{}
+Základným a najbežnejším spôsobom pripojenia GPS prijímača k počítaču je USB\footnote{\textbf{USB} - Univerzálna sériová zbernica (Universal serial bus)}
+pripojenie. Mnoho prístrojov disponuje taktiež pripojením pomocou Bluetooth\footnote{\textbf{Bluetooth} - bezdrôtový prenos dát} prenosu.
+Dôležité je čo počas pripojenia prenášame. Ak je prijímač schopný ukladať dáta je
+potrebné nastaviť rôzne atribúty. Ak toho schopný nie je a má možnosť len zistiť
+aktuálnu pozíciu túto pozíciu posiela do počítača a je na nás ako následne tieto
+dáta spracujeme. 
+
+%\section{Prístroje použité v tejto práci}
+%\paragraph{}
+\section{GPS multi tracker}
+\paragraph{}
+Prístroj má rôzne vlastnosti. Je schopný dáta nielen posielať ale ich aj ukladať
+do svojej pamäte. Prístroj disponuje čipom Venus 6, ktorého výhodou oproti predošlej verzii je hlavne to, že sa vyznačuje lepším výkonom čím zvládne aj hošie podmienky(zlé počasie, miesta medzi budovami a pod.), a zároveň znížením spotreby čoho výsledkom je dlhšia praconá doba pri rovnakej kapacite napájacej batérie. Tieto dáta sú rozdelené na trasy ktoré sme ukladali a významné body ktoré je možné osobitne značiť. Ďalšou vlastnosťou je navigácia. 
+\subsection{Konfigurácia}
+\paragraph{}
+Na konfiguráciu exisuje niekoľko možností. V OS Linux je dostupný program
+skytraq-datalogger, v ktorom je možné nastaviť všetky dôležité nastavenia pre ukladanie. Nastaviť môžme vlastnosti pripojenia a taktiež spôsob kedy má hardware zapisovať dáta do pamäte.\\\\
+\textbf{Pri zápise je možné nastaviť: } \\
+- ako rýchlo sa máme pohybovať aby systém zapisoval (minimum a maximum)\\
+- aká má byť najmenšia vzdialenosť medzi dvoma bodmi\\
+- aký najmenší čas má byť medzi dvoma bodmi\\
+\paragraph{}V prístroji je možné nastaviť čo má robiť ak sa mu zaplní vnútorná pamäť. Máme možnosť prestať zapisovať, alebo zapisovať do pamäte opäť od začiatku.
+
+\subsection{Možnosti pripojenia}
+\paragraph{}
+Tento prístroj je možné pripojiť k počítač dvoma spôsobmi: Cez USB port a cez
+bezdrôtové pripojenie Bluetooth.
+V Linuxe zvyčane pripájeme prístroj pod portom \textit{ttyUSB0} v adresári dev:  \textit{/dev/ttyUSB0}
+
+\subsection{Sťahovanie dát a zaujímavých bodov}
+\paragraph{}
+Dáta je možné pomocou programov (spomínaných v druhej kapitole) stiahnuť a následne zobraziť v
+programe ktorý podporuje formát GPX. O formáte GPX sú detaily spomínané v
+nasledujúcej kapitole.
+
+\subsection{Navigácia}
+\paragraph{}
+Systém naviguje jednoduchým spôsobom. Po zapísaní cieľovej súradnice do
+prístroja je prístroj schopný navigovať k cieľovému bodu na pozícii LF(location
+finder) a systém nás naviguje pomocou ôsmich diód ktoré ukazujú smer. 
+
+Keď sa nám podarí priblížiť do vzdialenosti menšej ako 15 metrov tak pri
+indikátore Bluetooth pripojenia začne blikať červená dióda.
+
+\section{Navilock GPS Bluetooth Receiver BT-308}
+\paragraph{}
+Prístroj disponuje čipom SiRF StarII ktorý je schopný prevádzky v predtým
+nemysliteľných podmienkach - hustých lesoch, úzkych uliciach a údoliach, krytých
+parkoviskách a čiastočne aj v budovách.
+Občas sa môže pri týchto procesoroch prejaviť dlhší čas spracovania dát a to
+hlavne pri zmene rýchlosti ako pri jazde autom, na bicykli či chôdzou.
+Prístroj má iba pripojenie cez Bluetooth. 
+
+\subsection{Komunikácia}
+\paragraph{}
+Na komunikáciu je potrebné nastaviť prenosovú rýchlosť na 38600 b/s. Na pripojenie k prístroju je potrebné zadať pin kód prístroja, ktorý je nastavený od výrobcu na číslo: 2003.
+
+\subsection{Prijímanie aktuálnej pozície}
+\paragraph{}
+Prístroj pošle ako GPS dáta v protokole NMEA 0183 zapísané informácie o počte
+družíc, pozíciu, celkovú kvalitu signálu atď. Viac o protokole NMEA v 2. Kapitole

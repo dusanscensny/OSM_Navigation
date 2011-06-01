@@ -1,0 +1,80 @@
+\chapter{Výber programovacieho jazyka a vývojového prostredia}
+\paragraph{}Pri výbere programovacieho jazyka sme kládli dôraz hlavne na
+jednoduchosť práce s obrázkami a mapovým zobrazením. Pri rozhodovaní boli
+zvažované tieto prvky:
+\begin{enumerate}
+\item Hotové vzory pre danú prácu
+\item Množstvo dostupných knižníc na spracovanie dát
+\item Detailnosť popisu jednotlivých knižníc
+\item Skúsenosti s daným programovacím jazykom
+\end{enumerate}
+\paragraph{}
+Pri výbere boli hlavnými konkurentmi programovacie jazyky C++, Java a Python.
+Pri jazyku C++ je dostupné vývojové prostredie QT ktoré je multiplatformové.
+Java je tiež vhodným konkurentom vzhľadom na vyspelosť vývojového prostredia. V
+jazyku Python v spojení s Qt knižnicami vzniklo tzv. pyqt s ktorým je možné
+pracovať vo vývojovom prostredí Eric4. 
+
+
+\section{QT}
+\paragraph{}Qt je multiplatformový\footnote{\textbf{multiplatformový} - softvér podporujúci rôzne platformy(Linux, Window, MAC OS)} framework\footnote{\textbf{framework} - prostredie, v ktorom je organizovaná a napísaná ďalšia aplikácia, no je napísná v tom istom jazyku} vytvorený na vývoj aplikácií.\\
+
+\textbf{Vývojové prostredie sa skladá z viacerých prostriedkov a to:}
+\begin{list}{•}
+\item Qt Creator - hlavný vývojový nástroj
+\item
+\item Qt Designer - nástroj na grafické spracovanie GUI
+\item Qt Linguist - vytvára podporu pre viacjazyčné aplikácie, vytváranie prekladov
+\item Qt Assistant - dokumentácia pre knižnicu QT 
+\end{list}
+
+Na vývoj softvéru v jazyku Qt môžeme mať viacero dôvodov. Toto prostredie nám ponúka kompletnú sadu nástrojov ako vývoj GUI, programovanie až po predklad aplikácie do viacerých jazykov. 
+
+Qt knižnica je rozsiahla a obsahje všetky potrebné prvky pri vývoji softvéru. Aké nástroje na tvorbu Qt poskytuje môžeme vidieť aj vo vzorových príkladoch ktorých je veľké množstvo.\\
+Vzorové aplikácie delíme:\
+\begin{list}{•}
+\item grafické
+\item
+\item so sieťovou podporou
+\item webovou podporou
+\item prácu s viacerými vláknami
+\item SQL podporou
+\item XML podporou
+\end{list}
+[Marián Jurík]
+
+\subsection{Qt Creator}
+\paragraph{}
+Pri kompilácii sa zobrazujú jednotlivé dáta v pod okienkach. Sú rozdelené na
+tieto časti:
+\begin{list}{•}
+\item prvky zobrazované pri kompilácii
+\item
+\item hľadané časti
+\item výstup aplikácie
+\item výstup kompilácie
+\end{list}
+Pri kompilácii si môžeme vybrať či budeme vytvárať debug mód, alebo konečnú
+verziu programu. V samotnom prostredí je možnosť program debuggovať.
+
+\section{PyQt}
+\paragraph{}
+Bolo vyvíjané ako rozhranie medzi programovacím jazykom Python a knižnocou Qt. 
+Je vyvíjaná Britskou firmou Riverbank Computing a je dostupná pod podobnou licenciou ako Qt,
+to znamená pod GNU/GPL-2 a pod komerčnou (platenou) licenciou. PyQt je dostupná
+pre rôzne OS. 
+
+PyQt4 obsahuje tieto moduly v programe Python:
+\begin{list}{•} 
+\item QtCore - jadro knižnce Qt
+\item
+\item QtGui - Grafické rozhranie
+\item QtNetwork - podpora sieťových nástrojov
+\item QtOpenGL
+\item QtSql 
+\item QtSvg 
+\item QtXml 
+\item QtMultimedia 
+\item QtDesigner 
+\end{list}
+Popis modulov nájdete na stránke [http://www.riverbankcomputing.co.uk]

@@ -1,0 +1,3 @@
+miesto kde kešuje obrázky trieda QNetwork
+
+/home/scensny/.cache//OSM_Navigation

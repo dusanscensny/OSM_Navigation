@@ -1,0 +1,67 @@
+Warning: The selected output language "slovak" has not been updated
+since release 1.2.18.  As a result some sentences may appear in English.
+
+/home/scensny/Desktop/od_mira/OSM_Navigation/slippymap.h:30: Warning: Compound SlippyMap is not documented.
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.h:15: Warning: Compound LightMaps is not documented.
+/home/scensny/Desktop/od_mira/OSM_Navigation/moc_lightmaps.cpp:48: Warning: documented function `const QMetaObject LightMaps::staticMetaObject' was not declared or defined.
+/home/scensny/Desktop/od_mira/OSM_Navigation/moc_lightmaps.cpp:51: Warning: documented function `const QMetaObject * LightMaps::metaObject' was not declared or defined.
+/home/scensny/Desktop/od_mira/OSM_Navigation/moc_lightmaps.cpp:56: Warning: documented function `void * LightMaps::qt_metacast' was not declared or defined.
+/home/scensny/Desktop/od_mira/OSM_Navigation/moc_lightmaps.cpp:64: Warning: documented function `int LightMaps::qt_metacall' was not declared or defined.
+/home/scensny/Desktop/od_mira/OSM_Navigation/moc_mapzoom.cpp:60: Warning: documented function `const QMetaObject MapZoom::staticMetaObject' was not declared or defined.
+/home/scensny/Desktop/od_mira/OSM_Navigation/moc_mapzoom.cpp:63: Warning: documented function `const QMetaObject * MapZoom::metaObject' was not declared or defined.
+/home/scensny/Desktop/od_mira/OSM_Navigation/moc_mapzoom.cpp:68: Warning: documented function `void * MapZoom::qt_metacast' was not declared or defined.
+/home/scensny/Desktop/od_mira/OSM_Navigation/moc_mapzoom.cpp:76: Warning: documented function `int MapZoom::qt_metacall' was not declared or defined.
+/home/scensny/Desktop/od_mira/OSM_Navigation/moc_slippymap.cpp:50: Warning: documented function `const QMetaObject SlippyMap::staticMetaObject' was not declared or defined.
+/home/scensny/Desktop/od_mira/OSM_Navigation/moc_slippymap.cpp:53: Warning: documented function `const QMetaObject * SlippyMap::metaObject' was not declared or defined.
+/home/scensny/Desktop/od_mira/OSM_Navigation/moc_slippymap.cpp:58: Warning: documented function `void * SlippyMap::qt_metacast' was not declared or defined.
+/home/scensny/Desktop/od_mira/OSM_Navigation/moc_slippymap.cpp:66: Warning: documented function `int SlippyMap::qt_metacall' was not declared or defined.
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:6: Warning: argument 'Nainicializované' of command @param is not found in the argument list of LightMaps::LightMaps(QWidget *parent=0)
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:6: Warning: The following parameters of LightMaps::LightMaps(QWidget *parent=0) are not documented:
+  parameter 'parent'
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:182: Warning: argument 'zmemepisná' of command @param is not found in the argument list of LightMaps::getPixelFROMlatitude(QPointF pos)
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:182: Warning: The following parameters of LightMaps::getPixelFROMlatitude(QPointF pos) are not documented:
+  parameter 'pos'
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:212: Warning: argument 'pozícia' of command @param is not found in the argument list of LightMaps::getPositionData(QPoint pos)
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:212: Warning: The following parameters of LightMaps::getPositionData(QPoint pos) are not documented:
+  parameter 'pos'
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:165: Warning: argument 'QKeyEvent' of command @param is not found in the argument list of LightMaps::keyPressEvent(QKeyEvent *event)
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:165: Warning: The following parameters of LightMaps::keyPressEvent(QKeyEvent *event) are not documented:
+  parameter 'event'
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:139: Warning: argument 'QMouseEvent' of command @param is not found in the argument list of LightMaps::mouseDoubleClickEvent(QMouseEvent *event)
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:139: Warning: The following parameters of LightMaps::mouseDoubleClickEvent(QMouseEvent *event) are not documented:
+  parameter 'event'
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:108: Warning: argument 'QMouseEvent' of command @param is not found in the argument list of LightMaps::mouseMoveEvent(QMouseEvent *event)
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:108: Warning: The following parameters of LightMaps::mouseMoveEvent(QMouseEvent *event) are not documented:
+  parameter 'event'
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:98: Warning: argument 'QMouseEvent' of command @param is not found in the argument list of LightMaps::mousePressEvent(QMouseEvent *event)
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:98: Warning: The following parameters of LightMaps::mousePressEvent(QMouseEvent *event) are not documented:
+  parameter 'event'
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:132: Warning: argument 'QMouseEvent' of command @param is not found in the argument list of LightMaps::mouseReleaseEvent(QMouseEvent *)
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:20: Warning: argument 'Zemepisné' of command @param is not found in the argument list of LightMaps::setCenter(qreal lat, qreal lng)
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:20: Warning: The following parameters of LightMaps::setCenter(qreal lat, qreal lng) are not documented:
+  parameter 'lat'
+  parameter 'lng'
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:227: Warning: argument 'všetky' of command @param is not found in the argument list of LightMaps::setTrack(QVector< QPointF > track)
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:227: Warning: The following parameters of LightMaps::setTrack(QVector< QPointF > track) are not documented:
+  parameter 'track'
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:153: Warning: argument 'QWheelEvent' of command @param is not found in the argument list of LightMaps::wheelEvent(QWheelEvent *event)
+/home/scensny/Desktop/od_mira/OSM_Navigation/lightmaps.cpp:153: Warning: The following parameters of LightMaps::wheelEvent(QWheelEvent *event) are not documented:
+  parameter 'event'
+/home/scensny/Desktop/od_mira/OSM_Navigation/navigation.cpp:34: Warning: argument 'Vstupné' of command @param is not found in the argument list of Navigation::findDevices(QByteArray data)
+/home/scensny/Desktop/od_mira/OSM_Navigation/navigation.cpp:34: Warning: The following parameters of Navigation::findDevices(QByteArray data) are not documented:
+  parameter 'data'
+/home/scensny/Desktop/od_mira/OSM_Navigation/slippymap.cpp:67: Warning: argument 'Premenné' of command @param is not found in the argument list of SlippyMap::SlippyMap(QObject *parent=0)
+/home/scensny/Desktop/od_mira/OSM_Navigation/slippymap.cpp:67: Warning: The following parameters of SlippyMap::SlippyMap(QObject *parent=0) are not documented:
+  parameter 'parent'
+/home/scensny/Desktop/od_mira/OSM_Navigation/slippymap.cpp:181: Warning: argument 'Hodnota' of command @param is not found in the argument list of SlippyMap::pan(const QPoint &delta)
+/home/scensny/Desktop/od_mira/OSM_Navigation/slippymap.cpp:181: Warning: The following parameters of SlippyMap::pan(const QPoint &delta) are not documented:
+  parameter 'delta'
+/home/scensny/Desktop/od_mira/OSM_Navigation/slippymap.cpp:255: Warning: argument 'Zoznam' of command @param is not found in the argument list of SlippyMap::setTrack(QVector< PolygonVector > pg)
+/home/scensny/Desktop/od_mira/OSM_Navigation/slippymap.cpp:255: Warning: The following parameters of SlippyMap::setTrack(QVector< PolygonVector > pg) are not documented:
+  parameter 'pg'
+/home/scensny/Desktop/od_mira/OSM_Navigation/slippymap.cpp:266: Warning: argument 'Zoznam' of command @param is not found in the argument list of SlippyMap::setWpt(QVector< QPoint > wpt)
+/home/scensny/Desktop/od_mira/OSM_Navigation/slippymap.cpp:266: Warning: The following parameters of SlippyMap::setWpt(QVector< QPoint > wpt) are not documented:
+  parameter 'wpt'
+/home/scensny/Desktop/od_mira/OSM_Navigation/tracks.cpp:115: Warning: argument 'atribúty' of command @param is not found in the argument list of Tracks::parseXml(QXmlStreamAttributes atr)
+/home/scensny/Desktop/od_mira/OSM_Navigation/tracks.cpp:115: Warning: The following parameters of Tracks::parseXml(QXmlStreamAttributes atr) are not documented:
+  parameter 'atr'

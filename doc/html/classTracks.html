@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>OSM_Navigation: Dokumentácia triedy Tracks</title>
+  <link href="simunet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+<a href="index.html">Hlavná stránka</a>&nbsp;&middot;&nbsp;<a href="annotated.html">Triedy</a>
+</div>
+<!-- Generované programom Doxygen 1.6.1 -->
+<div class="contents">
+<h1>Dokumentácia triedy Tracks</h1><!-- doxytag: class="Tracks" -->
+<p>Táto trieda komunikuje s GUI častou aplikácie.  
+<a href="#_details">...</a></p>
+
+<p><code>#include &lt;<a class="el" href="tracks_8h_source.html">tracks.h</a>&gt;</code></p>
+
+<p><a href="classTracks-members.html">Zoznam všetkých členov.</a></p>
+<h2>Verejné metódy</h2>
+<ul>
+<li><a class="el" href="classTracks.html#a132fed3ad9faf9115e3665e2de5af2b2">Tracks</a> ()
+<li>QVector&lt; QPointF &gt; <a class="el" href="classTracks.html#a420b5f0afac1466a72b07bd347a6a6e5">open</a> ()
+</ul>
+<h2>Privátne metódy</h2>
+<ul>
+<li>QPointF <a class="el" href="classTracks.html#a031d959d79171b3a8403c8b4a9b264ba">parseXml</a> (QXmlStreamAttributes atr)
+</ul>
+<hr/><a name="_details"></a><h2>Detailný popis</h2>
+<p>Táto trieda komunikuje s GUI častou aplikácie. </p>
+<dl class="author"><dt><b>Autor:</b></dt><dd>Dušan Ščensný </dd></dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="tracks_8h_source.html#l00013">13</a> v súbore <a class="el" href="tracks_8h_source.html">tracks.h</a>.</p>
+<hr/><h2>Dokumentácia konštruktoru a deštruktoru</h2>
+<a class="anchor" id="a132fed3ad9faf9115e3665e2de5af2b2"></a><!-- doxytag: member="Tracks::Tracks" ref="a132fed3ad9faf9115e3665e2de5af2b2" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tracks::Tracks </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Trieda ktorá pracuje s traťami Načíta dáta zo súboru a rodelí ich na trate a významné body V hlavnom menu sa inicializuje mapa a vytvoria všetky tlačidlá a akcie potrebné v hlavnom menu </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="tracks_8cpp_source.html#l00010">10</a> v súbore <a class="el" href="tracks_8cpp_source.html">tracks.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentácia k metódam</h2>
+<a class="anchor" id="a420b5f0afac1466a72b07bd347a6a6e5"></a><!-- doxytag: member="Tracks::open" ref="a420b5f0afac1466a72b07bd347a6a6e5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVector&lt; QPointF &gt; Tracks::open </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Spustí filechooser na výber súboru následne súbor otvorí. Po rozdelení dát vráti zoznam tratí. V prípade neúspechu oznámi výstrahou naúspech , inak vráti oznámenie o počte trás. </p>
+
+<p>Definícia je uvedená na riadku <a class="el" href="tracks_8cpp_source.html#l00019">19</a> v súbore <a class="el" href="tracks_8cpp_source.html">tracks.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a031d959d79171b3a8403c8b4a9b264ba"></a><!-- doxytag: member="Tracks::parseXml" ref="a031d959d79171b3a8403c8b4a9b264ba" args="(QXmlStreamAttributes atr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPointF Tracks::parseXml </td>
+          <td>(</td>
+          <td class="paramtype">QXmlStreamAttributes&nbsp;</td>
+          <td class="paramname"> <em>atr</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcia rozdelí XML atribúty a vráti hodnoty súradníc </p>
+<dl><dt><b>Parametre:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>atribúty</em>&nbsp;</td><td>z xml súboru daného riadku </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Návratová hodnota:</b></dt><dd>zemepisné súradnice </dd></dl>
+
+<p>Definícia je uvedená na riadku <a class="el" href="tracks_8cpp_source.html#l00121">121</a> v súbore <a class="el" href="tracks_8cpp_source.html">tracks.cpp</a>.</p>
+
+</div>
+</div>
+</div>
+<hr></hr>
+<div id="footer">OSM_Navigation </div>
+</body>
+</html>

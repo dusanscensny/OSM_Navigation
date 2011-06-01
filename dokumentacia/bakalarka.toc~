@@ -1,0 +1,111 @@
+\select@language {slovak}
+\contentsline {paragraph}{}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {chapter}{\IeC {\'U}vod}{3}
+\contentsline {paragraph}{}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {chapter}{\numberline {1}Geografick\IeC {\'e} \IeC {\'u}daje}{5}
+\contentsline {section}{\numberline {1.1}Z\IeC {\'a}kladn\IeC {\'e} pojmy v geografii}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {paragraph}{S\IeC {\'u}radnicov\IeC {\'y} syst\IeC {\'e}m}{5}
+\contentsline {paragraph}{WGS-84}{5}
+\contentsline {section}{\numberline {1.2}Kartografick\IeC {\'a} projekcia - Zobrazenie M\IeC {\'a}p}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {section}{\numberline {1.3}GPS}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{Konkurencia}{9}
+\contentsline {subsection}{\numberline {1.3.1}Ako GPS pracuje?}{9}
+\contentsline {paragraph}{}{9}
+\contentsline {section}{\numberline {1.4}Mo\IeC {\v z}nosti zobrazenia m\IeC {\'a}p}{10}
+\contentsline {paragraph}{Online mapy}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {subsection}{\numberline {1.4.1}Sp\IeC {\^o}sob s\IeC {\v t}ahovania konkr\IeC {\'e}tnych \IeC {\v c}ast\IeC {\'\i } mapy}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {subsection}{\numberline {1.4.2}Google Mapy}{11}
+\contentsline {paragraph}{Google maps}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {subsection}{\numberline {1.4.3}OpenStreetMap}{11}
+\contentsline {paragraph}{OpenStreetMap(OSM)}{11}
+\contentsline {paragraph}{\IeC {\v S}\IeC {\'\i }rka z\IeC {\'a}beru}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{Zdroje d\IeC {\'a}t}{12}
+\contentsline {chapter}{\numberline {2}Spracovanie d\IeC {\'a}t z GPS pr\IeC {\'\i }stroja}{14}
+\contentsline {section}{\numberline {2.1}Protokol NMEA 0183}{14}
+\contentsline {paragraph}{NMEA}{14}
+\contentsline {paragraph}{Popis \IeC {\v c}ast\IeC {\'\i } NMEA}{14}
+\contentsline {section}{\numberline {2.2}Form\IeC {\'a}t GPX}{15}
+\contentsline {paragraph}{}{15}
+\contentsline {subsection}{\numberline {2.2.1}Element gpx}{15}
+\contentsline {section}{\numberline {2.3}Skytraq datalogger}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {section}{\numberline {2.4}GPS babel}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {subsection}{\numberline {2.4.1}Pr\IeC {\'\i }kazy v programe GPSbabel}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {chapter}{\numberline {3}GPS pr\IeC {\'\i }stroje pou\IeC {\v z}it\IeC {\'e} v pr\IeC {\'a}ci}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {section}{\numberline {3.1}Sp\IeC {\^o}sob pripojenia}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {section}{\numberline {3.2}GPS multi tracker}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {subsection}{\numberline {3.2.1}Konfigur\IeC {\'a}cia}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {subsection}{\numberline {3.2.2}Mo\IeC {\v z}nosti pripojenia}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {subsection}{\numberline {3.2.3}S\IeC {\v t}ahovanie d\IeC {\'a}t a zauj\IeC {\'\i }mav\IeC {\'y}ch bodov}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {subsection}{\numberline {3.2.4}Navig\IeC {\'a}cia}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {section}{\numberline {3.3}Navilock GPS Bluetooth Receiver BT-308}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {subsection}{\numberline {3.3.1}Komunik\IeC {\'a}cia}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {subsection}{\numberline {3.3.2}Prij\IeC {\'\i }manie aktu\IeC {\'a}lnej poz\IeC {\'\i }cie}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {chapter}{\numberline {4}Programov\IeC {\'e} prostriedky}{21}
+\contentsline {section}{\numberline {4.1}V\IeC {\'y}ber programovacieho jazyka a v\IeC {\'y}vojov\IeC {\'e}ho prostredia}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {section}{\numberline {4.2}QT}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {subsection}{\numberline {4.2.1}Qt Creator}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {section}{\numberline {4.3}PyQt}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {chapter}{\numberline {5}Program OSM\_Navigation}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {section}{\numberline {5.1}Spr\IeC {\'a}va z\IeC {\'a}vislosti programu}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {section}{\numberline {5.2}S\IeC {\v t}ahovanie \IeC {\v c}ast\IeC {\'\i } mapy}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {paragraph}{QUrl}{26}
+\contentsline {paragraph}{QHash}{26}
+\contentsline {section}{\numberline {5.3}Zobrazenie mapy}{26}
+\contentsline {paragraph}{}{26}
+\contentsline {subsection}{\numberline {5.3.1}Prepo\IeC {\v c}ty pri zobrazovan\IeC {\'\i }}{27}
+\contentsline {paragraph}{}{27}
+\contentsline {paragraph}{Pres\IeC {\'u}vanie sa po mape}{27}
+\contentsline {section}{\numberline {5.4}Na\IeC {\v c}\IeC {\'\i }tanie d\IeC {\'a}t z gpx form\IeC {\'a}tu}{27}
+\contentsline {paragraph}{}{27}
+\contentsline {paragraph}{QXmlStreamReader}{27}
+\contentsline {paragraph}{QXmlStreamAttributes}{27}
+\contentsline {paragraph}{QVector}{27}
+\contentsline {section}{\numberline {5.5}H\IeC {\v l}adanie aktu\IeC {\'a}lnej poz\IeC {\'\i }cie}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{QProcess}{28}
+\contentsline {paragraph}{}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {chapter}{Literat\IeC {\'u}ra}{29}
+\contentsline {paragraph}{}{33}
+\contentsline {paragraph}{}{33}
+\contentsline {paragraph}{}{33}

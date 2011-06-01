@@ -1,0 +1,136 @@
+\chapter{Geografické údaje}
+\section{Základné pojmy v geografii}
+\paragraph{}
+V tejto podkapitole sa vysvetľujú pojmy týkajúce sa geografie ktorá zároveň
+súvisí s GPS súradnicami.
+\paragraph{Súradnicový systém}
+ je vzájomne jednoznačné zobrazenie medzi množinou bodov n-rozmerného priestoru
+a usporiadanou n-ticou skalárov (veličín či čísiel; spravidla reálnych čísiel).
+Tieto skaláre (pri ktorých záleží na poradí v ktorom sú uvádzané) sa nazývajú
+súradnice alebo koordináty.%" [Marián Jurík]
+\paragraph{WGS-84}
+World Geodetic System 1984. Systém udávania súradníc v GPS systéme, pre veľmi
+presné geodetické aplikácie je jeho elipsoid svojou presnosťou nedostatočný,
+pôvodne bol použitý pre výpočty súradníc družíc GPS na svojich obežných
+drá\-hach, dnes sa stáva štandardom pre užívateľov GPS a bežné mapy na celom
+svete
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.5cm]{obr/Wgs84}
+\caption{Referenčný elipsoid}
+\end{figure}
+
+
+\section{Kartografická projekcia - Zobrazenie Máp}
+\paragraph{}
+Prvoradým predpokladom analýzy a tvorby mapových výstupov z geografických
+(vektorových alebo rastrových) údajov je, že všetky sa vzťahujú k jednotnému
+súradni\-co\-vé\-mu systému. [Krcho 1989]. 
+
+Vo väčšine prípadov sú údaje z rôznych mapových podkladov, ktoré boli vyhotovené
+v rôznych kartografických zobrazeniach a v rôznych mierkach. Nevyhnutnou
+súčasťou procesu tvorby priestorovej databázy a mapových výstupov je preto
+transformácia súradníc objektov medzi rôznymi súradnicovými systémami.
+Pri spracovaní údajov prostriedkami berieme do úvahy min tri zobrazenia:
+zobrazenie vstupných máp, interné zobrazenie (v programe), zobrazenie výstupov.
+Ideálne je keď sa tieto zobrazenia zhodujú čo sa ale nestáva často.
+
+Význam interného kartografického zobrazenia, jednotného súradnicového systé-
+mu a presnosti kartografických transformácii rastie priamo úmerne s veľkosťou
+spracová\-va\-né\-ho územia a s počtom užívateľov geografickej databázy. Pre
+lokálne
+databázy prístupne obmedzenému počtu užívateľov (napr. mapa zelene v intraviláne
+jednej obce), postačuje zadefinovať lokálny pravouhlý súradnicový systém. Na
+malých vzdialenostiach sa zakrivenie zemského povrchu môže zanedbať. Na
+zjednotenie máp zelene všetkých obci okresu určite budeme potrebovať
+transformáciu do jednotného sú\-rad\-ni\-co\-vé\-ho systému. V prípade
+medzinárodných
+projektov, keď záujmové územie presahuje hranice jedného štátu a databázu
+používajú organizácie z rôznych štátov s rôznymi národnými zobrazeniami a
+tradíciami, sa vhodné riešenie hľadá ťažko [Maling 1991].
+
+Základným súradnicovým systémom na referenčnom elipsoide sú zemepisné
+sú\-rad\-ni\-ce,
+niekedy tiež nazývané geodetické zemepisné, alebo geografické sú\-rad\-ni\-ce.
+Sú tvorené zemepisnou šírkou a zemepisnou dĺžkou. Zemepisné poludníky a
+rovnobežky vytvárajú na referenčnom elipsoide zemepisnú sieť. Referenčný
+elipsoid sa používa pri definícii štátnych a medzinárodných geodetických
+súradnicových systémov, pri tvorbe mapových dielov veľkých a stredných mierok,
+keď sa vyžaduje minimálne skreslenie.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.5cm]{obr/relationshipse}
+\caption{Referenčný elipsoid}
+\end{figure}
+
+\paragraph{}
+\paragraph{}
+\paragraph{}
+\paragraph{}
+Súradnicový systém na referenčnej guli tvoria tiež zemepisné súradnice. Aby sa
+odlíšili od zemepisných súradníc na elipsoide, nazývajú sa sférickými resp.
+guľovými zemepisnými súradnicami. Potom sa hovorí o guľovej (sférickej)
+zemepisnej šírke a dĺžke. V prípade kartografických zobrazení sa na referenčnej
+guli niekedy definuje systém kartografických súradníc (kartografická zemepisná
+šírka a dĺžka). Tieto sa definujú k zvolenému kartografickému poľu obdobne ako
+zemepisné súradnice k zemskému poľu. Referenčná guľa je vhodnou referenčnou
+plochou pre zobrazenia s nižšími nárokmi na presnosť zobrazenia. Referenčné gule
+sa používajú pre tvorbu máp malých mierok, napr. nástenných alebo Atlasových.
+
+\paragraph{}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.5cm]{obr/zem_do_mapy}
+\caption{Zpracovanie zemského povrchu do mapy}
+\end{figure}
+
+\section{GPS}
+\paragraph{}
+Global Positioning System, zvyčajne nazývaný GPS (armáda USA ho označuje ako
+NAVSTAR GPS - NAVigation Signal for Timing And Ranging), je satelitný navigačný
+systém používaný na zistenie presnej pozície a poskytujúci veľmi presnú časovú
+referenciu takmer kdekoľvek na Zemi alebo na zemskom orbite. Používa zostavu
+aspoň
+24 satelitov na strednom zemskom orbite.
+
+Je schopný poskytovať údaje o polohe nezávisle na počasí 24 hodín denne. Ide o
+pasívny družicový dĺžkomerný systém. Cieľom prevádzkovateľa tohto systému,
+Ministerstva obrany USA, pôvodne bolo, aby vojenské jednotky mohli presne
+určovať polohu, rýchlosť a čas v jednotnom referenčnom systéme. Z uvedeného
+vyplýva, že systém bol vyvíjaný najmä pre vojenské účely, ale americký kongres
+neskôr schválil jeho využitie s určitými obmedzeniami aj pre civilný sektor.
+
+\paragraph{Konkurencia}
+\begin{enumerate}
+\item GLONASS - ruský družicový navigačný systém
+\item Galileo - vyvíjaný EU
+\item Compass - vyvíjaný čínou, regionálne používaný pod názvom Beidou
+\item DORIS - systém vyvíjaný francúzkom
+\end{enumerate}
+
+\subsection{Ako GPS pracuje?}
+\paragraph{}
+To, čo sa deje v každom GPS prijímači by sme mohli opísať ako určovanie polohy
+meraného bodu z priesečníku guľových plôch, ktorých polomer je daný meranými
+vzdialenosťami. Tento systém sa nazýva tiež dĺžkomerný systém. Meranou veličinou
+je doba šírenia rádiového signálu z družicovej antény k anténe GPS prijímača. Rýchlosť šírenia signálu je rovná rýchlosti svetla. Každá družica v
+navigačnej správe okrem iných údajov posiela aj parametre svojej dráhy
+z ktorých vieme vypočítať aktuálnu polohu družice (XS, YS, ZS). Keď
+poznáme súradnice družíc, môžeme polohu užívateľa (X, Y, Z) určiť vypočítaním
+sústavy troch rovníc o troch neznámych. Problém merania polohy by bol
+jednoduchý, keby časové základne (hodiny) družice a užívateľa boli synchrónne.
+Hlavný problémom je doba, ktorá uplynie medzi vyslaním diaľkomerného signálu z
+GPS družice a jeho prijatím užívateľským GPS prijímačom. Časová základňa
+užívateľského zariadenia je posunutá o neznámy časový interval Dt, ktorý môžeme
+prepočítať na vzdialenosť b = c Dt (kde c je rýchlosť svetla). K neznámym
+súradniciam užívateľa pristupuje teda neznáma b a pre výpočet polohy potrebujeme
+celkom štyri rovnice
+
+\begin{verbatim}
+(xi - x)2 + (yi - y)2 + (zi - z)2 = Di + b
+
+Di = c tmi
+
+i = 1, 2, 3, 4
+\end{verbatim}

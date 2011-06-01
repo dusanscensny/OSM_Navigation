@@ -1,0 +1,178 @@
+%podkapitoly
+%\section{Protokol NMEA 0183}
+%\section{Formát GPX}
+%\section{GPS babel}
+%\section{Gps multi tracker}
+
+\chapter{Spracovanie dát z GPS prístroja}
+
+\section{Protokol NMEA 0183}
+\paragraph{NMEA}
+"Štandardizovaný komunikačný protokol pre prenos dát z GPS do iného
+elektronického zariadenia (najčastejšie PC) v reálnom čase. Dáta z GPS sú
+tematický rozdelené do niekoľkých skupín - ASCII reťazcov a posielané von
+z prístroja."[10]
+
+Tento protokol na najčastejšie používa pre prenos GPS dát potrebných na zobrazenie pozície používateľa, ktorý smeruje z prístrojov do PC zariadení.
+Každá veta začína znakom \$. Za znakom \$ pokračuje označenie dát, za ktorým sa nachádzajú konkrétne dáta. Dáta sú oddelené čiarkou, pre dobré rozonanie. V prípade že sa konkrétne dáta nedajú vypočítať (nedostupnosť signálu, nedostatok dát potrebných pre výpočet) sú prístrojom na danej pozícii posielané ako nuly ako prázdne dáta.  Niektoré prijímače neposielajú všetky dáta.
+
+\paragraph{Popis NMEA prvkov}
+Pred každý z kódov sa pridáva príznak GP\\
+RMB  = Minimálne potrebné navigačné informácie\\
+RMC  = Odporúčané minimálne tranzitné údaje \\
+GGA  = Globálny pozičný systém Fixné dáta(zemepisné súradnice, nadmorská výška, počet satelitov a pod.)\\
+VTG  = Kvalita a rýchlosť aktuálnej trate\\
+RMA  = Minimálne potrebné navigačné informácie\\
+%GSA  = mód GPS prijímača, SVs a DOP hodnoty\\
+GSV  =  Viditeľné Satelity\\
+\begin{center}
+ \textbf{Príklad NMEA dát}
+\begin{verbatim}
+Dáta sú dostupné:
+$GPGGA,110532.538,4910.1966,N,01852.6027,E,0,00,1.4,2.5,M,44.0,M,,00*57
+$GPVTG,161.5,T,,M,043.8,N,081.1,K,N*06
+
+Dáta nie sú dostupné:
+$GPGGA,185837.507,0000.0000,N,00000.0000,E,0,00,50.0,0.0,M,0.0,M,,00*74
+$GPRMC,185837.507,V,0000.0000,N,00000.0000,E,,,050309,,*19
+\end{verbatim}
+\end{center}
+
+\section{Formát GPX}
+\paragraph{}
+Bol navrhnutý tak, že dáta sú uložené v XML formáte. Tento formát má veľa
+výhod. GPX (z angl. GPS eXchange Format) je formát súborov pre ukladanie dát vo forme HTML tagov\footnote{\textbf{tag} - značka metadát}. Dáta sú tak vhodné do spracovania počítačom, ale zároveň sú jednoducho čitateľné aj pre človeka. Tento formát je určený hlavne na komunikáciu internetových webov. 
+
+Forma GPX vychádza z XML\footnote{\textbf{XML} - rozšíriteľný značkovací jazyk (eXtensible Markup Language)} formátu. Tento formát sa vyvinul z hlavne html štandardu. Vznikol hlavne preto, lebo samotný html formát postupom času nabral na zložitosti a množstve príkazov. XML formát nemá predpísané značky (tagy), no zároveň jeho syntax je podstatne prísnejšia ako u HTML\footnote{\textbf{HTML} - Hypertextový značkový jazyk HyperText Markup Language)} dát.
+\paragraph{}
+\textbf{Existujú dve verzie tohto formátu a to:}
+\begin{list}{•}
+\item 1.0 používaná od roku 2002
+\item
+\item 1.1 používaná od 9. Augusta 2004 
+\end{list}
+\paragraph{}
+\textbf{Verzie sú vzájomne kompatibilné. Verzia 1.1 priniesla nasledujúce zmeny:}
+\begin{list}{•}
+\item tagy s obecnými informáciami o celom súbore sa presunuli do tagu metadata
+\item
+\item miesto tagov url a urlname sa používa nový tag link
+\item voliteľné rozširujúce tagy sa presunuli do tagu extension
+\end{list}
+
+Programy by mali jasne deklarovať s ktorou verziou GPX vedia pracovať, aby sa
+predišlo situáciám kedy nebude možné niektoré GPX dáta spracovať kvôli
+nekompatibilite verzie.
+
+\subsection{Element gpx}
+
+\begin{center}
+\textbf{Tento element je koreňovým elementom GPX dokumentu}
+\begin{verbatim}                                                    
+"< gpx
+   version = " 1.1 [1] "
+   creator = " xsd:string [1] " >
+       < metadata > metadataType </ metadata > [0..1]
+       < wpt > wptType </ wpt > [0..*]
+       < rte > rteType </ rte > [0..*]
+       < trk > trkType </ trk > [0..*]
+       < extensions > extensionsType </ extensions > [0..1]
+</ gpx > "[2]
+\end{verbatim}
+\end{center}
+Hodnoty v zátvorkách znázorňujú početnosť dát v zázname. Každý začiatočný tag musí mať aj svoju ukončovaciu značku.\\
+
+
+\begin{center}
+\textbf{Príklad GPX schémy typu waypoint}
+\begin{verbatim}
+<wpt lat="49.210526565" lon="18.758500053">
+  <ele>435.097072</ele>
+  <time>2009-10-29T21:50:20Z</time>
+  <name>TP1149</name>
+  <cmt>TP1149</cmt>
+  <desc>TP1149</desc>
+</wpt>
+\end{verbatim}
+\end{center}
+
+Jednotlivé tagy môžu obsahovať niektoré z atribútov(pr: `lat`,`lon`). Samotné atribúty majú len názvy (žiadne začiatočné ani ukončovacie značky). Názvy tagov sú vždy na začiatku a na konci(pr: `ele`,`wpt`). Tagy musia obsahovať aj začiatočné aj ukončovacie značky.
+
+
+\begin{center}
+\textbf{Príklad GPX schémy typu track}
+\begin{verbatim}
+<...>
+<name> xsd:string </name> [0..1] ?
+<cmt> xsd:string </cmt> [0..1] ?
+<desc> xsd:string </desc> [0..1] ?
+<src> xsd:string </src> [0..1] ?
+<link> linkType </link> [0..*] ?
+<number> xsd:nonNegativeInteger </number> [0..1] ?
+<type> xsd:string </type> [0..1] ?
+<extensions> extensionsType </extensions> [0..1] ?
+<trkseg> trksegType </trkseg> [0..*] ?
+</...>
+\end{verbatim}
+\end{center}
+
+V príklade sú dáta iba popisom(informáciou o trase. Popisy nám slúžia na identifikáciu trasy, pričom existencia jednotlivých  popisov je podmienená typom prístroja, ktorý dáta zapisuje. Samotné dáta trás potrebné na vykreslenie sa nachádzajú v časti \textit{trkseg} (názov trksegType v príklade).
+
+\section{Skytraq datalogger}
+\paragraph{}Program vyvíjaný Jesper Zedlitz-om, je schopný spracovať dáta z
+prístroja s identickým názvom. Tieto dáta ukladá do výstupného formátu GPX.
+Samotný vývoj softvéru prešiel pod program GPSbabel, no doposiaľ je iba v testovacej verzii. Tento program nemá GUI interface a spúšťanie prebieha iba v termináli. S programom je možné konfigurovať daný prístroj čo je dôležité pri zapisovaní(logovaní) trás do prístroja. Viac informácii o konfigurácii prístroja sa nachádza v tretej kapitole.
+\begin{center}
+ \textbf{Vzorové príkazy:}
+\begin{verbatim}
+skytraq-datalogger --info
+skytraq-datalogger <OPTIONS> ACTION
+skytraq-datalogger --dump > vystup.gpx - uloží výsledné dáta do súboru vystup.gpx
+\end{verbatim}
+\end{center}
+\paragraph{}Všetky ostané informácie sa vypíšu po príkaze info. Používateľ si intuitívne dokáže zvoliť nastavenia prístroja.
+Časť options je nepovinná(nastavenia prístroja), no v nasledujúcej časti zadávame žiadanú akciu(`--info`,`--dump`).
+
+\section{GPS babel}
+\paragraph{}GPSbabel konvertuje dáta medzi GPS prijímačmi a mapovými programami. Tiež je
+vhodný na manipuláciu s týmito dátami.
+Tento program umožňuje prácu s dátami priamo na úrovni hardvéru t.j. prácu
+priamo s GPS prijímačmi. Podpora dátových formátov stále stúpa a je dostupný pod
+rôznymi operačnými systémami.
+Nekonvertuje ani neposiela mapy. Pracuje len s dátami ktoré sú na mape uložené,
+dátami ako trasami a zaujímavými bodmi. 
+Pre túto prácu ho bolo vhodné použiť práve preto, že je dostupný pod rôznymi platformami\footnote{\textbf{platforma} = operačný systém}.
+Komunikácia s prístrojom používaným v tejto práci - Sky\_traq data
+logger bola nedávno implementovaná. Predchádzajúci softvér postačoval
+na nastavenie komunikácie sťahovanie dát, no nebolo s ním možné nastaviť cieľový
+bod potrebný na navigáciu s prís\-tro\-jom.
+Aby sme mohli použiť tento program museli sme nainštalovať beta verziu programu,
+pretože stabilná verzia doposiaľ, nepodporovala tento prístroj.
+
+\subsection{Príkazy v programe GPSbabel}
+\paragraph{}Keďže s programom GPSbabel sa pracuje na úrovni príkazového riadku príkazy na
+konfiguráciu sú zadávané takýmto spôsobom:
+
+\begin{center}
+\textbf{Príkaz na sťahovanie dát}
+\begin{verbatim}
+gpsbabel -i skytraq,erase -f /dev/ttyUSB1 -o gpx -F suradnice/ke_1.gpx
+\end{verbatim}
+Príkazom žiadame zariadenie o dáta ktoré budú zároveň zo zariadenia vymazané.
+\paragraph{}
+\textbf{Príkaz na nastavenie cieľového bodu}
+\begin{verbatim}
+gpsbabel -i skytraq,targetlocation=49.56:18.21 -f 
+    /dev/ttyUSB 0 -o unicsv -F -  
+\end{verbatim}
+\textbf{syntax:} gpsbabel = názov programu\\
+-i = input - vstupný typ súboru/prístroja\\
+-f = file - cesta k súboru\\
+-o = output - typ výstupného súboru \\
+-F = File názov súboru do ktorého sa dáta zapíšu\\
+\end{center}
+
+Je nutné podotknúť že vzorové príkazy boli zamerané na konkrétne prístroje ktoré boli v práci používané.
+
+\subsection{Gebabbel}
+Tento program je vytvorený ako nadstavba na program GPSbabel. Hlavnými črtami tohto programu je jednoduchosť a jednoúčelnosť. Je vhodným nástrojom na sťahovanie dát a komunikáciu s prístrojmi. Výhodou tohto programu je výber prístrojov, dát a akcií, ktoré sa majú vykonať. Program disponuje aktuálnou databázou prístrojov a formátov, ktoré GPSbabel podporuje.

@@ -1,0 +1,22 @@
+\addcontentsline{toc}{chapter}{Zoznam použitých skratiek}
+\newpage
+\chapter*{Zoznam použitých skratiek}
+
+
+\thispagestyle{empty}
+
+\textbf{GPS} - globálny pozičný systém\\
+\textbf{OSM} - Open street map\\
+\textbf{NMEA} - national marine electronic association\\
+\textbf{GPX} - GPS eXchange format = formát na výmenu dát\\
+\textbf{OS} - Operačný systém\\
+\textbf{WGS-84} - World Geodetic System 1984\\
+\textbf{NAVSTAR GPS} - NAVigation Signal for Timing And Ranging\\
+\textbf{GLONASS} - Globálny satelitný navigačný systém\\
+\textbf{XML} - eXtensible Markup Language(rozšíriteľný značkovací jazyk)\\
+\textbf{HTML} - HyperText Markup Language(Hypertextový značkový jazyk )\\
+\textbf{USB} - Univerzálna sériavá zbernica (Universal serial bus)\\
+\textbf{MAC} - Riadenie prístupu k médiu (Media Acces Control) = hardvérová adresa\\
+\textbf{GNU} - „GNU Nie je Unix“ (angl. „GNU's Not Unix“)\\
+\textbf{GPL} - General public licence\\
+

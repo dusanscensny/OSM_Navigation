@@ -1,0 +1,47 @@
+\BOOKMARK [0][-]{chapter*.6}{Úvod}{}
+\BOOKMARK [0][-]{chapter.1}{Geografické údaje}{}
+\BOOKMARK [1][-]{section.1.1}{Základné pojmy v geografii}{chapter.1}
+\BOOKMARK [1][-]{section.1.2}{Kartografická projekcia - Zobrazenie Máp}{chapter.1}
+\BOOKMARK [2][-]{subsection.1.2.1}{Referenčný elipsoid}{section.1.2}
+\BOOKMARK [1][-]{section.1.3}{GPS}{chapter.1}
+\BOOKMARK [2][-]{subsection.1.3.1}{Funkčnosť GPS systému}{section.1.3}
+\BOOKMARK [1][-]{section.1.4}{Možnosti zobrazenia máp}{chapter.1}
+\BOOKMARK [2][-]{subsection.1.4.1}{On-line mapy}{section.1.4}
+\BOOKMARK [2][-]{subsection.1.4.2}{Spôsob sťahovania konkrétnych častí mapy}{section.1.4}
+\BOOKMARK [2][-]{subsection.1.4.3}{Google Mapy}{section.1.4}
+\BOOKMARK [2][-]{subsection.1.4.4}{OpenStreetMap}{section.1.4}
+\BOOKMARK [0][-]{chapter.2}{Spracovanie dát z GPS prístroja}{}
+\BOOKMARK [1][-]{section.2.1}{Protokol NMEA 0183}{chapter.2}
+\BOOKMARK [1][-]{section.2.2}{Formát GPX}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.2.1}{Element gpx}{section.2.2}
+\BOOKMARK [1][-]{section.2.3}{Skytraq datalogger}{chapter.2}
+\BOOKMARK [1][-]{section.2.4}{GPS babel}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.4.1}{Príkazy v programe GPSbabel}{section.2.4}
+\BOOKMARK [2][-]{subsection.2.4.2}{Gebabbel}{section.2.4}
+\BOOKMARK [0][-]{chapter.3}{GPS prístroje použité v práci}{}
+\BOOKMARK [1][-]{section.3.1}{GPS multi tracker}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.1.1}{Konfigurácia}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.2}{Sťahovanie dát a zaujímavých bodov}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.3}{Navigácia}{section.3.1}
+\BOOKMARK [1][-]{section.3.2}{Navilock GPS Bluetooth Receiver BT-308}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.2.1}{Komunikácia}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.2}{Prijímanie aktuálnej pozície}{section.3.2}
+\BOOKMARK [0][-]{chapter.4}{Program OSM\137Navigation}{}
+\BOOKMARK [1][-]{section.4.1}{Výber programovacieho jazyka a vývojového prostredia}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.1.1}{Qt Creator}{section.4.1}
+\BOOKMARK [1][-]{section.4.2}{Správa závislosti programu}{chapter.4}
+\BOOKMARK [1][-]{section.4.3}{Jazykové formáty programu}{chapter.4}
+\BOOKMARK [1][-]{section.4.4}{Aplikačná a dátová vrstva programu}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.4.1}{Sťahovanie častí mapy}{section.4.4}
+\BOOKMARK [2][-]{subsection.4.4.2}{Načítanie dát zo súboru}{section.4.4}
+\BOOKMARK [2][-]{subsection.4.4.3}{Prepočítavanie dát k zobrazeniu trasy}{section.4.4}
+\BOOKMARK [2][-]{subsection.4.4.4}{Prepočítanie zemepisných súradníc}{section.4.4}
+\BOOKMARK [1][-]{section.4.5}{Užívateľská vrstva - GUI Aplikácia}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.5.1}{Zobrazenie mapy}{section.4.5}
+\BOOKMARK [2][-]{subsection.4.5.2}{Pripojenie GPS zariadenia}{section.4.5}
+\BOOKMARK [2][-]{subsection.4.5.3}{Hľadanie aktuálnej pozície}{section.4.5}
+\BOOKMARK [1][-]{section.4.6}{Licencia aplikácie a požitých knižníc a programov}{chapter.4}
+\BOOKMARK [0][-]{section*.73}{Záver}{}
+\BOOKMARK [0][-]{section*.77}{Literatúra}{}
+\BOOKMARK [0][-]{chapter*.78}{Zoznam použitých skratiek}{}
+\BOOKMARK [0][-]{chapter*.81}{Prílohy}{}

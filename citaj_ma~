@@ -1,0 +1,24 @@
+---------------------------------------------------------
+Popis CD
+---------------------------------------------------------
+
+Na CD sa nachádza dokumentácia programu (technická a používateľská)
+
+
+V priečinku OSM_Navigation je program aj zo zdrojovými kódmi. Na kompiláciu programu stačí zadať príkaz make (make -w zobrazí čo kopiluje). Program bol vyvýjaný vo vývojovom prostredí Qt Creator. Na otvorenie projektu v tomto prostredí sa nachádza súbor OSM_Navigation.pro.
+
+
+V priečinku program sa nachádza nakompilovaný program v Ubuntu 9.10. Nachádzjú sa tu taktiež vzorové príklady na zobrazenie trás. 
+
+Bakalárska práca je písaná v texu a kopilovaná pomocou XELaTeX-u. Zdrojové kódy sa nachádzajú v priečinku dokumnetácia. 
+
+
+
+---------------------------------------------------------
+Knižnice a programy potrebné pre kompiláciu programu
+---------------------------------------------------------
+Pre kopiláciu sú potrebné qt knižnice. 
+
+Nainštalovať Qt Creator a potrebné knižnice budú nainštalované priamo s ním. 
+
+Pre správne fungovanie programu je potrebné mať nainštalovaný program Gebabbel a gpsbabel ktoré sa v programe používajú ako podproces. 

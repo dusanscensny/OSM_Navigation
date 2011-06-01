@@ -1,0 +1,100 @@
+%Úvodná časť záverečnej práce obsahuje tieto položky v danom poradí:
+%(7)   obal,
+%(8)   titulný list,
+%(9)   zadanie záverečnej práce,
+%(10)                      poďakovanie (nepovinné),
+%(11)                      abstrakt v štátnom jazyku,
+%(12)                      abstrakt v anglickom jazyku, resp. inom cudzom jazyku,
+%(13)                      obsah,
+%(15)                      zoznam skratiek a značiek (v technických a prírodovedných odboroch povinné),
+
+\begin{titlepage}
+\begin{center}
+% Upper part of the page
+%\includegraphics[width=0.5\textwidth]{./logo}\\[1cm]
+
+\textsc{\LARGE Žilinská Univerzita v~Žiline\\ Fakulta riadenia a informatiky}\\[3.5cm]%[1.5cm]
+% text small caps
+
+\textsc{\Large Bakalárska práca}\\[0.5cm]
+{ \large \bfseries Študijný program: informatika}\\[1.5cm]%[0.9cm]
+% \bfseries = Boldface. alebo \textbf
+\end{center}
+
+\vfill
+% urobi co najviac volneho miesta vertikalne
+\begin{center}
+\textbf{Dušan Ščensný}\\
+%\large vedúci: Mgr. Michal \textsc{Kaukič}, CSc.\\
+%\large číslo : \\
+\end{center}
+%\begin{flushleft}
+\begin{center}
+%\hspace{3.0 cm} 
+\textbf{Softvér pre komunikáciu s GPS modulom} \\
+\textbf{a zobrazovanie GPS dát}\\
+\end{center}
+\begin{center}
+\textbf{Vedúci: Mgr. Michal \textsc{Kaukič}, CSc.}\\ 
+Reg.č. 77/2009 \hspace{3.0cm}    Máj 2010\\
+\hspace{2cm}\\
+\end{center}
+\end{titlepage}
+
+%\beg
+\chapter*{PREHLÁSENIE}
+\thispagestyle{empty}
+%\vfill
+\vspace{12cm}
+Prehlasujem, že som bakalársku prácu spracoval samostatne a že som uviedol všetky použité pramene a literatúru, z ktorých som čerpal.
+
+\vspace{2cm}
+\noindent
+V Žiline dňa \makebox[8em]{\dotfill} \hfill Podpis\makebox[8em]{\dotfill}
+
+%\chapter*{Poďakovanie}
+%\thispagestyle{empty}
+
+
+%vytvorenie titulky , so zarovnanim
+%\title{The Triangulation of Titling Data in       Non-Linear Gaussian Fashion via $\rho$ Series}
+%\date{October 31, 475}
+%\author{John Doe\\ Magic Department, Richard Miles University
+ %       \and Richard Row, \LaTeX\ Academy}
+
+%Abstrakt obsahuje informáciu o cieľoch práce, jej stručnom obsahu a v závere abstraktu sa charakterizuje splnenie cieľa, výsledky a význam celej práce. Súčasťou abstraktu je 3 - 5 kľúčových slov. 
+\selectlanguage{slovak}
+\begin{abstract}
+\textsc{Ščensný}, Dušan: \emph{Softvér pre komunikáciu s GPS modulom a zobrazovanie GPS dát}[bakalárska práca] - Žilinská Univerzita v~Žiline. Fakulta riadenia a informatiky; Katedra matematických metód. -Vedúci: Mgr. Michal Kaukič, CSc. - Stupeň odbornej kvalifikácie:Bakalár v~odbore Informatika. Žilina: FRI ŽU v~Žiline, 2010. - \pageref{LastPage} s.
+\\*[1.0cm]
+Cieľom tejto bakalárskej práce bolo vytvoriť robustnú aplikáciu, ktorá má komunikovať s GPS prístrojom a zobrazovať GPS dáta. Obvykle sú dáta vo forme trás a významných bodov, ktoré musia byť ukladané v pamäti konkrétnou údajovou štruktúrou.  Základné funkcie GPS systému a práca s geografickými dátami sú podrobne vysvetlené, pretože sú dôležité pre pochopenie systému navigácie a prepočtov potrebných pri vykresľovaní dát. Vo výslednej aplikácii bola použitá knižnica Qt pomocou ktorej bolo vytvorené jadro aplikácie aj grafické rozhranie. Vývoj tejto aplikácie podnietilo hlavne to, že na trhu je nedostatok takýchto produktov ktoré sú jednoduché, rýchle a bezplatné. Aplikácia sa dá považovať za prvú fázu vo vývoji v ktorej sú implementované základné prvky softvéru pracujúceho s GPS prístrojom a samotnými mapami.\\[1.0cm]
+\textbf{Kľúčové slová:} GPS, Qt, Aplikácia, prístroj
+\end{abstract}
+
+\selectlanguage{english}
+\begin{abstract} 
+%\textbf{Abstract}\\
+%\end{center}
+\textsc{Ščensný}, Dušan: \emph{Software for communication with GPS module and GPS data visualization.}[Bachelor thesis] - University of Žilina. Faculty of Management Science and Informatics;Department of mathematical methods - Tutor: Mgr. Michal Kaukič, CSc. - Qualification level:Bachelor in field Informatics. Žilina: FRI ŽU v~Žiline, 2009. - \pageref{LastPage}~p.
+\\*[1.0cm]
+The goal of this Bachelor thesis was to make a robus application, which comunicates with GPS device and visualisates the GPS data. Ususally are data in form of tracks and waypoints, which must be saved in memory in concrete data structure. The basic functions of GPS system and work with geographical data are in details ilustrated, because of their important for comprehension of system navigation and calculation needed by drawing data. In final application were used library called Qt by which were created core of application and graphical interface. Development of this application in main motivate, that at market is lack of this products which are simple, fast and free. Application can be consider in first phase at our development in which are implemented the basic component of software work with GPS device and maps.\\[1.0cm]
+\textbf{Keywords:} GPS, Qt, application, device
+\end{abstract}
+
+\selectlanguage{slovak}
+%Predhovor je povinný vo všetkých kvalifikačných prácach. Píše sa spravidla na jednej samostatnej strane. Autor uvedie hlavné charakteristiky práce. Stručne informuje, čo je hlavná téma a aké dôvody viedli autora k voľbe témy. Načrtne domáci a zahraničný kontext,informuje ako a kým by sa práca mohla použiť. Informuje tiež o tom, kto autorovi poskytol pomoc a ak to uzná za vhodné, poďakuje im.
+
+\section*{PREDHOVOR}
+\paragraph{}
+Práca s mapami fascinovala už mnoho ľudí. Dôvod pre spracovanie tejto témy bol dlhodobý záujem o prácu s mapami a mapovým softvérom, tiež záujem o hlbšie poznanie GPS princípov a častí ktoré vo všeobecnosti nie sú známe. 
+
+V úvode tejto práce nájdeme stručne popísaný prechod z histórie až po súčasnosť a zároveň stručný popis výberu softvéru, ktorý je dôležitý pri vývoji a tiež softvéru ktorý je vhodný použiť pri práci s dátami. 
+
+V prvých troch kapitolách sú popísané základné prvky týkajúce sa geografie, kartografie a s ňou spojenej projekcie zemského povrchu do mapy. Následne sa v týchto kapitolách pojednáva o fungovaní GPS\footnote{\textbf{GPS} - globálny pozičný systém}, ktorý je dôležitou súčasťou tejto práce. S navigačnými prístrojmi sa blízko spája protokol NMEA\footnote{\textbf{NMEA} - národná vojenská asociácia pre elektroniku (national marine electronic association)} ktorý sa často používa ako základ pri prenose údajov z prístroja do počítača alebo priamo do softvéru. Programy ktoré sa používajú pri konvertovaní dát často používajú ako prenosový formát GPX\footnote{\textbf{GPX} - GPS eXchange format = formát na výmenu dát}. S formátom sa oboznámime v druhej kapitole. V práci nájdeme aj popis prístrojov na ktorých bola testovaná komunikácia softvéru. 
+
+Posledná kapitola sa zaoberá vytvoreným softvérom OSM\_Navigation, popisom jeho hlavných častí, ako aj vysvetlenia konkrétnych prvkov použitých pri práci. V tejto kapitole sa nachádza postup na kompiláciu programu, vytváranie závislostí ako aj popis jednotlivých tried nachádzajúcich sa v programe. Softvér je použiteľný pre široké spektrum používateľov a to aj z toho dôvodu že nie je zameraný na konkrétny typ prístrojov.
+
+\paragraph{}
+Rád by som poďakoval všetkým, ktorí mi pri tvorbe bakalárskej práce pomohli, či 
+už cennými radami, pripomienkami, zapožičaním prístrojov alebo pomocou pri zhromažďovaní materiálov. 
+Predovšetkým však poďakovanie patrí vedúcemu bakalárskej práce \mbox{Mgr.~Michalovi Kaukičovi,~CSc.}
